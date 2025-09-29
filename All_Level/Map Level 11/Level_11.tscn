@@ -324,8 +324,8 @@ position = Vector2(2277.5, 0)
 shape = SubResource("RectangleShape2D_dp8h8")
 
 [node name="TouchControls" parent="." instance=ExtResource("5_dp8h8")]
-offset = Vector2(-10, 40)
-transform = Transform2D(1, 0, 0, 1, -10, 40)
+offset = Vector2(-10, -10)
+transform = Transform2D(1, 0, 0, 1, -10, -10)
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_b4mrp")]
 visible = false
