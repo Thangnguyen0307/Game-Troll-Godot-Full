@@ -566,13 +566,16 @@ rotation = -1.5708
 scale = Vector2(2, 2)
 
 [node name="Area2D3" type="Area2D" parent="." groups=["saws"]]
-position = Vector2(392, 518)
+position = Vector2(405, 520)
 metadata/_edit_group_ = true
 
 [node name="Pig PopUp2" parent="Area2D3" groups=["saws"] instance=ExtResource("3_ldmp2")]
 position = Vector2(58, 50)
 script = ExtResource("4_m3amu")
 metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Area2D3/Pig PopUp2/HurtBox" index="0"]
+position = Vector2(0.333344, 3.66666)
 
 [node name="CollisionShape2D" parent="Area2D3/Pig PopUp2" index="2"]
 position = Vector2(0, 1.33333)
@@ -583,7 +586,7 @@ position = Vector2(-57, -18)
 shape = SubResource("RectangleShape2D_11jn5")
 
 [node name="Area2D2" type="Area2D" parent="." groups=["saws"]]
-position = Vector2(765, 534)
+position = Vector2(754, 538)
 metadata/_edit_group_ = true
 
 [node name="Pig PopUp1" parent="Area2D2" groups=["saws"] instance=ExtResource("3_ldmp2")]
