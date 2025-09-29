@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2eq3wrxwou1t"]
+[gd_scene load_steps=10 format=3 uid="uid://d2eq3wrxwou1t"]
 
 [ext_resource type="Texture2D" uid="uid://dhkt1prc5cciq" path="res://Pixel Adventure 1/Free/Background/Blue.png" id="1_rf4sk"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_oxpaq"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="3_84mfq"]
 [ext_resource type="Script" uid="uid://dhbe4nrvokkhm" path="res://CHiTAN/ChiTanNV.gd" id="4_xbwr6"]
+[ext_resource type="Script" uid="uid://deg3pt3o0e73b" path="res://CHiTAN/ChiTanLevel/changeSize.gd" id="5_84mfq"]
+[ext_resource type="Texture2D" uid="uid://bqcygrpxkexkd" path="res://CHiTAN/ChiTanLevel/pngimg.com - doge_meme_PNG8.png" id="6_xbwr6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ldc5"]
 texture = ExtResource("2_oxpaq")
@@ -188,6 +190,9 @@ texture = ExtResource("2_oxpaq")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6ldc5")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ldc5"]
+size = Vector2(65, 88)
+
 [node name="Chitan4" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -207,7 +212,7 @@ stretch_mode = 1
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_4a2us")
 format = 2
-layer_0/tile_data = PackedInt32Array(720896, 393216, 4, 720897, 393216, 4, 720898, 393216, 4, 720899, 393216, 4, 720900, 393216, 4, 720901, 393216, 4, 720902, 393216, 4, 720903, 393216, 4, 720904, 393216, 4, 720905, 393216, 4, 720906, 393216, 4, 720907, 393216, 4, 720908, 393216, 4, 720909, 393216, 4, 720910, 393216, 4, 720911, 393216, 4, 720912, 393216, 4, 720913, 393216, 4, 720914, 393216, 4, 720915, 393216, 4, 720916, 393216, 4, 720917, 393216, 4, 720918, 393216, 4, 720919, 393216, 4, 720920, 393216, 4, 720921, 393216, 4, 720922, 393216, 4, 720923, 393216, 4, 720924, 393216, 4, 720925, 393216, 4)
+layer_0/tile_data = PackedInt32Array(720896, 393216, 4, 720897, 393216, 4, 720898, 393216, 4, 720899, 393216, 4, 720900, 393216, 4, 720901, 393216, 4, 720902, 393216, 4, 720903, 393216, 4, 720904, 393216, 4, 720905, 393216, 4, 720906, 393216, 4, 720907, 393216, 4, 720908, 393216, 4, 720909, 393216, 4, 720910, 393216, 4, 720911, 393216, 4, 720912, 393216, 4, 720913, 393216, 4, 720914, 393216, 4, 720915, 393216, 4, 720916, 393216, 4, 720917, 393216, 4, 720918, 393216, 4, 720919, 393216, 4, 720920, 393216, 4, 720921, 393216, 4, 720922, 393216, 4, 720923, 393216, 4, 720924, 393216, 4, 720925, 393216, 4, 589835, 458752, 4, 589836, 458752, 4, 589837, 458752, 4, 524299, 458752, 4, 458761, 458752, 4, 458759, 458752, 4, 458762, 458752, 4, 458760, 458752, 4, 393222, 458752, 4, 393221, 458752, 4, 393220, 458752, 4)
 
 [node name="CharacterBody2D2" parent="." groups=["Player"] instance=ExtResource("3_84mfq")]
 position = Vector2(198, 363)
@@ -215,3 +220,17 @@ scale = Vector2(2.86733, 2.7528)
 script = ExtResource("4_xbwr6")
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D2"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(751, 474)
+script = ExtResource("5_84mfq")
+growth_duration = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(2.99998, -8.00003)
+scale = Vector2(0.216, 0.166159)
+texture = ExtResource("6_xbwr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -6)
+shape = SubResource("RectangleShape2D_6ldc5")
