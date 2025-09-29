@@ -61,6 +61,7 @@ func unlock_next_level():
 # Chuyển đến level - SỬA ĐƯỜNG DẪN
 func go_to_level(level_number: int):
 	current_level = level_number
+	print("GameManager: Switching to level ", level_number)
 	
 	# Đường dẫn theo cấu trúc folder của bạn
 	var level_path = "res://All_Level/Map Level " + str(level_number) + "/Level_" + str(level_number) + ".tscn"
@@ -69,6 +70,9 @@ func go_to_level(level_number: int):
 	if ResourceLoader.exists(level_path):
 		get_tree().change_scene_to_file(level_path)
 		print("Loading level: ", level_path)
+		# Show level title after a short delay
+		call_deferred("show_simple_level_title")
+		print("Level title function called")
 	else:
 		print("Level file not found: ", level_path)
 		# Fallback - thử đường dẫn khác
@@ -128,6 +132,102 @@ func get_available_levels() -> Array[int]:
 			available_levels.append(i)
 	
 	return available_levels
+
+func show_simple_level_title():
+	# Wait for scene to be ready
+	await get_tree().process_frame
+	await get_tree().process_frame
+	
+	if get_tree().current_scene:
+		# Update current_level based on actual scene
+		var detected_level = detect_level_from_scene()
+		if detected_level != current_level:
+			print("Updating current_level from ", current_level, " to ", detected_level)
+			current_level = detected_level
+		
+		print("Creating level title for level: ", current_level)
+		# Create level title directly without external script
+		create_level_title_ui()
+
+func create_level_title_ui():
+	# Detect actual level number from scene path
+	var actual_level = detect_level_from_scene()
+	print("Detected level from scene: ", actual_level)
+	
+	# Create CanvasLayer for UI overlay
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 100  # Top layer
+	canvas_layer.name = "PermanentLevelTitle"  # Give it a name for easy access
+	get_tree().current_scene.add_child(canvas_layer)
+	
+	# Create Control container
+	var control = Control.new()
+	control.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	canvas_layer.add_child(control)
+	
+	# Create beautiful Label with glow effect - NO BACKGROUND PANEL
+	var label = Label.new()
+	label.text = "LEVEL " + str(actual_level)
+	label.add_theme_font_size_override("font_size", 48)  # Nhỏ hơn: 48px thay vì 64px
+	label.add_theme_color_override("font_color", Color(1.0, 1.0, 0.8, 1.0))  # Light yellow
+	label.add_theme_color_override("font_outline_color", Color(0.2, 0.1, 0.5, 1.0))  # Dark purple outline
+	label.add_theme_constant_override("outline_size", 4)  # Outline nhỏ hơn: 4px thay vì 6px
+	
+	# Add shadow effect
+	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.8))
+	label.add_theme_constant_override("shadow_offset_x", 2)  # Shadow nhỏ hơn
+	label.add_theme_constant_override("shadow_offset_y", 2)  # Shadow nhỏ hơn
+	label.add_theme_constant_override("shadow_outline_size", 1)  # Shadow outline nhỏ hơn
+	
+	# Position label at top center - higher and smaller
+	label.anchor_left = 0.5
+	label.anchor_right = 0.5
+	label.anchor_top = 0.0
+	label.anchor_bottom = 0.0
+	label.offset_left = -120  # Nhỏ hơn: -120 thay vì -150
+	label.offset_right = 120   # Nhỏ hơn: 120 thay vì 150
+	label.offset_top = 15      # Lên trên: 15px thay vì 30px
+	label.offset_bottom = 65   # Chiều cao nhỏ hơn: 65 thay vì 90
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	
+	control.add_child(label)
+	
+	print("Permanent beautiful level title created: ", label.text)
+	
+	# NO AUTO-REMOVE - Display permanently!
+
+func detect_level_from_scene() -> int:
+	var scene_path = get_tree().current_scene.scene_file_path
+	print("Analyzing scene path: ", scene_path)
+	
+	# Extract number from paths like:
+	# "res://All_Level/Map Level 1/Level_1.tscn"
+	# "res://All_Level/Map Level 2/Level_2.tscn"
+	var regex = RegEx.new()
+	regex.compile("Level[_ ](\\d+)")
+	var result = regex.search(scene_path)
+	
+	if result:
+		var level_num = int(result.get_string(1))
+		print("Found level number: ", level_num)
+		return level_num
+	
+	# Fallback: try to extract from "Map Level X" pattern
+	regex.compile("Map Level (\\d+)")
+	result = regex.search(scene_path)
+	if result:
+		var level_num = int(result.get_string(1))
+		print("Found level number from Map Level: ", level_num)
+		return level_num
+	
+	print("Could not detect level number, using current_level: ", current_level)
+	return current_level
+
+# Test function để kiểm tra level title manually
+func test_level_title():
+	print("Testing level title display...")
+	create_level_title_ui()
 
 # Debug function để in ra tất cả paths
 func debug_check_levels():
