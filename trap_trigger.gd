@@ -4,14 +4,14 @@ extends Area2D
 
 # Danh sách nhiều tọa độ tile cần xóa
 @export var tiles_to_remove: Array[Vector2i] = [
-	Vector2i(24, 16),
-	Vector2i(25, 16),
-	Vector2i(26, 16),
 	Vector2i(27, 16),
-	Vector2i(24, 17),
-	Vector2i(25, 17),
-	Vector2i(26, 17),
+	Vector2i(28, 16),
+	Vector2i(29, 16),
+	Vector2i(30, 16),
 	Vector2i(27, 17),
+	Vector2i(28, 17),
+	Vector2i(29, 17),
+	Vector2i(30, 17),
 ]
 
 # Lưu trạng thái ban đầu để reset
