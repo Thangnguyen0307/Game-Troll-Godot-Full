@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -430.0
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 var is_alive = true
+var can_move = true  # Thêm biến để control movement
 var spawn_point: Vector2
 var original_scale: Vector2
 var size_tween: Tween
@@ -16,7 +17,7 @@ func _ready() -> void:
 	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
-	if not is_alive: return
+	if not is_alive or not can_move: return  # Thêm check can_move
 	
 	# Movement & Animation
 	var direction = Input.get_axis("left", "right")
@@ -42,6 +43,12 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+# Thêm hàm control movement
+func set_can_move(value: bool):
+	can_move = value
+	if not can_move:
+		velocity = Vector2.ZERO
+
 func die():
 	GameManager.increment_death_count()
 	is_alive = false
@@ -53,6 +60,7 @@ func _reset():
 	$"/root/AudioController".play_respawn()
 	global_position = spawn_point
 	is_alive = true
+	can_move = true  # Reset movement
 	_reset_size()
 	_reset_objects()
 
@@ -62,9 +70,9 @@ func _reset_size():
 	scale = original_scale
 
 func _reset_objects():
-	for group in ["resettable_traps", "moving_platforms", "activation_zones", "fruits", "resetable"]:
+	for group in ["resettable_traps", "moving_platforms", "activation_zones", "fruits", "teleporters", "resetable"]:
 		for obj in get_tree().get_nodes_in_group(group):
-			var method = "reset_object" if group == "resettable_traps" else ("reset_platform" if group == "moving_platforms" else ("reset_zone" if group == "activation_zones" else ("reset_fruit" if group == "fruits" else "reset")))
+			var method = "reset_object" if group == "resettable_traps" else ("reset_platform" if group == "moving_platforms" else ("reset_zone" if group == "activation_zones" else ("reset_fruit" if group == "fruits" else ("reset_teleporter" if group == "teleporters" else "reset"))))
 			if obj.has_method(method): obj.call(method)
 
 func change_size(multiplier: float, duration: float = 1.0, permanent: bool = true, temp_duration: float = 5.0):
