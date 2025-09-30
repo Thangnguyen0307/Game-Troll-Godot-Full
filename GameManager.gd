@@ -4,7 +4,7 @@ extends Node
 const SAVE_FILE = "user://game_progress.save"
 
 # Dữ liệu game
-var max_level_unlocked: int = 1
+var max_level_unlocked: int = 10
 var current_level: int = 1
 var death_count: int = 0
 
