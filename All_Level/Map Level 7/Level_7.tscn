@@ -3132,6 +3132,7 @@ position = Vector2(1180, -817)
 [node name="Checkpoint" parent="." instance=ExtResource("59_a87au")]
 position = Vector2(-69, -723)
 script = ExtResource("60_ktq56")
+completed_level_number = 7
 next_level = "res://All_Level/Map Level 8/Level_8.tscn"
 
 [node name="HUD" type="CanvasLayer" parent="."]
