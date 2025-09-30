@@ -852,6 +852,9 @@ layer_0/tile_data = PackedInt32Array(65535, 983040, 1, 131071, 983040, 1, 196607
 position = Vector2(113, 128)
 metadata/_edit_group_ = true
 
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 10)
+
 [node name="Disappearing" type="Area2D" parent="."]
 position = Vector2(922, 104)
 scale = Vector2(3, 3)
