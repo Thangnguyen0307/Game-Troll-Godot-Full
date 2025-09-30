@@ -1419,6 +1419,9 @@ position = Vector2(72, 539)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 10)
+
 [node name="Box_LeftMove" type="AnimatableBody2D" parent="." groups=["player"]]
 position = Vector2(1481, 580)
 script = ExtResource("12_l6bdr")

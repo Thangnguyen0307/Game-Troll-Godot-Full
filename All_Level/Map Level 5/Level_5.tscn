@@ -2493,6 +2493,9 @@ position = Vector2(170, 561)
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 position = Vector2(1786.66, -221.955)
 
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 10)
+
 [node name="FireBallDown" type="Node" parent="."]
 
 [node name="FireBallTrap_DownMove" type="Node" parent="FireBallDown"]
