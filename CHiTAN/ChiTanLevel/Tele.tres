@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://7qcoale4xoe3"]
+
+[ext_resource type="Texture2D" uid="uid://d1qutp1sa7ags" path="res://Pixel Adventure 1/Dimensional_Portal.png" id="1_8cit7"]
+
+[resource]
+atlas = ExtResource("1_8cit7")
+region = Rect2(42.8972, 0.432205, 12.6225, 31.121)

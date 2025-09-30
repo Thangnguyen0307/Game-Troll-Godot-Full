@@ -1,12 +1,74 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2eq3wrxwou1t"]
+[gd_scene load_steps=24 format=3 uid="uid://d2eq3wrxwou1t"]
 
-[ext_resource type="Texture2D" uid="uid://dhkt1prc5cciq" path="res://Pixel Adventure 1/Free/Background/Blue.png" id="1_rf4sk"]
-[ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_oxpaq"]
-[ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="3_84mfq"]
-[ext_resource type="Script" uid="uid://dhbe4nrvokkhm" path="res://CHiTAN/ChiTanNV.gd" id="4_xbwr6"]
+[ext_resource type="Script" uid="uid://c85pk27sc71ds" path="res://level_1.gd" id="1_10e62"]
+[ext_resource type="Texture2D" uid="uid://dhkt1prc5cciq" path="res://Pixel Adventure 1/Free/Background/Blue.png" id="1_rv2jg"]
+[ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_jtkhu"]
+[ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="3_3v0sm"]
+[ext_resource type="Script" uid="uid://dwfl0w5qqyjka" path="res://teleport.gd" id="3_sd6uf"]
+[ext_resource type="Texture2D" uid="uid://d1qutp1sa7ags" path="res://Pixel Adventure 1/Dimensional_Portal.png" id="4_8ojwk"]
+[ext_resource type="Script" uid="uid://dhbe4nrvokkhm" path="res://CHiTAN/ChiTanNV.gd" id="4_10e62"]
+[ext_resource type="AudioStream" uid="uid://b0hj08dk82lrn" path="res://audio/Teleport Sound Effects No Copyright - Friendly Free Sounds (youtube) (mp3cut.net) (1).wav" id="5_hcrau"]
+[ext_resource type="Script" uid="uid://deg3pt3o0e73b" path="res://CHiTAN/ChiTanLevel/changeSize.gd" id="5_q0f5f"]
+[ext_resource type="Texture2D" uid="uid://bqcygrpxkexkd" path="res://CHiTAN/ChiTanLevel/pngimg.com - doge_meme_PNG8.png" id="6_rf8of"]
+[ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="7_3v0sm"]
+[ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="8_10e62"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf767"]
+atlas = ExtResource("4_8ojwk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqwej"]
+atlas = ExtResource("4_8ojwk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w04ql"]
+atlas = ExtResource("4_8ojwk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdeug"]
+atlas = ExtResource("4_8ojwk")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7mxy"]
+atlas = ExtResource("4_8ojwk")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq8ye"]
+atlas = ExtResource("4_8ojwk")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_18eu6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf767")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqwej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w04ql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdeug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7mxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq8ye")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ypgew"]
+radius = 36.0
+height = 202.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ldc5"]
-texture = ExtResource("2_oxpaq")
+texture = ExtResource("2_jtkhu")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -188,7 +250,11 @@ texture = ExtResource("2_oxpaq")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6ldc5")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ldc5"]
+size = Vector2(65, 88)
+
 [node name="Chitan4" type="Node2D"]
+script = ExtResource("1_10e62")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -200,8 +266,26 @@ offset_right = 1273.0
 offset_bottom = 715.0
 grow_vertical = 2
 size_flags_horizontal = 0
-texture = ExtResource("1_rf4sk")
+texture = ExtResource("1_rv2jg")
 stretch_mode = 1
+
+[node name="Teleport" type="Area2D" parent="TextureRect"]
+position = Vector2(615, 425)
+script = ExtResource("3_sd6uf")
+target_position = Vector2(1000, 400)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect/Teleport"]
+texture_filter = 1
+position = Vector2(-181, 0)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_18eu6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Teleport"]
+position = Vector2(-176, -6)
+shape = SubResource("CapsuleShape2D_ypgew")
+
+[node name="TeleportAudio" type="AudioStreamPlayer2D" parent="TextureRect/Teleport"]
+stream = ExtResource("5_hcrau")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(3, 3)
@@ -209,9 +293,33 @@ tile_set = SubResource("TileSet_4a2us")
 format = 2
 layer_0/tile_data = PackedInt32Array(720896, 393216, 4, 720897, 393216, 4, 720898, 393216, 4, 720899, 393216, 4, 720900, 393216, 4, 720901, 393216, 4, 720902, 393216, 4, 720903, 393216, 4, 720904, 393216, 4, 720905, 393216, 4, 720906, 393216, 4, 720907, 393216, 4, 720908, 393216, 4, 720909, 393216, 4, 720910, 393216, 4, 720911, 393216, 4, 720912, 393216, 4, 720913, 393216, 4, 720914, 393216, 4, 720915, 393216, 4, 720916, 393216, 4, 720917, 393216, 4, 720918, 393216, 4, 720919, 393216, 4, 720920, 393216, 4, 720921, 393216, 4, 720922, 393216, 4, 720923, 393216, 4, 720924, 393216, 4, 720925, 393216, 4)
 
-[node name="CharacterBody2D2" parent="." groups=["Player"] instance=ExtResource("3_84mfq")]
-position = Vector2(198, 363)
+[node name="CharacterBody2D2" parent="." groups=["Player"] instance=ExtResource("3_3v0sm")]
+position = Vector2(115, 480)
 scale = Vector2(2.86733, 2.7528)
-script = ExtResource("4_xbwr6")
+script = ExtResource("4_10e62")
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D2"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(751, 474)
+script = ExtResource("5_q0f5f")
+growth_duration = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(2.99998, -8.00003)
+scale = Vector2(0.216, 0.166159)
+texture = ExtResource("6_rf8of")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -6)
+shape = SubResource("RectangleShape2D_6ldc5")
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_3v0sm")]
+visible = false
+
+[node name="PauseButton" parent="." instance=ExtResource("8_10e62")]
+
+[connection signal="body_entered" from="TextureRect/Teleport" to="TextureRect/Teleport" method="_on_body_entered"]
+[connection signal="pressed" from="PauseButton/Pause" to="PauseMenu" method="show_menu"]
+
+[editable path="PauseButton"]
