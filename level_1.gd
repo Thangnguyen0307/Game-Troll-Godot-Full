@@ -8,3 +8,7 @@ func _ready():
 
 func _on_menu_button_pressed():
 	$PauseMenu.show_menu()
+
+
+func _on_pause_pressed() -> void:
+	pass # Replace with function body.
