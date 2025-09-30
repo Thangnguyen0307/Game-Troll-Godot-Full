@@ -2378,7 +2378,6 @@ layer_0/tile_data = PackedInt32Array(327679, 65536, 8, -65533, 65536, 10, -65532
 position = Vector2(323, 141)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
-visible = false
 position = Vector2(-1, -1.52588e-05)
 scale = Vector2(0.21224, 0.179036)
 energy = 1.2
@@ -2628,7 +2627,6 @@ position = Vector2(41.25, 24.5)
 shape = SubResource("RectangleShape2D_b18dv")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="SpikeTrap_DownMove" type="Node" parent="."]
@@ -3135,6 +3133,7 @@ position = Vector2(1180, -817)
 [node name="Checkpoint" parent="." instance=ExtResource("59_a87au")]
 position = Vector2(-69, -723)
 script = ExtResource("60_ktq56")
+completed_level_number = 7
 next_level = "res://All_Level/Map Level 8/Level_8.tscn"
 
 [node name="HUD" type="CanvasLayer" parent="."]

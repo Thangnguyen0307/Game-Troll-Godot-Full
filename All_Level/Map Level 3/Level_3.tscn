@@ -456,11 +456,6 @@ shape = SubResource("RectangleShape2D_h3scc")
 position = Vector2(953, 17)
 scale = Vector2(1.11064, 0.917245)
 script = ExtResource("12_krlqr")
-move_distance_down = 20.0
-move_distance_up = 0.0
-move_distance_left = 0.0
-move_distance_right = 0.0
-move_speed = 0.01
 
 [node name="NewAtlasTexture" type="Sprite2D" parent="Trap/DeadlyTrap2"]
 position = Vector2(107, 240)
@@ -515,7 +510,7 @@ script = ExtResource("17_j1gla")
 [node name="Checkpoint" parent="." instance=ExtResource("18_s2rjt")]
 position = Vector2(825, 180)
 script = ExtResource("19_pmb6u")
-current_level_number = 3
+completed_level_number = 3
 next_level = "res://All_Level/Map Level 4/Level_4.tscn"
 
 [node name="PauseMenu" parent="." instance=ExtResource("21_bb31q")]

@@ -1049,6 +1049,7 @@ transform = Transform2D(1, 0, 0, 1, -10, 40)
 [node name="checkpoint2" parent="." instance=ExtResource("23_ac2ol")]
 position = Vector2(-27, 14)
 script = ExtResource("23_ldmp2")
+completed_level_number = 2
 next_level = "res://All_Level/Map Level 3/Level_3.tscn"
 
 [node name="PauseMenu" parent="." instance=ExtResource("25_5bq71")]

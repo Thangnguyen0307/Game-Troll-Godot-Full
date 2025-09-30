@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var current_level_number: int = 2  # Level hiện tại (Level 2)
+@export var completed_level_number: int = 1  # Level vừa hoàn thành (Level 1)
 @export var next_level: String = "res://All_Level/Map Level 10/Level_10.tscn"
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -9,9 +9,8 @@ var has_triggered = false
 func _ready():
 	sprite_2d.play("default")
 	
-	# Update current level trong GameManager
-	GameManager.current_level = current_level_number
-	print("Updated current level to: ", current_level_number)
+	# KHÔNG update current_level tự động
+	print("Checkpoint ready for level ", completed_level_number)
 
 func _on_body_entered(body):
 	if body.is_in_group("player") and not has_triggered:
@@ -19,7 +18,12 @@ func _on_body_entered(body):
 		complete_level()
 
 func complete_level():
-	print("🎉 LEVEL ", current_level_number, " COMPLETED! 🎉")
+	print("🎉 LEVEL ", completed_level_number, " COMPLETED! 🎉")
+	
+	# Đảm bảo current_level đúng trước khi unlock
+	if GameManager.current_level != completed_level_number:
+		print("Syncing current_level from ", GameManager.current_level, " to ", completed_level_number)
+		GameManager.current_level = completed_level_number
 	
 	# UNLOCK level tiếp theo
 	GameManager.unlock_next_level()
@@ -34,10 +38,7 @@ func complete_level():
 
 	await get_tree().create_timer(2.0).timeout
 	
-	# Kiểm tra file có tồn tại không
-	if ResourceLoader.exists(next_level):
-		
-		get_tree().change_scene_to_file(next_level)
-	else:
-	
-		get_tree().change_scene_to_file("res://level_select.tscn")
+	# Chuyển sang level tiếp theo bằng GameManager
+	var next_level_number = completed_level_number + 1
+	print("Going to next level: ", next_level_number)
+	GameManager.go_to_level(next_level_number)

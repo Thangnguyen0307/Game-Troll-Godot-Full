@@ -1442,6 +1442,7 @@ shape = SubResource("RectangleShape2D_yxclo")
 [node name="CheckPoint" type="Area2D" parent="." groups=["Player"]]
 position = Vector2(2087, 258)
 script = ExtResource("15_jof1e")
+completed_level_number = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CheckPoint"]
 sprite_frames = SubResource("SpriteFrames_0fpet")
