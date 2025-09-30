@@ -2385,6 +2385,9 @@ blend_mode = 2
 texture = ExtResource("4_b18dv")
 texture_scale = 1.3
 
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 10)
+
 [node name="FakeKey" type="Area2D" parent="." groups=["hurt"]]
 position = Vector2(-256, -2)
 script = ExtResource("4_dt8um")

@@ -3,13 +3,15 @@ extends CharacterBody2D
 const SPEED = 280.0
 const JUMP_VELOCITY = -430.0
 const FRICTION_NORMAL = 15 # Tốc độ dừng lại bình thường 
-const FRICTION_ICE = 2     # Tốc độ dừng lại rất chậm khi trên băng
+const FRICTION_ICE = 1.2     # Tốc độ dừng lại rất chậm khi trên băng
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var camera_2d: Camera2D = $Camera2D
+@onready var ground_ray: RayCast2D = $RayCast2D
 var is_alive = true
 var control_inverted: bool = false
 var is_on_ice = false
 var is_gravity_inverted = false
+var is_invincible_after_spawn = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var spawn_point_x=0
@@ -26,7 +28,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_alive:
-		var on_ground = is_on_ceiling() if is_gravity_inverted else is_on_floor()
+		var on_ground = (is_on_ceiling() if is_gravity_inverted else is_on_floor()) or ground_ray.is_colliding()
 		
 		if (velocity.x > 1 || velocity.x < -1):
 			sprite_2d.animation = "Running"
@@ -81,6 +83,7 @@ func _do_reset():
 func die():
 	GameManager.increment_death_count()
 	is_alive = false
+	is_invincible_after_spawn = true
 	sprite_2d.stop()
 	sprite_2d.play("Hit")
 	sprite_2d.play_backwards("Hit")
@@ -94,12 +97,16 @@ func die():
 	sprite_2d.modulate = Color.WHITE
 	#reset lại cơ chế nút trái phải 
 	control_inverted = false
+	is_gravity_inverted = false
+	$Sprite2D.flip_v = false
 	
 	await get_tree().create_timer(1.0).timeout
 	_do_reset()
 	
 	is_alive = true
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.1).timeout
+	# Đợi một chút rồi mới tắt chế độ bất tử
+	is_invincible_after_spawn = false # <-- Tắt chế độ bất tử
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("hurt"):
@@ -142,6 +149,8 @@ func _on_icearea_body_exited(body: Node2D) -> void:
 
 #Hàm này làm player đảo ngược trọng lực 
 func _on_view_reverse_body_entered(body: Node2D) -> void:
-	if body == self:
-		is_gravity_inverted = not is_gravity_inverted
-		$Sprite2D.flip_v = is_gravity_inverted
+	if is_invincible_after_spawn or body != self:
+		return
+	is_gravity_inverted = not is_gravity_inverted
+	$Sprite2D.flip_v = is_gravity_inverted
+	ground_ray.target_position.y *= -1 

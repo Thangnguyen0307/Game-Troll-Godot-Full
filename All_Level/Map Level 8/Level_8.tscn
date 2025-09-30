@@ -423,6 +423,9 @@ layer_0/tile_data = PackedInt32Array(131071, 983040, 5, 196607, 983040, 5, 26214
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("6_fh2sk")]
 position = Vector2(45, 32)
 
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 10)
+
 [node name="Spike3set" parent="." instance=ExtResource("2_6er5h")]
 position = Vector2(91, 456)
 scale = Vector2(3, 3)
