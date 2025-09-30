@@ -1566,7 +1566,7 @@ texture_filter = 1
 position = Vector2(-169, -37)
 scale = Vector2(4, 3)
 sprite_frames = SubResource("SpriteFrames_n68rj")
-frame_progress = 0.374456
+frame_progress = 0.841525
 
 [node name="Teleport9" type="Area2D" parent="MapTele2"]
 position = Vector2(2346, 3918)
@@ -1587,7 +1587,7 @@ position = Vector2(-172, -9)
 rotation = 3.14159
 scale = Vector2(4.00203, 3)
 sprite_frames = SubResource("SpriteFrames_7k7dw")
-frame_progress = 0.761054
+frame_progress = 0.228121
 
 [node name="FallDie" type="Area2D" parent="MapTele2" groups=["hurt"]]
 position = Vector2(1102, 3889)
