@@ -1,34 +1,34 @@
 [gd_scene load_steps=75 format=3 uid="uid://d1rvokycetodh"]
 
-[ext_resource type="Texture2D" uid="uid://bys7i7ki4uf25" path="res://Pixel Adventure 1/Free/Background/pixil-frame-0 (82).png" id="1_cxris"]
-[ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_gjv3w"]
-[ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="3_1op1s"]
-[ext_resource type="Texture2D" uid="uid://d2i85iu2ym6xj" path="res://Pixel Adventure 1/Free/Traps/Sand Mud Ice/Sand Mud Ice (16x6).png" id="3_03jua"]
-[ext_resource type="Texture2D" uid="uid://bxfcl3lpqnmk7" path="res://Pixel Adventure 1/Card/Red_Reverse.png" id="5_kgslf"]
-[ext_resource type="Texture2D" uid="uid://bkt5uj3je8vh4" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_0.png" id="5_vwa5x"]
-[ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="6_ui25f"]
-[ext_resource type="Texture2D" uid="uid://bemj2hcyhmh84" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_2.png" id="7_qb3eu"]
-[ext_resource type="Texture2D" uid="uid://46j4ik4xoy72" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_3.png" id="8_kjdhy"]
-[ext_resource type="Texture2D" uid="uid://c6hhr64uxscxc" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_5.png" id="10_6a2v7"]
-[ext_resource type="Texture2D" uid="uid://dayl6lec5ihke" path="res://Pixel Adventure 1/Card/pixel-art-sakura-tree-png.webp" id="12_dgple"]
-[ext_resource type="Script" uid="uid://s8pdr1olwmhl" path="res://spike_trap_up_move.gd" id="13_dgple"]
-[ext_resource type="Script" uid="uid://cfchxus616laa" path="res://spike_trap_down_move.gd" id="14_skrf4"]
-[ext_resource type="Script" uid="uid://ymv7ewqim46k" path="res://trigger_change_dir.gd" id="15_qb3eu"]
-[ext_resource type="Texture2D" uid="uid://c3odeq1pdn71b" path="res://Pixel Adventure 1/Card/Blue_Reverse.png" id="16_kjdhy"]
-[ext_resource type="Script" uid="uid://descmo0bgforf" path="res://All_Level/Map Level 9/dis_trigger_change_dir.gd" id="17_xge7j"]
-[ext_resource type="Script" uid="uid://63yfh466kob" path="res://box_left_move.gd" id="18_xge7j"]
-[ext_resource type="Texture2D" uid="uid://sg5gxyeqs7dq" path="res://Pixel Adventure 1/Free/Traps/Rock Head/Blink (42x42).png" id="19_6a2v7"]
-[ext_resource type="Script" uid="uid://cdx65t72fqvwd" path="res://spike_hide.gd" id="20_6a2v7"]
-[ext_resource type="Texture2D" uid="uid://dcv7w0ce31n67" path="res://Pixel Adventure 1/Free/Traps/Spike Head/Blink (54x52).png" id="21_ptj6m"]
-[ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="21_tdigv"]
-[ext_resource type="Script" uid="uid://distnvfjbs27t" path="res://All_Level/Map Level 7/checkpoint_respawn.gd" id="22_wq2y5"]
-[ext_resource type="Texture2D" uid="uid://c8v1kucqyrpvq" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Start/Start (Idle).png" id="23_df3ot"]
-[ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="24_df3ot"]
-[ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="25_adgcn"]
-[ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="26_qa3xu"]
+[ext_resource type="Texture2D" uid="uid://bys7i7ki4uf25" path="res://Pixel Adventure 1/Free/Background/pixil-frame-0 (82).png" id="1_dco7k"]
+[ext_resource type="Texture2D" uid="uid://d2i85iu2ym6xj" path="res://Pixel Adventure 1/Free/Traps/Sand Mud Ice/Sand Mud Ice (16x6).png" id="2_apb8c"]
+[ext_resource type="Texture2D" uid="uid://c6hhr64uxscxc" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_5.png" id="3_kuxia"]
+[ext_resource type="Texture2D" uid="uid://46j4ik4xoy72" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_3.png" id="4_ghpsy"]
+[ext_resource type="Texture2D" uid="uid://bemj2hcyhmh84" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_2.png" id="5_ds0hv"]
+[ext_resource type="Texture2D" uid="uid://bkt5uj3je8vh4" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_0.png" id="6_lgq4y"]
+[ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="7_b7433"]
+[ext_resource type="Texture2D" uid="uid://dayl6lec5ihke" path="res://Pixel Adventure 1/Card/pixel-art-sakura-tree-png.webp" id="8_rs1yx"]
+[ext_resource type="Script" uid="uid://ymv7ewqim46k" path="res://trigger_change_dir.gd" id="9_ye0j6"]
+[ext_resource type="Texture2D" uid="uid://c3odeq1pdn71b" path="res://Pixel Adventure 1/Card/Blue_Reverse.png" id="10_wndk3"]
+[ext_resource type="Script" uid="uid://descmo0bgforf" path="res://All_Level/Map Level 9/dis_trigger_change_dir.gd" id="11_m44n8"]
+[ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="12_kv0by"]
+[ext_resource type="Texture2D" uid="uid://bxfcl3lpqnmk7" path="res://Pixel Adventure 1/Card/Red_Reverse.png" id="13_b6mpu"]
+[ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="14_yagh2"]
+[ext_resource type="Script" uid="uid://s8pdr1olwmhl" path="res://spike_trap_up_move.gd" id="15_vrl8o"]
+[ext_resource type="Script" uid="uid://cfchxus616laa" path="res://spike_trap_down_move.gd" id="16_7o657"]
+[ext_resource type="Script" uid="uid://63yfh466kob" path="res://box_left_move.gd" id="17_fcjvd"]
+[ext_resource type="Texture2D" uid="uid://sg5gxyeqs7dq" path="res://Pixel Adventure 1/Free/Traps/Rock Head/Blink (42x42).png" id="18_nivhb"]
+[ext_resource type="Texture2D" uid="uid://dcv7w0ce31n67" path="res://Pixel Adventure 1/Free/Traps/Spike Head/Blink (54x52).png" id="19_4xqps"]
+[ext_resource type="Script" uid="uid://cdx65t72fqvwd" path="res://spike_hide.gd" id="20_vttc2"]
+[ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="21_hk685"]
+[ext_resource type="Script" uid="uid://distnvfjbs27t" path="res://All_Level/Map Level 7/checkpoint_respawn.gd" id="22_se60p"]
+[ext_resource type="Texture2D" uid="uid://c8v1kucqyrpvq" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Start/Start (Idle).png" id="23_4obj8"]
+[ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="24_d8brn"]
+[ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="25_00jkw"]
+[ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="26_r7sq3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6a2v7"]
-texture = ExtResource("3_03jua")
+texture = ExtResource("2_apb8c")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -70,7 +70,7 @@ texture = ExtResource("3_03jua")
 9:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptj6m"]
-texture = ExtResource("10_6a2v7")
+texture = ExtResource("3_kuxia")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -109,7 +109,7 @@ texture = ExtResource("10_6a2v7")
 5:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wq2y5"]
-texture = ExtResource("8_kjdhy")
+texture = ExtResource("4_ghpsy")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -148,7 +148,7 @@ texture = ExtResource("8_kjdhy")
 5:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_adgcn"]
-texture = ExtResource("7_qb3eu")
+texture = ExtResource("5_ds0hv")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -187,7 +187,7 @@ texture = ExtResource("7_qb3eu")
 5:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3mfs"]
-texture = ExtResource("5_vwa5x")
+texture = ExtResource("6_lgq4y")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -233,7 +233,7 @@ sources/3 = SubResource("TileSetAtlasSource_adgcn")
 sources/4 = SubResource("TileSetAtlasSource_f3mfs")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1op1s"]
-texture = ExtResource("2_gjv3w")
+texture = ExtResource("7_b7433")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -524,7 +524,7 @@ texture = ExtResource("2_gjv3w")
 20:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kgslf"]
-texture = ExtResource("3_03jua")
+texture = ExtResource("2_apb8c")
 0:0/0 = 0
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -605,7 +605,7 @@ texture = ExtResource("3_03jua")
 9:4/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tdigv"]
-texture = ExtResource("5_vwa5x")
+texture = ExtResource("6_lgq4y")
 0:0/0 = 0
 0:0/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -680,7 +680,7 @@ texture = ExtResource("5_vwa5x")
 5:5/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_df3ot"]
-texture = ExtResource("7_qb3eu")
+texture = ExtResource("5_ds0hv")
 0:0/0 = 0
 0:0/0/physics_layer_3/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -755,7 +755,7 @@ texture = ExtResource("7_qb3eu")
 5:5/0/physics_layer_3/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jcuhh"]
-texture = ExtResource("8_kjdhy")
+texture = ExtResource("4_ghpsy")
 0:0/0 = 0
 0:0/0/physics_layer_4/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -830,7 +830,7 @@ texture = ExtResource("8_kjdhy")
 5:5/0/physics_layer_4/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa3xu"]
-texture = ExtResource("10_6a2v7")
+texture = ExtResource("3_kuxia")
 0:0/0 = 0
 0:0/0/physics_layer_5/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -971,19 +971,19 @@ size = Vector2(45, 21)
 size = Vector2(12.5, 259.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sx4db"]
-atlas = ExtResource("19_6a2v7")
+atlas = ExtResource("18_nivhb")
 region = Rect2(0, 0, 42, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7lf1v"]
-atlas = ExtResource("19_6a2v7")
+atlas = ExtResource("18_nivhb")
 region = Rect2(42, 0, 42, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dguho"]
-atlas = ExtResource("19_6a2v7")
+atlas = ExtResource("18_nivhb")
 region = Rect2(84, 0, 42, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2trt"]
-atlas = ExtResource("19_6a2v7")
+atlas = ExtResource("18_nivhb")
 region = Rect2(126, 0, 42, 42)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ptj6m"]
@@ -1010,19 +1010,19 @@ animations = [{
 size = Vector2(79, 78)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdigv"]
-atlas = ExtResource("21_ptj6m")
+atlas = ExtResource("19_4xqps")
 region = Rect2(0, 0, 54, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wq2y5"]
-atlas = ExtResource("21_ptj6m")
+atlas = ExtResource("19_4xqps")
 region = Rect2(54, 0, 54, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_df3ot"]
-atlas = ExtResource("21_ptj6m")
+atlas = ExtResource("19_4xqps")
 region = Rect2(108, 0, 54, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcuhh"]
-atlas = ExtResource("21_ptj6m")
+atlas = ExtResource("19_4xqps")
 region = Rect2(162, 0, 54, 52)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_df3ot"]
@@ -1075,7 +1075,7 @@ texture_filter = 1
 offset_top = 96.0
 offset_right = 8996.0
 offset_bottom = 767.0
-texture = ExtResource("1_cxris")
+texture = ExtResource("1_dco7k")
 stretch_mode = 1
 
 [node name="TileMapLayerBefore" type="TileMapLayer" parent="."]
@@ -1095,18 +1095,18 @@ layer_0/tile_data = PackedInt32Array(983039, 6, 0, 917504, 65542, 0, 917505, 131
 texture_filter = 1
 position = Vector2(8793, 606)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("12_dgple")
+texture = ExtResource("8_rs1yx")
 
 [node name="TriggerDir" type="Node" parent="."]
 
 [node name="TriggerChangeDir" type="Area2D" parent="TriggerDir"]
 z_index = -1
 position = Vector2(3603, 607)
-script = ExtResource("15_qb3eu")
+script = ExtResource("9_ye0j6")
 
 [node name="Sprite2D" type="Sprite2D" parent="TriggerDir/TriggerChangeDir"]
 scale = Vector2(0.13, 0.13)
-texture = ExtResource("16_kjdhy")
+texture = ExtResource("10_wndk3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerDir/TriggerChangeDir"]
 shape = SubResource("RectangleShape2D_6a2v7")
@@ -1114,11 +1114,11 @@ shape = SubResource("RectangleShape2D_6a2v7")
 [node name="TriggerChangeDir2" type="Area2D" parent="TriggerDir"]
 z_index = -1
 position = Vector2(5415, 605)
-script = ExtResource("15_qb3eu")
+script = ExtResource("9_ye0j6")
 
 [node name="Sprite2D" type="Sprite2D" parent="TriggerDir/TriggerChangeDir2"]
 scale = Vector2(0.13, 0.13)
-texture = ExtResource("16_kjdhy")
+texture = ExtResource("10_wndk3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerDir/TriggerChangeDir2"]
 shape = SubResource("RectangleShape2D_6a2v7")
@@ -1126,11 +1126,11 @@ shape = SubResource("RectangleShape2D_6a2v7")
 [node name="TriggerChangeDir3" type="Area2D" parent="TriggerDir"]
 z_index = -1
 position = Vector2(6985, 605)
-script = ExtResource("15_qb3eu")
+script = ExtResource("9_ye0j6")
 
 [node name="Sprite2D" type="Sprite2D" parent="TriggerDir/TriggerChangeDir3"]
 scale = Vector2(0.13, 0.13)
-texture = ExtResource("16_kjdhy")
+texture = ExtResource("10_wndk3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerDir/TriggerChangeDir3"]
 shape = SubResource("RectangleShape2D_6a2v7")
@@ -1138,11 +1138,11 @@ shape = SubResource("RectangleShape2D_6a2v7")
 [node name="DisTriggerChangeDir" type="Area2D" parent="TriggerDir"]
 z_index = -1
 position = Vector2(4766, 605)
-script = ExtResource("17_xge7j")
+script = ExtResource("11_m44n8")
 
 [node name="Sprite2D" type="Sprite2D" parent="TriggerDir/DisTriggerChangeDir"]
 scale = Vector2(0.13, 0.13)
-texture = ExtResource("16_kjdhy")
+texture = ExtResource("10_wndk3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerDir/DisTriggerChangeDir"]
 position = Vector2(-1, 0)
@@ -1151,11 +1151,11 @@ shape = SubResource("RectangleShape2D_ptj6m")
 [node name="DisTriggerChangeDir2" type="Area2D" parent="TriggerDir"]
 z_index = -1
 position = Vector2(6075, 258)
-script = ExtResource("17_xge7j")
+script = ExtResource("11_m44n8")
 
 [node name="Sprite2D" type="Sprite2D" parent="TriggerDir/DisTriggerChangeDir2"]
 scale = Vector2(0.13, 0.13)
-texture = ExtResource("16_kjdhy")
+texture = ExtResource("10_wndk3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerDir/DisTriggerChangeDir2"]
 position = Vector2(-1, 0)
@@ -1164,17 +1164,17 @@ shape = SubResource("RectangleShape2D_ptj6m")
 [node name="DisTriggerChangeDir3" type="Area2D" parent="TriggerDir"]
 z_index = -1
 position = Vector2(8014, 258)
-script = ExtResource("17_xge7j")
+script = ExtResource("11_m44n8")
 
 [node name="Sprite2D" type="Sprite2D" parent="TriggerDir/DisTriggerChangeDir3"]
 scale = Vector2(0.13, 0.13)
-texture = ExtResource("16_kjdhy")
+texture = ExtResource("10_wndk3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerDir/DisTriggerChangeDir3"]
 position = Vector2(-1, 20.5)
 shape = SubResource("RectangleShape2D_ptj6m")
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("3_1op1s")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("12_kv0by")]
 unique_name_in_owner = true
 position = Vector2(48, 637)
 
@@ -1228,7 +1228,7 @@ position = Vector2(6005, 605)
 
 [node name="Sprite2D" type="Sprite2D" parent="GravityReverse/ViewReverse"]
 scale = Vector2(0.13, 0.13)
-texture = ExtResource("5_kgslf")
+texture = ExtResource("13_b6mpu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityReverse/ViewReverse"]
 position = Vector2(0, 0.5)
@@ -1239,7 +1239,7 @@ position = Vector2(6937, 258)
 
 [node name="Sprite2D" type="Sprite2D" parent="GravityReverse/ViewReverse2"]
 scale = Vector2(0.13, 0.13)
-texture = ExtResource("5_kgslf")
+texture = ExtResource("13_b6mpu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityReverse/ViewReverse2"]
 shape = SubResource("RectangleShape2D_ui25f")
@@ -1249,7 +1249,7 @@ position = Vector2(7513, 605)
 
 [node name="Sprite2D" type="Sprite2D" parent="GravityReverse/ViewReverse3"]
 scale = Vector2(0.13, 0.13)
-texture = ExtResource("5_kgslf")
+texture = ExtResource("13_b6mpu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityReverse/ViewReverse3"]
 position = Vector2(0, 0.5)
@@ -1260,7 +1260,7 @@ position = Vector2(8424, 258)
 
 [node name="Sprite2D" type="Sprite2D" parent="GravityReverse/ViewReverse4"]
 scale = Vector2(0.13, 0.13)
-texture = ExtResource("5_kgslf")
+texture = ExtResource("13_b6mpu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityReverse/ViewReverse4"]
 position = Vector2(0, 0.5)
@@ -1305,7 +1305,7 @@ position = Vector2(615, 645)
 texture_filter = 1
 position = Vector2(1.48044e-07, -1.69342)
 scale = Vector2(4.032, 3.747)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="Spikes/Spike" groups=["hurt"]]
 
@@ -1320,7 +1320,7 @@ position = Vector2(1202, 645)
 texture_filter = 1
 position = Vector2(1.48044e-07, -1.69342)
 scale = Vector2(4.032, 3.747)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="Spikes/Spike2" groups=["hurt"]]
 
@@ -1335,7 +1335,7 @@ position = Vector2(1260, 646)
 texture_filter = 1
 position = Vector2(1.48044e-07, -1.69342)
 scale = Vector2(4.032, 3.747)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="Spikes/Spike3" groups=["hurt"]]
 
@@ -1350,7 +1350,7 @@ position = Vector2(1292, 646)
 texture_filter = 1
 position = Vector2(1.48044e-07, -1.69342)
 scale = Vector2(4.032, 3.747)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="Spikes/Spike4" groups=["hurt"]]
 
@@ -1365,7 +1365,7 @@ position = Vector2(1540, 647)
 texture_filter = 1
 position = Vector2(1.48044e-07, -1.69342)
 scale = Vector2(4.032, 3.747)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="Spikes/Spike5" groups=["hurt"]]
 
@@ -1380,7 +1380,7 @@ position = Vector2(1630, 648)
 texture_filter = 1
 position = Vector2(1.48044e-07, -1.69342)
 scale = Vector2(4.032, 3.747)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="Spikes/Spike7" groups=["hurt"]]
 
@@ -1395,7 +1395,7 @@ position = Vector2(6431, 222)
 texture_filter = 1
 rotation = 3.14159
 scale = Vector2(4, 4)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="Spikes/Spike8" groups=["hurt"]]
 
@@ -1410,7 +1410,7 @@ position = Vector2(6491, 222)
 texture_filter = 1
 rotation = 3.14159
 scale = Vector2(4, 4)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="Spikes/Spike9" groups=["hurt"]]
 
@@ -1425,7 +1425,7 @@ position = Vector2(6693, 221)
 texture_filter = 1
 rotation = 3.14159
 scale = Vector2(4, 4)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="Spikes/Spike10" groups=["hurt"]]
 
@@ -1440,7 +1440,7 @@ position = Vector2(6753, 221)
 texture_filter = 1
 rotation = 3.14159
 scale = Vector2(4, 4)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="Spikes/Spike11" groups=["hurt"]]
 
@@ -1454,11 +1454,11 @@ shape = SubResource("CapsuleShape2D_ptj6m")
 position = Vector2(1569, 646)
 rotation = -3.14159
 scale = Vector2(4.10359, -3.74664)
-script = ExtResource("13_dgple")
+script = ExtResource("15_vrl8o")
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikeTrap_UpMove/SpikeTrap_UpMove"]
 texture_filter = 1
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="SpikeTrap_UpMove/SpikeTrap_UpMove" groups=["hurt"]]
 
@@ -1478,13 +1478,13 @@ shape = SubResource("RectangleShape2D_vwa5x")
 
 [node name="SpikeTrap_DownMove" type="Area2D" parent="SpikeTrap_DownMove" groups=["hurt", "saws"]]
 position = Vector2(1771, 217)
-script = ExtResource("14_skrf4")
+script = ExtResource("16_7o657")
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikeTrap_DownMove/SpikeTrap_DownMove"]
 texture_filter = 1
 rotation = 3.14159
 scale = Vector2(3, 3)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="SpikeTrap_DownMove/SpikeTrap_DownMove" groups=["hurt"]]
 
@@ -1503,7 +1503,7 @@ shape = SubResource("RectangleShape2D_qb3eu")
 
 [node name="Box_LeftMove" type="AnimatableBody2D" parent="Box" groups=["player"]]
 position = Vector2(3742, 633)
-script = ExtResource("18_xge7j")
+script = ExtResource("17_fcjvd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Box/Box_LeftMove" groups=["player"]]
 texture_filter = 1
@@ -1518,7 +1518,7 @@ shape = SubResource("RectangleShape2D_tdigv")
 
 [node name="Box_LeftMove2" type="AnimatableBody2D" parent="Box" groups=["player"]]
 position = Vector2(7645, 223)
-script = ExtResource("18_xge7j")
+script = ExtResource("17_fcjvd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Box/Box_LeftMove2" groups=["player"]]
 texture_filter = 1
@@ -1550,13 +1550,13 @@ shape = SubResource("RectangleShape2D_x2qje")
 
 [node name="SpikeHide" type="Area2D" parent="SpikesHide/SpikesHide" groups=["hurt", "saws"]]
 position = Vector2(4662, 647)
-script = ExtResource("20_6a2v7")
+script = ExtResource("20_vttc2")
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikesHide/SpikesHide/SpikeHide"]
 texture_filter = 1
 position = Vector2(1.48044e-07, -1.69342)
 scale = Vector2(4.032, 3.747)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="SpikesHide/SpikesHide/SpikeHide" groups=["hurt"]]
 
@@ -1575,13 +1575,13 @@ shape = SubResource("RectangleShape2D_xge7j")
 
 [node name="SpikeHide" type="Area2D" parent="SpikesHide/SpikesHide2" groups=["hurt", "saws"]]
 position = Vector2(5201, 646)
-script = ExtResource("20_6a2v7")
+script = ExtResource("20_vttc2")
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikesHide/SpikesHide2/SpikeHide"]
 texture_filter = 1
 position = Vector2(1.48044e-07, -1.69342)
 scale = Vector2(4.032, 3.747)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="SpikesHide/SpikesHide2/SpikeHide" groups=["hurt"]]
 
@@ -1600,13 +1600,13 @@ shape = SubResource("RectangleShape2D_xge7j")
 
 [node name="SpikeHide" type="Area2D" parent="SpikesHide/SpikesHide3" groups=["hurt", "saws"]]
 position = Vector2(5538, 647)
-script = ExtResource("20_6a2v7")
+script = ExtResource("20_vttc2")
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikesHide/SpikesHide3/SpikeHide"]
 texture_filter = 1
 position = Vector2(1.48044e-07, -1.69342)
 scale = Vector2(4.032, 3.747)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="SpikesHide/SpikesHide3/SpikeHide" groups=["hurt"]]
 
@@ -1625,13 +1625,13 @@ shape = SubResource("RectangleShape2D_xge7j")
 
 [node name="SpikeHide" type="Area2D" parent="SpikesHide/SpikesHide4" groups=["hurt", "saws"]]
 position = Vector2(7125, 646)
-script = ExtResource("20_6a2v7")
+script = ExtResource("20_vttc2")
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikesHide/SpikesHide4/SpikeHide"]
 texture_filter = 1
 position = Vector2(1.48044e-07, -1.69342)
 scale = Vector2(4.032, 3.747)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="SpikesHide/SpikesHide4/SpikeHide" groups=["hurt"]]
 
@@ -1650,13 +1650,13 @@ shape = SubResource("RectangleShape2D_xge7j")
 
 [node name="SpikeHide" type="Area2D" parent="SpikesHide/SpikesHide5" groups=["hurt", "saws"]]
 position = Vector2(7362, 647)
-script = ExtResource("20_6a2v7")
+script = ExtResource("20_vttc2")
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikesHide/SpikesHide5/SpikeHide"]
 texture_filter = 1
 position = Vector2(1.48044e-07, -1.69342)
 scale = Vector2(4.032, 3.747)
-texture = ExtResource("6_ui25f")
+texture = ExtResource("14_yagh2")
 
 [node name="Area2D" type="Area2D" parent="SpikesHide/SpikesHide5/SpikeHide" groups=["hurt"]]
 
@@ -1676,7 +1676,7 @@ shape = SubResource("RectangleShape2D_xge7j")
 [node name="Room1" type="Area2D" parent="." node_paths=PackedStringArray("canvas_mod") groups=["Room_light"]]
 visible = false
 position = Vector2(182, -15)
-script = ExtResource("21_tdigv")
+script = ExtResource("21_hk685")
 canvas_mod = NodePath("../CanvasModulate")
 cam_limit_left = -48
 cam_limit_right = 9024
@@ -1693,11 +1693,11 @@ shape = SubResource("RectangleShape2D_ntt2b")
 [node name="CheckpointRespawn" type="Area2D" parent="Checkpoint"]
 texture_filter = 1
 position = Vector2(3495, 638)
-script = ExtResource("22_wq2y5")
+script = ExtResource("22_se60p")
 
 [node name="Start(idle)" type="Sprite2D" parent="Checkpoint/CheckpointRespawn"]
 position = Vector2(-16, 2)
-texture = ExtResource("23_df3ot")
+texture = ExtResource("23_4obj8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint/CheckpointRespawn"]
 position = Vector2(-19.25, 0)
@@ -1706,22 +1706,22 @@ shape = SubResource("RectangleShape2D_xoi4b")
 [node name="CheckpointRespawn2" type="Area2D" parent="Checkpoint"]
 texture_filter = 1
 position = Vector2(5891, 638)
-script = ExtResource("22_wq2y5")
+script = ExtResource("22_se60p")
 
 [node name="Start(idle)" type="Sprite2D" parent="Checkpoint/CheckpointRespawn2"]
 position = Vector2(-16, 2)
-texture = ExtResource("23_df3ot")
+texture = ExtResource("23_4obj8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint/CheckpointRespawn2"]
 position = Vector2(-19.25, 0)
 shape = SubResource("RectangleShape2D_xoi4b")
 
-[node name="TouchControls" parent="." instance=ExtResource("24_df3ot")]
+[node name="TouchControls" parent="." instance=ExtResource("24_d8brn")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("25_adgcn")]
+[node name="PauseMenu" parent="." instance=ExtResource("25_00jkw")]
 visible = false
 
-[node name="PauseButton" parent="." instance=ExtResource("26_qa3xu")]
+[node name="PauseButton" parent="." instance=ExtResource("26_r7sq3")]
 
 [connection signal="body_entered" from="TriggerDir/TriggerChangeDir" to="TriggerDir/TriggerChangeDir" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerDir/TriggerChangeDir2" to="TriggerDir/TriggerChangeDir2" method="_on_body_entered"]
