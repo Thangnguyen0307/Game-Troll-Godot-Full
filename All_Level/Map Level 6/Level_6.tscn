@@ -300,10 +300,10 @@ script = ExtResource("1_55koy")
 texture_filter = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = -7.0
-offset_top = -24.0
-offset_right = 1322.0
-offset_bottom = 676.0
+offset_left = 5.0
+offset_top = -25.0
+offset_right = 1334.0
+offset_bottom = 675.0
 grow_vertical = 2
 size_flags_horizontal = 0
 texture = ExtResource("1_cwtct")
@@ -889,7 +889,7 @@ scale = Vector2(1.5785, 1.81426)
 texture = ExtResource("27_6tfwg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
-position = Vector2(94, 55)
+position = Vector2(90, 60)
 shape = SubResource("RectangleShape2D_e63kr")
 
 [node name="TriggerArea" type="Area2D" parent="Area2D8"]
