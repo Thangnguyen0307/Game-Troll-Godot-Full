@@ -1,4 +1,3 @@
-# Script: activation_zone.gd
 extends Area2D
 
 @export var target_platforms: Array[NodePath]
@@ -9,12 +8,11 @@ var has_activated: bool = false
 
 func _ready():
 	body_entered.connect(_on_body_entered)
-	
-	# Thêm vào group để có thể reset
 	add_to_group("activation_zones")
 
 func _on_body_entered(body):
-	if body.name.begins_with("CharacterBody2D"):
+	# ✅ FIXED: Dùng is_in_group() thay vì begins_with() sai syntax
+	if body.is_in_group("player"):
 		if activate_once and has_activated:
 			return
 		
@@ -34,6 +32,5 @@ func _on_body_entered(body):
 		print("Platforms and traps activated!")
 
 func reset_zone():
-	"""Reset ActivationZone về trạng thái ban đầu"""
 	has_activated = false
 	print("ActivationZone reset: ", name)
