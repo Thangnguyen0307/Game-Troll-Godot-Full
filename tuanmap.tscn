@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://ck2xe8ck0gd6q"]
+[gd_scene load_steps=56 format=3 uid="uid://ck2xe8ck0gd6q"]
 
 [ext_resource type="Script" uid="uid://ckd2xojagcq0x" path="res://tuanmap.gd" id="1_sq0mv"]
 [ext_resource type="Texture2D" uid="uid://dhkt1prc5cciq" path="res://Pixel Adventure 1/Free/Background/Blue.png" id="1_ymafs"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dcw1f5su5l2w5" path="res://Scenes/Spike4set.tscn" id="9_qaaac"]
 [ext_resource type="Script" uid="uid://dlxx04nurvp1c" path="res://Scenes/spike_4_set.gd" id="10_mduvp"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="10_oua1n"]
-[ext_resource type="Script" uid="uid://dvc4rdt4snrk5" path="res://trigger.gd" id="11_mduvp"]
+[ext_resource type="Script" uid="uid://8p2qrhn7nn53" path="res://Scenes/uptrap.gd" id="10_p5p45"]
 [ext_resource type="PackedScene" uid="uid://cibklyepbriw8" path="res://Scenes/Spike3set.tscn" id="12_3yd5f"]
 [ext_resource type="Script" uid="uid://ckuyjpr6m1qgq" path="res://spike_trap_right_move.gd" id="12_w3lwf"]
 [ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="13_c0loy"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://vg8pr4ejlbca" path="res://CHiTAN/trap_d.gd" id="19_kne80"]
 [ext_resource type="Script" uid="uid://dbrpc8usd3xu8" path="res://trapmove.gd" id="20_rie4v"]
 [ext_resource type="Script" uid="uid://bhad7665ryfrm" path="res://trap_right_move.gd" id="21_w5bpb"]
+[ext_resource type="Script" uid="uid://d7j87xllr3qh" path="res://CHiTAN/TrapMoveRight.gd" id="22_p5p45"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0byyk"]
 texture = ExtResource("2_j1crw")
@@ -495,8 +496,8 @@ sources/0 = SubResource("TileSetAtlasSource_0byyk")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qaaac"]
 size = Vector2(140, 95)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yd5f"]
-size = Vector2(24, 139)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbljt"]
+size = Vector2(24, 123)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r72n4"]
 size = Vector2(15.6666, 7.33334)
@@ -595,19 +596,25 @@ size = Vector2(14, 75)
 size = Vector2(116.937, 19.4914)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5bpb"]
-size = Vector2(107.005, 135.439)
+size = Vector2(118.974, 135.439)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kne80"]
 size = Vector2(116.937, 19.4914)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5p45"]
-size = Vector2(130.383, 154.064)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awuwg"]
+size = Vector2(99, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0837k"]
 size = Vector2(15.6666, 10.8333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uv26y"]
 size = Vector2(5, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yd5f"]
+size = Vector2(19, 139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5p45"]
+size = Vector2(81.538, 117.124)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ovvu"]
 size = Vector2(15.6666, 7.33334)
@@ -618,15 +625,21 @@ size = Vector2(5, 101)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jbo7"]
 size = Vector2(183, 9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipm4y"]
+size = Vector2(106.82, 15.3959)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luv3e"]
+size = Vector2(55.799, 69.8312)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_sq0mv")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 offset_left = -125.0
-offset_top = -117.0
+offset_top = -105.0
 offset_right = 2568.0
-offset_bottom = 1111.0
+offset_bottom = 1123.0
 texture = ExtResource("1_ymafs")
 stretch_mode = 1
 
@@ -639,7 +652,7 @@ layer_0/tile_data = PackedInt32Array(-1, 0, 0, -65536, 65536, 0, -65535, 65536, 
 script = ExtResource("4_w3lwf")
 
 [node name="CharacterBody2D" parent="." groups=["Player"] instance=ExtResource("3_4lncf")]
-position = Vector2(730, 343)
+position = Vector2(2286, 116)
 
 [node name="TouchControls" parent="." instance=ExtResource("6_0byyk")]
 
@@ -656,7 +669,7 @@ position = Vector2(291, -93.5)
 shape = SubResource("RectangleShape2D_qaaac")
 
 [node name="Spike3set" parent="." instance=ExtResource("9_qaaac")]
-position = Vector2(1247, 972)
+position = Vector2(1223, 972)
 scale = Vector2(3, 3)
 
 [node name="trap1" type="Area2D" parent="."]
@@ -664,15 +677,14 @@ scale = Vector2(3, 3)
 [node name="Spike3set" parent="trap1" instance=ExtResource("9_qaaac")]
 position = Vector2(2151, 116)
 scale = Vector2(3, 3)
-script = ExtResource("10_mduvp")
+script = ExtResource("10_p5p45")
 
 [node name="Trigger trap" type="Area2D" parent="trap1"]
-script = ExtResource("11_mduvp")
-spike_path = NodePath("../Spike3set")
+position = Vector2(2202, 77)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="trap1/Trigger trap"]
-position = Vector2(2202, 59)
-shape = SubResource("RectangleShape2D_3yd5f")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trap1"]
+position = Vector2(2213, 71.5)
+shape = SubResource("RectangleShape2D_tbljt")
 
 [node name="SpikeTrap_RightMove4" type="Node" parent="."]
 
@@ -698,7 +710,7 @@ shape = SubResource("RectangleShape2D_r72n4")
 position = Vector2(1979, 218)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeTrap_RightMove4/SpikeTrigger"]
-position = Vector2(-2159, 257)
+position = Vector2(-2104, 342)
 shape = SubResource("RectangleShape2D_ogf0a")
 
 [node name="CheckPoint" type="Area2D" parent="." groups=["Player"]]
@@ -721,7 +733,7 @@ shape = SubResource("RectangleShape2D_f18qy")
 position = Vector2(1102, 675)
 script = ExtResource("16_rie4v")
 
-[node name="MapChiTan2" type="Sprite2D" parent="Area2D2"]
+[node name="trap" type="Sprite2D" parent="Area2D2"]
 texture_filter = 2
 position = Vector2(1206.7, -139.965)
 scale = Vector2(2.8314, 3.12057)
@@ -791,10 +803,8 @@ scale = Vector2(0.999975, 1.03161)
 shape = SubResource("RectangleShape2D_kne80")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trap-d"]
-position = Vector2(700, -96)
-rotation = -1.58177
-scale = Vector2(0.37512, 0.566092)
-shape = SubResource("RectangleShape2D_p5p45")
+position = Vector2(692, -96)
+shape = SubResource("RectangleShape2D_awuwg")
 
 [node name="SpikeTrap_RightMove6" type="Node" parent="."]
 
@@ -824,47 +834,53 @@ position = Vector2(16, 525)
 shape = SubResource("RectangleShape2D_uv26y")
 
 [node name="trap2" type="Area2D" parent="."]
+position = Vector2(49, 0)
 
 [node name="Spike3set" parent="trap2" instance=ExtResource("9_qaaac")]
-position = Vector2(589, 850)
+position = Vector2(607, 874)
 rotation = 3.14159
 scale = Vector2(3, 3)
 script = ExtResource("10_mduvp")
 
 [node name="Trigger trap" type="Area2D" parent="trap2"]
-script = ExtResource("11_mduvp")
-spike_path = NodePath("../Spike3set")
+position = Vector2(521, 948)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="trap2/Trigger trap"]
-position = Vector2(468, 912)
+position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_3yd5f")
 
-[node name="Trap-d3" type="Area2D" parent="."]
-position = Vector2(985, 59)
-script = ExtResource("19_kne80")
-
-[node name="NewAtlasTexture" type="Sprite2D" parent="Trap-d3"]
-position = Vector2(718.604, -99.3438)
-rotation = -3.13746
-scale = Vector2(3.64912, 2.90323)
-texture = ExtResource("13_c0loy")
-
-[node name="TriggerArea" type="Area2D" parent="Trap-d3"]
-position = Vector2(-599, 635)
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(386, 694)
 rotation = -0.34932
 scale = Vector2(0.878281, 0.8882)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Trap-d3/TriggerArea"]
+[node name="Trap-d3" type="Area2D" parent="Node2D" groups=["hurt", "saws"]]
+position = Vector2(1505.76, -393.465)
+rotation = 0.345724
+scale = Vector2(1.13711, 1.12737)
+skew = 0.00722313
+script = ExtResource("19_kne80")
+
+[node name="NewAtlasTexture" type="Sprite2D" parent="Node2D/Trap-d3"]
+position = Vector2(193, 73.0001)
+rotation = -3.13746
+scale = Vector2(3, 4.084)
+texture = ExtResource("13_c0loy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Trap-d3"]
+position = Vector2(196, 50.0001)
+rotation = -1.58177
+scale = Vector2(0.37512, 0.566092)
+shape = SubResource("RectangleShape2D_p5p45")
+
+[node name="TriggerArea" type="Area2D" parent="Node2D"]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/TriggerArea"]
 position = Vector2(1702.88, -112.772)
 rotation = 1.9197
 scale = Vector2(0.999975, 1.03161)
 shape = SubResource("RectangleShape2D_kne80")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Trap-d3"]
-position = Vector2(717.628, -111.397)
-rotation = -1.58177
-scale = Vector2(0.37512, 0.566092)
-shape = SubResource("RectangleShape2D_p5p45")
 
 [node name="Trap-d4" type="Area2D" parent="."]
 position = Vector2(985, 218)
@@ -888,13 +904,13 @@ scale = Vector2(1.02948, 1.01465)
 shape = SubResource("RectangleShape2D_rie4v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trap-d4"]
-position = Vector2(716, -102)
+position = Vector2(715.975, -104.245)
 rotation = -1.58177
 scale = Vector2(0.37512, 0.566092)
 shape = SubResource("RectangleShape2D_w5bpb")
 
 [node name="trapmove" parent="." instance=ExtResource("12_3yd5f")]
-position = Vector2(73, 996)
+position = Vector2(73, 972)
 scale = Vector2(3, 3)
 script = ExtResource("20_rie4v")
 
@@ -928,11 +944,40 @@ position = Vector2(97, 853)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerTrap"]
 shape = SubResource("RectangleShape2D_0jbo7")
 
+[node name="Area2D7" type="Area2D" parent="."]
+position = Vector2(636, 197)
+script = ExtResource("22_p5p45")
+move_distance = 90.0
+
+[node name="NewAtlasTexture" type="Sprite2D" parent="Area2D7"]
+position = Vector2(404, 349)
+rotation = -0.0108285
+scale = Vector2(3.14582, 2.42886)
+texture = ExtResource("13_c0loy")
+
+[node name="TriggerArea" type="Area2D" parent="Area2D7"]
+position = Vector2(-148, 404)
+rotation = -0.34932
+scale = Vector2(0.878281, 0.8882)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D7/TriggerArea"]
+position = Vector2(584.281, 101.413)
+rotation = 1.9197
+scale = Vector2(0.999975, 1.03161)
+shape = SubResource("RectangleShape2D_ipm4y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D7"]
+position = Vector2(404, 361)
+rotation = -1.58177
+scale = Vector2(0.37512, 0.566092)
+shape = SubResource("RectangleShape2D_luv3e")
+
 [connection signal="body_entered" from="TrapTrigger" to="TrapTrigger" method="_on_body_entered"]
-[connection signal="body_entered" from="trap1/Trigger trap" to="trap1/Spike3set" method="_on_fan_trigger_body_entered"]
+[connection signal="body_entered" from="trap1/Trigger trap" to="trap1/Spike3set" method="_on_trigger_area_entered"]
 [connection signal="body_entered" from="SpikeTrap_RightMove4/SpikeTrigger" to="SpikeTrap_RightMove4/SpikeTrap_RightMove" method="_on_saw_trigger_body_entered"]
 [connection signal="body_entered" from="CheckPoint" to="CheckPoint" method="_on_body_entered"]
 [connection signal="body_entered" from="SpikeTrap_RightMove6/SpikeTrigger" to="SpikeTrap_RightMove6/SpikeTrap_RightMove" method="_on_saw_trigger_body_entered"]
-[connection signal="body_entered" from="trap2/Trigger trap" to="trap2/Spike3set" method="_on_fan_trigger_body_entered"]
+[connection signal="body_entered" from="trap2/Trigger trap" to="trap2/Spike3set" method="_on_trigger_body_entered"]
+[connection signal="body_entered" from="Node2D/TriggerArea" to="Node2D/Trap-d3" method="_on_body_entered"]
 [connection signal="body_entered" from="SpikeTrap_RightMove7/SpikeTrigger" to="SpikeTrap_RightMove7/SpikeTrap_RightMove" method="_on_saw_trigger_body_entered"]
 [connection signal="body_entered" from="TriggerTrap" to="trapmove" method="_on_trigger_area_entered"]
