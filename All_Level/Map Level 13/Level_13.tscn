@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://dwk6s4ga6343d"]
+[gd_scene load_steps=112 format=3 uid="uid://d2eq3wrxwou1t"]
 
 [ext_resource type="Texture2D" uid="uid://dykufv5680ij8" path="res://Pixel Adventure 1/Free/Background/Yellow.png" id="1_7tstj"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_jtkhu"]
@@ -686,6 +686,9 @@ layer_0/tile_data = PackedInt32Array(65535, 524288, 5, 131071, 524288, 5, 196607
 
 [node name="CharacterBody2D" parent="." groups=["Player"] instance=ExtResource("3_3v0sm")]
 position = Vector2(36, 425)
+
+[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
+target_position = Vector2(0, 10)
 
 [node name="Gai_Normal" type="Node2D" parent="."]
 position = Vector2(412, 311)
