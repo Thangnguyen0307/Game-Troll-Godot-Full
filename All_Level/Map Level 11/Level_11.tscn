@@ -273,6 +273,9 @@ layer_0/tile_data = PackedInt32Array(720895, 1114112, 5, 786431, 1114112, 5, 851
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_ieqyb")]
 position = Vector2(47, 315)
 
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 10)
+
 [node name="end" type="Area2D" parent="."]
 position = Vector2(4581, 395)
 metadata/_edit_group_ = true

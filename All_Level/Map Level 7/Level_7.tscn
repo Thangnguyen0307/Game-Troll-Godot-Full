@@ -1268,8 +1268,8 @@ size = Vector2(48, 77)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qq15c"]
 size = Vector2(3, 215.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5q1a"]
-size = Vector2(100.25, 13)
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_flr2n"]
+length = 108.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p2d81"]
 radius = 32.5
@@ -2385,6 +2385,9 @@ blend_mode = 2
 texture = ExtResource("4_b18dv")
 texture_scale = 1.3
 
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 10)
+
 [node name="FakeKey" type="Area2D" parent="." groups=["hurt"]]
 position = Vector2(-256, -2)
 script = ExtResource("4_dt8um")
@@ -2476,8 +2479,8 @@ canvas_mod = NodePath("../CanvasModulate")
 cam_limit_left = -175
 cam_limit_right = 623
 cam_limit_top = -49
-cam_limit_bottom = 238
-cam_zoom = Vector2(2.3, 2.3)
+cam_limit_bottom = 239
+cam_zoom = Vector2(2.5, 2.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1"]
 position = Vector2(5, 102)
@@ -2491,8 +2494,8 @@ canvas_mod = NodePath("../CanvasModulate")
 cam_limit_left = -768
 cam_limit_right = 140
 cam_limit_top = -49
-cam_limit_bottom = 238
-cam_zoom = Vector2(2.3, 2.3)
+cam_limit_bottom = 239
+cam_zoom = Vector2(2.5, 2.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room2"]
 position = Vector2(258, 45.5)
@@ -2662,8 +2665,9 @@ script = ExtResource("24_ee023")
 target_path = NodePath("../GhostPumpkin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/GhostTrigger"]
-position = Vector2(138, 76)
-shape = SubResource("RectangleShape2D_e5q1a")
+position = Vector2(193, 84)
+rotation = 1.5708
+shape = SubResource("SeparationRayShape2D_flr2n")
 
 [node name="GhostPumpkin" type="Area2D" parent="Node2D" groups=["hurt"]]
 position = Vector2(-222, -22)
@@ -2761,8 +2765,6 @@ position = Vector2(-4.33334, -43.3333)
 rotation = 3.14159
 scale = Vector2(2.2, 2.2)
 sprite_frames = SubResource("SpriteFrames_7je28")
-frame = 5
-frame_progress = 0.076251
 
 [node name="Pickup" type="AudioStreamPlayer2D" parent="TrapJump2"]
 position = Vector2(14, 51)
@@ -2782,8 +2784,6 @@ texture_filter = 1
 position = Vector2(-51, -24)
 scale = Vector2(1.36458, 2.2)
 sprite_frames = SubResource("SpriteFrames_7je28")
-frame = 8
-frame_progress = 0.0611756
 
 [node name="Pickup" type="AudioStreamPlayer2D" parent="TrapJump3"]
 position = Vector2(14, 51)
@@ -3064,8 +3064,6 @@ position = Vector2(128, 106)
 rotation = 3.14159
 scale = Vector2(6, 6.637)
 sprite_frames = SubResource("SpriteFrames_7je28")
-frame = 6
-frame_progress = 0.450043
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fruits/Trap-Pineapple/Gai"]
 visible = false
@@ -3102,8 +3100,6 @@ position = Vector2(128, 106)
 rotation = 3.14159
 scale = Vector2(6, 6.637)
 sprite_frames = SubResource("SpriteFrames_7je28")
-frame = 9
-frame_progress = 0.853629
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fruits/Trap-GreyKey/Gai"]
 visible = false
