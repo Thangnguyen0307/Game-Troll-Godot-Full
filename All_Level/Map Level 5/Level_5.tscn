@@ -2493,6 +2493,9 @@ position = Vector2(170, 561)
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 position = Vector2(1786.66, -221.955)
 
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 10)
+
 [node name="FireBallDown" type="Node" parent="."]
 
 [node name="FireBallTrap_DownMove" type="Node" parent="FireBallDown"]
@@ -3676,7 +3679,7 @@ stream = ExtResource("34_wxcms")
 [node name="Checkpoint" parent="." instance=ExtResource("1_sce2q")]
 position = Vector2(13602, 477)
 script = ExtResource("6_37wwv")
-current_level_number = 5
+completed_level_number = 5
 next_level = "res://All_Level/Map Level 6/Level_6.tscn"
 
 [node name="Room1" type="Area2D" parent="." node_paths=PackedStringArray("canvas_mod") groups=["Room_light"]]

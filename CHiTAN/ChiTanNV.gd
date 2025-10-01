@@ -3,126 +3,104 @@ extends CharacterBody2D
 const SPEED = 280.0
 const JUMP_VELOCITY = -430.0
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
-var is_alive = true
 
-var spawn_point_x=0
-var spawn_point_y=0
+var is_alive = true
+var can_move = true  # Thêm biến để control movement
+var spawn_point: Vector2
+var original_scale: Vector2
+var size_tween: Tween
+var size_timer: Timer
 
 func _ready() -> void:
-	spawn_point_x=global_position.x
-	spawn_point_y=global_position.y
-	print(spawn_point_x)
-	print(spawn_point_y)
-	
-	# Thêm vào group để các object có thể tìm
+	spawn_point = global_position
+	original_scale = scale
 	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
-	if is_alive:
-		if (velocity.x > 1 || velocity.x < -1):
+	if not is_alive or not can_move: return  # Thêm check can_move
+	
+	# Movement & Animation
+	var direction = Input.get_axis("left", "right")
+	velocity.x = direction * SPEED if direction else move_toward(velocity.x, 0, 15)
+	sprite_2d.flip_h = velocity.x < 0
+	
+	# Gravity & Jump
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+		sprite_2d.animation = "Jumping"
+	elif Input.is_action_just_pressed("jump"):
+		$"/root/AudioController".play_jump()
+		velocity.y = JUMP_VELOCITY
+	
+	# Ground animations & sound
+	if is_on_floor():
+		if abs(velocity.x) > 1:
 			sprite_2d.animation = "Running"
-		else :
-			sprite_2d.animation = "Idle"
-			
-		# Thêm kiểm tra bước chân
-		if sprite_2d.animation == "Running" and is_on_floor():
 			$"/root/AudioController".play_walk()
 		else:
+			sprite_2d.animation = "Idle"
 			$"/root/AudioController".stop_walk()
-		
-		# Add the gravity.
-		if not is_on_floor():
-			velocity += get_gravity() * delta
-			sprite_2d.animation = "Jumping"
-
-		# Handle jump.
-		if Input.is_action_just_pressed("jump") and is_on_floor():
-			$"/root/AudioController".play_jump()
-			velocity.y = JUMP_VELOCITY
-
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
-		var direction := Input.get_axis("left", "right")
-		if direction:
-			velocity.x = direction * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, 15)
-
-		move_and_slide()
-
-		var isLeft = velocity.x < 0
-		sprite_2d.flip_h = isLeft
-
-func _do_reset():
-	$"/root/AudioController".play_respawn()
-	position = Vector2(spawn_point_x, spawn_point_y)
 	
-	# Reset tất cả objects trong level
-	reset_all_objects()
+	move_and_slide()
 
-func reset_all_objects():
-	print("Resetting all objects...")
-	
-	# Reset traps (deadly objects)
-	var traps = get_tree().get_nodes_in_group("resettable_traps")
-	for trap in traps:
-		if trap.has_method("reset_object"):
-			trap.reset_object()
-			print("Reset trap at: ", trap.global_position)
-	
-	# Reset moving platforms
-	var platforms = get_tree().get_nodes_in_group("moving_platforms")
-	for platform in platforms:
-		if platform.has_method("reset_platform"):
-			platform.reset_platform()
-			print("Reset platform at: ", platform.global_position)
-			
-				# Reset activation zones
-	var zones = get_tree().get_nodes_in_group("activation_zones")
-	for zone in zones:
-		if zone.has_method("reset_zone"):
-			zone.reset_zone()
-			print("Reset activation zone: ", zone.name)
-	
-	# Reset bất kỳ object nào khác có method reset
-	var resetables = get_tree().get_nodes_in_group("resetable")
-	for obj in resetables:
-		if obj.has_method("reset"):
-			obj.reset()
+# Thêm hàm control movement
+func set_can_move(value: bool):
+	can_move = value
+	if not can_move:
+		velocity = Vector2.ZERO
 
 func die():
-	print("Player died!")
-	# Tăng death count trong GameManager
 	GameManager.increment_death_count()
-	
 	is_alive = false
-	sprite_2d.stop()
 	sprite_2d.play("Hit")
-	sprite_2d.play_backwards("Hit")
 	await get_tree().create_timer(1.0).timeout
-	_do_reset()
+	_reset()
+
+func _reset():
+	$"/root/AudioController".play_respawn()
+	global_position = spawn_point
 	is_alive = true
+	can_move = true  # Reset movement
+	_reset_size()
+	_reset_objects()
 
-func _on_hurt_box_area_entered(area: Area2D) -> void:
-	if area.is_in_group("hurt"):
-		die()
-		print(position)
-		print("hit enemy")
+func _reset_size():
+	if size_tween: size_tween.kill()
+	if size_timer: size_timer.queue_free()
+	scale = original_scale
 
-# Thêm method để check player đang đứng trên platform di chuyển
+func _reset_objects():
+	for group in ["resettable_traps", "moving_platforms", "activation_zones", "fruits", "teleporters", "resetable"]:
+		for obj in get_tree().get_nodes_in_group(group):
+			var method = "reset_object" if group == "resettable_traps" else ("reset_platform" if group == "moving_platforms" else ("reset_zone" if group == "activation_zones" else ("reset_fruit" if group == "fruits" else ("reset_teleporter" if group == "teleporters" else "reset"))))
+			if obj.has_method(method): obj.call(method)
+
+func change_size(multiplier: float, duration: float = 1.0, permanent: bool = true, temp_duration: float = 5.0):
+	if size_tween: size_tween.kill()
+	if size_timer: size_timer.queue_free()
+	
+	size_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	size_tween.tween_property(self, "scale", original_scale * multiplier, duration)
+	
+	if not permanent:
+		size_timer = Timer.new()
+		add_child(size_timer)
+		size_timer.wait_time = temp_duration
+		size_timer.one_shot = true
+		size_timer.timeout.connect(_reset_size)
+		size_timer.start()
+
 func is_on_moving_platform() -> bool:
 	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		if collider and collider.is_in_group("moving_platforms"):
+		if get_slide_collision(i).get_collider().is_in_group("moving_platforms"):
 			return true
 	return false
 
-# Method để get platform đang đứng (nếu cần)
-func get_current_platform():
+func get_current_platform(): 
 	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		if collider and collider.is_in_group("moving_platforms"):
-			return collider
+		var collider = get_slide_collision(i).get_collider()
+		if collider.is_in_group("moving_platforms"): return collider
 	return null
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if area.is_in_group("hurt"): die()

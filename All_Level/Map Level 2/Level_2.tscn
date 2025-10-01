@@ -852,6 +852,9 @@ layer_0/tile_data = PackedInt32Array(65535, 983040, 1, 131071, 983040, 1, 196607
 position = Vector2(113, 128)
 metadata/_edit_group_ = true
 
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 10)
+
 [node name="Disappearing" type="Area2D" parent="."]
 position = Vector2(922, 104)
 scale = Vector2(3, 3)
@@ -1046,6 +1049,7 @@ transform = Transform2D(1, 0, 0, 1, -10, 40)
 [node name="checkpoint2" parent="." instance=ExtResource("23_ac2ol")]
 position = Vector2(-27, 14)
 script = ExtResource("23_ldmp2")
+completed_level_number = 2
 next_level = "res://All_Level/Map Level 3/Level_3.tscn"
 
 [node name="PauseMenu" parent="." instance=ExtResource("25_5bq71")]
