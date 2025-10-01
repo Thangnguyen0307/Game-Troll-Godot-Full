@@ -104,3 +104,11 @@ func get_current_platform():
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("hurt"): die()
+
+
+func _on_appearing_11_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_appearing_11_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

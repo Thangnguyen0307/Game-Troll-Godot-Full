@@ -304,9 +304,6 @@ shape = SubResource("RectangleShape2D_wys4g")
 position = Vector2(94, 142)
 scale = Vector2(1.11064, 0.917245)
 script = ExtResource("3_dnlp7")
-move_distance_up = 45.0
-move_distance_left = 0.0
-move_distance_down = 0.0
 
 [node name="NewAtlasTexture" type="Sprite2D" parent="Trap_Face_2/DeadlyTrap"]
 position = Vector2(107, 240)
