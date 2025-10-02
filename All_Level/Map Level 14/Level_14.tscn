@@ -1128,7 +1128,7 @@ script = ExtResource("8_8cf3m")
 position = Vector2(1550, 715)
 script = ExtResource("9_enkxr")
 scale_multiplier = 5.0
-growth_duration = 100.0
+growth_duration = 90.0
 temporary_duration = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
