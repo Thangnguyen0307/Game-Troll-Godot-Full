@@ -34,13 +34,15 @@ func connect_to_player_death():
 		player.player_died.connect(_on_player_died)
 
 func _on_player_touch_deadly(body):
-	if body.name.begins_with("CharacterBody2D") and is_active:
+	# ✅ FIXED: Dùng is_in_group() thay vì begins_with()
+	if body.is_in_group("player") and is_active:
 		print("Player touched deadly area - killing!")
 		if body.has_method("die"):
 			body.die()
 
 func _on_player_touch_trigger(body):
-	if body.name.begins_with("CharacterBody2D") and not has_triggered and is_active:
+	# ✅ FIXED: Dùng is_in_group() thay vì begins_with()
+	if body.is_in_group("player") and not has_triggered and is_active:
 		print("Player triggered trap movement!")
 		has_triggered = true
 		move_object_sequence()

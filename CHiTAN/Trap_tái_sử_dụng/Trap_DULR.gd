@@ -57,7 +57,7 @@ func activate_trap():
 # ✅ THÊM: Method để tắt trap
 func deactivate_trap():
 	"""Tắt chức năng trap"""
-	is_active = true
+	is_active = false
 	print("Trap deactivated (disabled): ", name)
 
 func _move_sequence():
@@ -89,13 +89,13 @@ func _do_reset():
 	if tween: tween.kill()
 	global_position = start_pos
 	triggered = false
-	is_active = false  # Reset về inactive state
+	# Không reset is_active - giữ nguyên trạng thái activation
 	
 	if reset_timer:
 		reset_timer.queue_free()
 		reset_timer = null
 	
-	print("Trap reset - now inactive")
+	print("Trap reset - Active state preserved: ", is_active)
 
 func reset_object():
 	_delayed_reset()
