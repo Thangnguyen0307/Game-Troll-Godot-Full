@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="31_dcoqd"]
 [ext_resource type="Script" uid="uid://dleamn8gf0n53" path="res://trap_text.gd" id="32_s3bnq"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_weh67"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7tstj"]
 texture = ExtResource("2_jtkhu")
 0:0/0 = 0
 1:0/0 = 0
@@ -208,7 +208,7 @@ texture = ExtResource("2_jtkhu")
 
 [sub_resource type="TileSet" id="TileSet_2a05l"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_weh67")
+sources/0 = SubResource("TileSetAtlasSource_7tstj")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dsv0"]
 atlas = ExtResource("5_suxxx")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://d1rvokycetodh"]
+[gd_scene load_steps=52 format=3 uid="uid://f56t6xuft378"]
 
 [ext_resource type="Texture2D" uid="uid://bys7i7ki4uf25" path="res://Pixel Adventure 1/Free/Background/pixil-frame-0 (82).png" id="1_cxris"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_gjv3w"]
@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://descmo0bgforf" path="res://All_Level/Map Level 9/dis_trigger_change_dir.gd" id="17_xge7j"]
 [ext_resource type="Script" uid="uid://63yfh466kob" path="res://box_left_move.gd" id="18_xge7j"]
 [ext_resource type="Texture2D" uid="uid://sg5gxyeqs7dq" path="res://Pixel Adventure 1/Free/Traps/Rock Head/Blink (42x42).png" id="19_6a2v7"]
-[ext_resource type="Script" uid="uid://cdx65t72fqvwd" path="res://spike_hide.gd" id="20_6a2v7"]
+[ext_resource type="Script" path="res://spike_hide.gd" id="20_6a2v7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1op1s"]
 texture = ExtResource("2_gjv3w")
