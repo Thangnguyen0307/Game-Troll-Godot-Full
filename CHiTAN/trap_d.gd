@@ -6,13 +6,14 @@ extends Area2D
 var start_position: Vector2
 var target_position: Vector2
 var has_triggered = false
-
 func _ready():
-	start_position = global_position
-	target_position = start_position + Vector2(0, move_distance)
-	
-	body_entered.connect(_on_player_touch_deadly)
-	$TriggerArea.body_entered.connect(_on_player_touch_trigger)
+	# Bẫy chính (trap2) khi player chạm thì chết
+	self.body_entered.connect(_on_player_touch_deadly)
+
+	# Trigger trap khi player đi vào thì bẫy chui xuống
+	$"Trigger trap".body_entered.connect(_on_player_touch_trigger)
+
+
 	
 	# Thêm vào group để Player có thể reset
 	add_to_group("resettable_traps")
