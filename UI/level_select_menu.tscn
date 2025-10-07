@@ -26,6 +26,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3jria")
+max_levels = 30
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -70,46 +71,6 @@ vertical_alignment = 1
 [node name="PageContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 1
-
-[node name="Page1Button" type="TouchScreenButton" parent="VBoxContainer/PageContainer"]
-position = Vector2(42, 1)
-texture_normal = ExtResource("3_level1")
-
-[node name="Page1Label" type="Label" parent="VBoxContainer/PageContainer/Page1Button"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -9.0
-offset_top = -5.0
-offset_right = 9.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 18
-text = "1-10"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Spacer" type="Control" parent="VBoxContainer/PageContainer"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-
-[node name="Page2Button" type="TouchScreenButton" parent="VBoxContainer/PageContainer"]
-position = Vector2(184, 1)
-texture_normal = ExtResource("4_level2")
-
-[node name="Page2Label" type="Label" parent="VBoxContainer/PageContainer/Page2Button"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 18
-text = "11-20"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(690, 300)
@@ -190,9 +151,5 @@ position = Vector2(48, 15)
 scale = Vector2(4.74128, 1.56569)
 shape = SubResource("RectangleShape2D_07jyw")
 
-[connection signal="pressed" from="VBoxContainer/PageContainer/Page1Button" to="." method="_on_page1_pressed"]
-[connection signal="released" from="VBoxContainer/PageContainer/Page1Button" to="." method="_on_page1_released"]
-[connection signal="pressed" from="VBoxContainer/PageContainer/Page2Button" to="." method="_on_page2_pressed"]
-[connection signal="released" from="VBoxContainer/PageContainer/Page2Button" to="." method="_on_page2_released"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BackButton/TouchScreenButton" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ResetButton/TouchScreenButton" to="." method="_on_reset_pressed"]

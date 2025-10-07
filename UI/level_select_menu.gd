@@ -1,32 +1,99 @@
 extends Control
 
+# Export variables - Có thể chỉnh sửa trong Inspector
+@export_group("Level Settings")
+@export var max_levels: int = 20  ## Tổng số levels trong game
+@export var levels_per_page: int = 10  ## Số levels hiển thị mỗi trang
+
+@export_group("Page Button Settings")
+@export var page_button_scale: Vector2 = Vector2(1.0, 1.0)  ## Scale của page buttons
+@export var page_spacing: float = 30.0  ## Khoảng cách giữa các page buttons
+@export var active_page_color: Color = Color.WHITE  ## Màu page button đang active
+@export var inactive_page_color: Color = Color(0.6, 0.6, 0.6, 1.0)  ## Màu page buttons không active
+
 @onready var grid_container = $VBoxContainer/GridContainer
 @onready var back_button = $VBoxContainer/HBoxContainer/BackButton
 @onready var reset_button = $VBoxContainer/HBoxContainer/ResetButton
 @onready var title = $VBoxContainer/Title
+@onready var page_container = $VBoxContainer/PageContainer
 
-# Page buttons từ scene
-@onready var page1_button = $VBoxContainer/PageContainer/Page1Button
-@onready var page2_button = $VBoxContainer/PageContainer/Page2Button
-
-const MAX_LEVELS = 20
-const LEVELS_PER_PAGE = 10
 var tween: Tween
-var current_page = 1  # 1 = levels 1-10, 2 = levels 11-20
+var current_page = 1
+var total_pages = 0
+var page_buttons = []  # Array chứa các page buttons được tạo động
 
 func _ready():
 	setup_ui()
+	create_page_buttons()
 	create_level_buttons()
 	connect_signals()
 	update_page_display()
 
 func setup_ui():
 	title.text = "SELECT LEVEL"
+	total_pages = int(ceil(float(max_levels) / levels_per_page))
+
+func create_page_buttons():
+	# Xóa tất cả page buttons cũ trong PageContainer
+	for child in page_container.get_children():
+		child.queue_free()
+	
+	page_buttons.clear()
+	
+	# Tạo page buttons động dựa trên max_levels
+	for page_num in range(1, total_pages + 1):
+		var start_level = (page_num - 1) * levels_per_page + 1
+		var end_level = min(page_num * levels_per_page, max_levels)
+		
+		# Tạo Control wrapper để có layout properties
+		var button_container = Control.new()
+		button_container.custom_minimum_size = Vector2(64, 64) * page_button_scale  # Kích thước mặc định
+		
+		# Tạo TouchScreenButton bên trong
+		var page_button = TouchScreenButton.new()
+		
+		# Load texture từ folder (dùng icon của level đầu tiên trong page)
+		var texture_path = "res://Pixel Adventure 1/Free/Menu/Levels/" + str(start_level).pad_zeros(2) + ".png"
+		var texture = load(texture_path)
+		if texture:
+			page_button.texture_normal = texture
+			# Cập nhật kích thước container dựa trên texture
+			var texture_size = texture.get_size()
+			button_container.custom_minimum_size = texture_size * page_button_scale
+		
+		# Tạo Label hiển thị range
+		var label = Label.new()
+		label.text = str(start_level) + "-" + str(end_level)
+		label.set_anchors_preset(Control.PRESET_FULL_RECT)
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		label.add_theme_color_override("font_color", Color.WHITE)
+		label.add_theme_font_size_override("font_size", 18)
+		label.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Label không chặn clicks
+		page_button.add_child(label)
+		
+		# Thêm TouchScreenButton vào container
+		button_container.add_child(page_button)
+		
+		# Connect signals với closure để capture page_num
+		var page_index = page_num
+		page_button.pressed.connect(func(): _on_page_button_pressed(page_index, button_container))
+		page_button.released.connect(func(): _on_page_button_released(page_index, button_container))
+		
+		page_container.add_child(button_container)
+		page_buttons.append(button_container)  # Lưu container, không phải button
+		
+		# Thêm spacer giữa các buttons (trừ button cuối)
+		if page_num < total_pages:
+			var spacer = Control.new()
+			spacer.custom_minimum_size = Vector2(page_spacing, 0)
+			spacer.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+			page_container.add_child(spacer)
 
 func create_level_buttons():
 	# Tính level range cho trang hiện tại
-	var start_level = (current_page - 1) * LEVELS_PER_PAGE + 1
-	var end_level = min(current_page * LEVELS_PER_PAGE, MAX_LEVELS)
+	var start_level = (current_page - 1) * levels_per_page + 1
+	var end_level = min(current_page * levels_per_page, max_levels)
 	
 	# Setup TouchScreenButtons có sẵn trong scene (chỉ có 10 buttons)
 	for i in range(1, 11):
@@ -138,47 +205,47 @@ func _on_reset_pressed():
 
 func _on_level_unlocked(level_number: int):
 	# Auto chuyển đến trang chứa level mới unlock
-	var target_page = int((level_number - 1) / LEVELS_PER_PAGE) + 1
+	var target_page = int((level_number - 1) / levels_per_page) + 1
 	if target_page != current_page:
 		current_page = target_page
 		update_page_display()
 	create_level_buttons()
 
-# Page button handlers
-func _on_page1_pressed():
-	if page1_button:
-		animate_button_down(page1_button)
+# Page button handlers (dynamic)
+func _on_page_button_pressed(page_num: int, container: Control):
+	animate_button_down(container)
 
-func _on_page1_released():
-	if page1_button:
-		animate_button_up(page1_button)
-	if current_page != 1:
-		current_page = 1
-		$"/root/AudioController".play_click()
-		create_level_buttons()
-		update_page_display()
-
-func _on_page2_pressed():
-	if page2_button:
-		animate_button_down(page2_button)
-
-func _on_page2_released():
-	if page2_button:
-		animate_button_up(page2_button)
-	if current_page != 2:
-		current_page = 2
+func _on_page_button_released(page_num: int, container: Control):
+	animate_button_up(container)
+	if current_page != page_num:
+		current_page = page_num
 		$"/root/AudioController".play_click()
 		create_level_buttons()
 		update_page_display()
 
 func update_page_display():
 	# Cập nhật UI cho page buttons và title
-	if page1_button and page2_button:
-		if current_page == 1:
-			page1_button.modulate = Color.WHITE
-			page2_button.modulate = Color(0.6, 0.6, 0.6, 1.0)
-			title.text = "SELECT LEVEL (1-10)"
+	var start_level = (current_page - 1) * levels_per_page + 1
+	var end_level = min(current_page * levels_per_page, max_levels)
+	
+	title.text = "SELECT LEVEL (" + str(start_level) + "-" + str(end_level) + ")"
+	
+	# Highlight page button hiện tại
+	for i in range(page_buttons.size()):
+		if i + 1 == current_page:
+			page_buttons[i].modulate = active_page_color
 		else:
-			page1_button.modulate = Color(0.6, 0.6, 0.6, 1.0)
-			page2_button.modulate = Color.WHITE
-			title.text = "SELECT LEVEL (11-20)"
+			page_buttons[i].modulate = inactive_page_color
+
+# Compatibility functions (không dùng nữa nhưng giữ để tránh errors từ scene)
+func _on_page1_pressed():
+	pass
+
+func _on_page1_released():
+	pass
+
+func _on_page2_pressed():
+	pass
+
+func _on_page2_released():
+	pass
