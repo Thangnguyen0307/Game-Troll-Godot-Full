@@ -1191,7 +1191,6 @@ target_position = Vector2(0, 10)
 [node name="Ice" type="Node" parent="."]
 
 [node name="Icearea" type="Area2D" parent="Ice"]
-visible = false
 position = Vector2(203, 651)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ice/Icearea"]
