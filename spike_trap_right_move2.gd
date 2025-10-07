@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed: float = 300.0
+@export var speed: float = 600.0
 @export var direction: int = 1
 
 var triggered: bool = false
@@ -8,15 +8,13 @@ var start_position: Vector2
 
 func _ready():
 	start_position = global_position
-	visible = true
-	set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
 	if triggered:
-		global_position.y += direction * speed * delta
-		if global_position.y > 600:
-			visible = false
-			set_physics_process(false)
+		global_position.x += direction * speed * delta
+	if global_position.x > 3000:
+		visible = false
+		set_physics_process(false)
 
 func _on_saw_trigger_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -26,4 +24,5 @@ func _on_saw_trigger_body_entered(body: Node2D) -> void:
 func reset_trap():
 	global_position = start_position
 	triggered = false
-	_ready()
+	visible = true
+	set_physics_process(true)
