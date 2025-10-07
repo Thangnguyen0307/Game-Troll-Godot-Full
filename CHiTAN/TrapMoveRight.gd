@@ -10,33 +10,42 @@ var has_triggered = false
 func _ready():
 	start_position = global_position
 	target_position = start_position + Vector2(move_distance, 0)
-	
+
+	if has_node("TriggerArea"):
+		$TriggerArea.body_entered.connect(_on_player_touch_trigger)
 	body_entered.connect(_on_player_touch_deadly)
-	$TriggerArea.body_entered.connect(_on_player_touch_trigger)
+
+	# Ẩn trap cho đến khi bị trigger
 	
-	# Thêm vào group để Player có thể reset
-	add_to_group("resettable_traps")
-	
-	print("DeadlyObject ready at: ", global_position)
+	print("Trap ready at: ", global_position)
+
 
 func _on_player_touch_deadly(body):
 	if body.name.begins_with("CharacterBody2D"):
-		print("Player touched deadly area - killing!")
+		print("☠️ Player touched deadly area!")
 		if body.has_method("die"):
 			body.die()
+		
+		# Ngay sau khi giết Player → reset chính trap này
+		reset_object()
+
 
 func _on_player_touch_trigger(body):
 	if body.name.begins_with("CharacterBody2D") and not has_triggered:
-		print("Player triggered movement!")
+		print("▶️ Player triggered movement!")
 		has_triggered = true
+		show()
 		move_object()
 
+
 func move_object():
-	print("Moving object right...")
+	print("➡️ Moving object...")
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", target_position, move_speed)
 
+
 func reset_object():
-	print("Resetting trap to start position")
+	print("🔄 Reset trap to start position")
 	global_position = start_position
 	has_triggered = false
+	

@@ -1,30 +1,25 @@
 extends CharacterBody2D
 
-# Tốc độ di chuyển
-@export var speed: float = 100.0
-# Thời gian thay đổi hướng (giây)
-@export var change_dir_time: float = 1.5
+const SPEED = 600   # tốc độ rơi
+var triggered = false 
+var start_position: Vector2
 
-var direction := Vector2.ZERO
-var time_accum := 0.0
-var random = RandomNumberGenerator.new()
-
-func _ready() -> void:
-	random.randomize()
-	_pick_random_direction()
+func _ready():
+	start_position = global_position
 
 func _physics_process(delta: float) -> void:
-	time_accum += delta
-	
-	# Đổi hướng khi hết thời gian
-	if time_accum >= change_dir_time:
-		time_accum = 0.0
-		_pick_random_direction()
+	if triggered:
+		velocity.y = SPEED   # rơi xuống
+	else:
+		velocity = Vector2.ZERO   # đứng yên khi chưa trigger
 
-	velocity = direction * speed
 	move_and_slide()
 
-func _pick_random_direction() -> void:
-	# Tạo hướng ngẫu nhiên
-	var angle = random.randf_range(0, TAU) # TAU = 2 * PI
-	direction = Vector2.RIGHT.rotated(angle)
+func _on_trigger_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):   # chỉ rơi khi player đi vào
+		triggered = true
+
+func reset_trap():
+	global_position = start_position
+	velocity = Vector2.ZERO
+	triggered = false

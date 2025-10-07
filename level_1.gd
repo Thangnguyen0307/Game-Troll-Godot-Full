@@ -8,3 +8,11 @@ func _ready():
 
 func _on_menu_button_pressed():
 	$PauseMenu.show_menu()
+
+
+func _on_pause_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_appearing_1_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.

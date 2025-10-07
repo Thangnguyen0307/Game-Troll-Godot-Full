@@ -116,3 +116,7 @@ func _on_sound_button_pressed():
 
 func _on_continue_pressed() -> void:
 	pass
+
+
+func _on_pause_pressed() -> void:
+	pass # Replace with function body.

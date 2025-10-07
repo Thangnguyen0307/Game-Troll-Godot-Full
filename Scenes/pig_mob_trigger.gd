@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const speed = 320
+const speed = 310
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var direction = 1
 var triggered = false 
