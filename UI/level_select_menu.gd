@@ -11,6 +11,11 @@ extends Control
 @export var active_page_color: Color = Color.WHITE  ## Màu page button đang active
 @export var inactive_page_color: Color = Color(0.6, 0.6, 0.6, 1.0)  ## Màu page buttons không active
 
+@export_group("Page Button Text")
+@export_enum("Range (1-10)", "Page Number", "Vietnamese", "No Text") var label_style: int = 0  ## Kiểu hiển thị text
+@export var label_font_size: int = 18  ## Kích thước chữ
+@export var label_color: Color = Color.WHITE  ## Màu chữ
+
 @onready var grid_container = $VBoxContainer/GridContainer
 @onready var back_button = $VBoxContainer/HBoxContainer/BackButton
 @onready var reset_button = $VBoxContainer/HBoxContainer/ResetButton
@@ -47,48 +52,75 @@ func create_page_buttons():
 		
 		# Tạo Control wrapper để có layout properties
 		var button_container = Control.new()
-		button_container.custom_minimum_size = Vector2(64, 64) * page_button_scale  # Kích thước mặc định
 		
-		# Tạo TouchScreenButton bên trong
-		var page_button = TouchScreenButton.new()
+		# Load texture trước
+		# Option 1: Dùng icon riêng cho page buttons
+		# var texture_path = "res://UI/icons/page_" + str(page_num) + ".png"
 		
-		# Load texture từ folder (dùng icon của level đầu tiên trong page)
+		# Option 2: Dùng icon của level đầu tiên (hiện tại) - ĐANG DÙNG
 		var texture_path = "res://Pixel Adventure 1/Free/Menu/Levels/" + str(start_level).pad_zeros(2) + ".png"
+		
+		# Option 3: Dùng cùng 1 icon cho tất cả pages
+		# var texture_path = "res://UI/icons/level_button.png"
+		
 		var texture = load(texture_path)
 		if texture:
-			page_button.texture_normal = texture
-			# Cập nhật kích thước container dựa trên texture
 			var texture_size = texture.get_size()
-			button_container.custom_minimum_size = texture_size * page_button_scale
-		
-		# Tạo Label hiển thị range
-		var label = Label.new()
-		label.text = str(start_level) + "-" + str(end_level)
-		label.set_anchors_preset(Control.PRESET_FULL_RECT)
-		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		label.add_theme_color_override("font_color", Color.WHITE)
-		label.add_theme_font_size_override("font_size", 18)
-		label.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Label không chặn clicks
-		page_button.add_child(label)
-		
-		# Thêm TouchScreenButton vào container
-		button_container.add_child(page_button)
-		
-		# Connect signals với closure để capture page_num
-		var page_index = page_num
-		page_button.pressed.connect(func(): _on_page_button_pressed(page_index, button_container))
-		page_button.released.connect(func(): _on_page_button_released(page_index, button_container))
-		
-		page_container.add_child(button_container)
-		page_buttons.append(button_container)  # Lưu container, không phải button
-		
-		# Thêm spacer giữa các buttons (trừ button cuối)
-		if page_num < total_pages:
-			var spacer = Control.new()
-			spacer.custom_minimum_size = Vector2(page_spacing, 0)
-			spacer.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-			page_container.add_child(spacer)
+			var scaled_size = texture_size * page_button_scale
+			button_container.custom_minimum_size = scaled_size
+			
+			# Tạo TextureRect để hiển thị hình (scale được)
+			var texture_rect = TextureRect.new()
+			texture_rect.texture = texture
+			texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			texture_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+			texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			button_container.add_child(texture_rect)
+			
+			# Tạo TouchScreenButton phủ lên toàn bộ container
+			var page_button = TouchScreenButton.new()
+			var shape = RectangleShape2D.new()
+			shape.size = scaled_size
+			page_button.shape = shape
+			page_button.position = scaled_size / 2  # Center của shape
+			button_container.add_child(page_button)
+			
+			# Tạo Label hiển thị range - CÓ THỂ THAY ĐỔI TEXT Ở ĐÂY
+			var label = Label.new()
+			
+			# Chọn text dựa trên label_style từ Inspector
+			match label_style:
+				0:  # Range (1-10)
+					label.text = str(start_level) + "-" + str(end_level)
+				1:  # Page Number
+					label.text = str(page_num)
+				2:  # Vietnamese
+					label.text = "Trang " + str(page_num)
+				3:  # No Text
+					label.text = ""
+			
+			label.set_anchors_preset(Control.PRESET_FULL_RECT)
+			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+			label.add_theme_color_override("font_color", label_color)
+			label.add_theme_font_size_override("font_size", label_font_size)
+			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			button_container.add_child(label)
+			
+			# Connect signals
+			var page_index = page_num
+			page_button.pressed.connect(func(): _on_page_button_pressed(page_index, button_container))
+			page_button.released.connect(func(): _on_page_button_released(page_index, button_container))
+			
+			page_container.add_child(button_container)
+			page_buttons.append(button_container)
+			
+			# Thêm spacer giữa các buttons (trừ button cuối)
+			if page_num < total_pages:
+				var spacer = Control.new()
+				spacer.custom_minimum_size = Vector2(page_spacing, 0)
+				page_container.add_child(spacer)
 
 func create_level_buttons():
 	# Tính level range cho trang hiện tại
