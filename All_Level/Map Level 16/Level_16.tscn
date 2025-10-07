@@ -1029,7 +1029,7 @@ tile_set = SubResource("TileSet_kjdhy")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_kjdhy")]
 unique_name_in_owner = true
-position = Vector2(60, 390)
+position = Vector2(84, 368)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 position = Vector2(-0.333333, -27.6667)
