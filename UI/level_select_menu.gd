@@ -5,28 +5,50 @@ extends Control
 @onready var reset_button = $VBoxContainer/HBoxContainer/ResetButton
 @onready var title = $VBoxContainer/Title
 
-const MAX_LEVELS = 11
+# Page buttons từ scene
+@onready var page1_button = $VBoxContainer/PageContainer/Page1Button
+@onready var page2_button = $VBoxContainer/PageContainer/Page2Button
+
+const MAX_LEVELS = 20
+const LEVELS_PER_PAGE = 10
 var tween: Tween
+var current_page = 1  # 1 = levels 1-10, 2 = levels 11-20
 
 func _ready():
 	setup_ui()
 	create_level_buttons()
 	connect_signals()
+	update_page_display()
 
 func setup_ui():
 	title.text = "SELECT LEVEL"
 
 func create_level_buttons():
-	# Setup TouchScreenButtons có sẵn trong scene
-	for i in range(1, MAX_LEVELS + 1):
+	# Tính level range cho trang hiện tại
+	var start_level = (current_page - 1) * LEVELS_PER_PAGE + 1
+	var end_level = min(current_page * LEVELS_PER_PAGE, MAX_LEVELS)
+	
+	# Setup TouchScreenButtons có sẵn trong scene (chỉ có 10 buttons)
+	for i in range(1, 11):
 		var button_path = "VBoxContainer/GridContainer/Level" + str(i) + "Button"
 		var button = get_node_or_null(button_path) as TouchScreenButton
 		
 		if button:
-			setup_level_button(button, i)
+			var actual_level = start_level + i - 1
+			if actual_level <= end_level:
+				setup_level_button(button, actual_level)
+				button.visible = true
+			else:
+				button.visible = false
 
 func setup_level_button(button: TouchScreenButton, level_num: int):
 	var is_unlocked = GameManager.is_level_unlocked(level_num)
+	
+	# Thay đổi texture theo level number
+	var texture_path = "res://Pixel Adventure 1/Free/Menu/Levels/" + str(level_num).pad_zeros(2) + ".png"
+	var texture = load(texture_path)
+	if texture:
+		button.texture_normal = texture
 	
 	# Disconnect existing signals
 	if button.pressed.get_connections().size() > 0:
@@ -43,9 +65,6 @@ func setup_level_button(button: TouchScreenButton, level_num: int):
 		button.released.connect(func(): _on_level_button_released(level_num, button))
 	else:
 		# Level locked
-		var lock_texture
-		if lock_texture:
-			button.texture_normal = lock_texture
 		button.modulate = Color.GRAY
 
 # Helper functions không cần thiết nữa - buttons đã được tạo trong scene
@@ -118,4 +137,48 @@ func _on_reset_pressed():
 	pass
 
 func _on_level_unlocked(level_number: int):
+	# Auto chuyển đến trang chứa level mới unlock
+	var target_page = int((level_number - 1) / LEVELS_PER_PAGE) + 1
+	if target_page != current_page:
+		current_page = target_page
+		update_page_display()
 	create_level_buttons()
+
+# Page button handlers
+func _on_page1_pressed():
+	if page1_button:
+		animate_button_down(page1_button)
+
+func _on_page1_released():
+	if page1_button:
+		animate_button_up(page1_button)
+	if current_page != 1:
+		current_page = 1
+		$"/root/AudioController".play_click()
+		create_level_buttons()
+		update_page_display()
+
+func _on_page2_pressed():
+	if page2_button:
+		animate_button_down(page2_button)
+
+func _on_page2_released():
+	if page2_button:
+		animate_button_up(page2_button)
+	if current_page != 2:
+		current_page = 2
+		$"/root/AudioController".play_click()
+		create_level_buttons()
+		update_page_display()
+
+func update_page_display():
+	# Cập nhật UI cho page buttons và title
+	if page1_button and page2_button:
+		if current_page == 1:
+			page1_button.modulate = Color.WHITE
+			page2_button.modulate = Color(0.6, 0.6, 0.6, 1.0)
+			title.text = "SELECT LEVEL (1-10)"
+		else:
+			page1_button.modulate = Color(0.6, 0.6, 0.6, 1.0)
+			page2_button.modulate = Color.WHITE
+			title.text = "SELECT LEVEL (11-20)"
