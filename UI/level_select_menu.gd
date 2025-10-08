@@ -16,6 +16,15 @@ extends Control
 @export var label_font_size: int = 18  ## Kích thước chữ
 @export var label_color: Color = Color.WHITE  ## Màu chữ
 
+@export_group("Navigation")
+@export var show_arrows: bool = true  ## Hiển thị mũi tên ◀ ▶
+@export var enable_swipe: bool = true  ## Bật vuốt trái/phải
+@export var swipe_threshold: float = 50.0  ## Độ nhạy vuốt
+@export var arrow_size: float = 80.0  ## Kích thước mũi tên
+@export var arrow_spacing: float = 200.0  ## Khoảng cách giữa 2 mũi tên
+@export_enum("Below Grid", "Above Grid", "Sides of Grid") var arrow_position: int = 0  ## Vị trí mũi tên
+@export var use_arrow_images: bool = true  ## Dùng hình ảnh (Left.png/Right.png) thay vì text
+
 @onready var grid_container = $VBoxContainer/GridContainer
 @onready var back_button = $VBoxContainer/HBoxContainer/BackButton
 @onready var reset_button = $VBoxContainer/HBoxContainer/ResetButton
@@ -27,16 +36,194 @@ var current_page = 1
 var total_pages = 0
 var page_buttons = []  # Array chứa các page buttons được tạo động
 
+# Navigation
+var prev_arrow: Control
+var next_arrow: Control
+var swipe_start_position = Vector2.ZERO
+var is_swiping = false
+
 func _ready():
 	setup_ui()
 	create_page_buttons()
+	create_arrows()  # ✅ Thêm mũi tên
 	create_level_buttons()
 	connect_signals()
 	update_page_display()
+	update_arrows()  # ✅ Update arrow visibility
 
 func setup_ui():
 	title.text = "SELECT LEVEL"
 	total_pages = int(ceil(float(max_levels) / levels_per_page))
+
+func _input(event):
+	# ✅ Swipe detection
+	if not enable_swipe:
+		return
+	
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			swipe_start_position = event.position
+			is_swiping = true
+		else:
+			if is_swiping:
+				var swipe_distance = event.position - swipe_start_position
+				
+				# Vuốt TRÁI → Next
+				if swipe_distance.x < -swipe_threshold and abs(swipe_distance.x) > abs(swipe_distance.y):
+					go_next_page()
+				# Vuốt PHẢI → Previous
+				elif swipe_distance.x > swipe_threshold and abs(swipe_distance.x) > abs(swipe_distance.y):
+					go_prev_page()
+			
+			is_swiping = false
+
+func create_arrows():
+	# ✅ Tạo mũi tên đơn giản
+	if not show_arrows:
+		return
+	
+	var vbox = grid_container.get_parent()
+	
+	# Chọn vị trí dựa trên arrow_position
+	match arrow_position:
+		0:  # Below Grid (Dưới grid) - MẶC ĐỊNH
+			create_arrows_horizontal(vbox, grid_container.get_index() + 1)
+		1:  # Above Grid (Trên grid)
+			create_arrows_horizontal(vbox, grid_container.get_index())
+		2:  # Sides of Grid (Hai bên grid) - ĐẶC BIỆT
+			create_arrows_sides()
+
+func create_arrows_horizontal(parent: VBoxContainer, insert_index: int):
+	"""Tạo arrows ngang (◀     ▶)"""
+	var arrow_container = HBoxContainer.new()
+	arrow_container.alignment = BoxContainer.ALIGNMENT_CENTER
+	arrow_container.add_theme_constant_override("separation", int(arrow_spacing))
+	
+	parent.add_child(arrow_container)
+	parent.move_child(arrow_container, insert_index)
+	
+	# ◀ Previous
+	prev_arrow = create_arrow("◀")
+	arrow_container.add_child(prev_arrow)
+	
+	# ▶ Next
+	next_arrow = create_arrow("▶")
+	arrow_container.add_child(next_arrow)
+
+func create_arrows_sides():
+	"""Tạo arrows ở 2 bên grid (◀ [Grid] ▶)"""
+	# Wrap GridContainer trong HBoxContainer
+	var wrapper = HBoxContainer.new()
+	wrapper.alignment = BoxContainer.ALIGNMENT_CENTER
+	wrapper.add_theme_constant_override("separation", 20)
+	
+	var vbox = grid_container.get_parent()
+	var grid_index = grid_container.get_index()
+	
+	# Remove grid từ VBox
+	vbox.remove_child(grid_container)
+	
+	# Thêm wrapper vào VBox
+	vbox.add_child(wrapper)
+	vbox.move_child(wrapper, grid_index)
+	
+	# ◀ Previous
+	prev_arrow = create_arrow("◀")
+	wrapper.add_child(prev_arrow)
+	
+	# GridContainer
+	wrapper.add_child(grid_container)
+	
+	# ▶ Next
+	next_arrow = create_arrow("▶")
+	wrapper.add_child(next_arrow)
+
+func create_arrow(text: String) -> Control:
+	var container = Control.new()
+	container.custom_minimum_size = Vector2(arrow_size, arrow_size)
+	
+	if use_arrow_images:
+		# ✅ Dùng hình ảnh Left.png / Right.png
+		var texture_path = "res://Touch_Controls/Left.png" if text == "◀" else "res://Touch_Controls/Right.png"
+		var texture = load(texture_path)
+		
+		if texture:
+			# Dùng TextureRect để hiển thị hình
+			var texture_rect = TextureRect.new()
+			texture_rect.texture = texture
+			texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			texture_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+			texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			container.add_child(texture_rect)
+	else:
+		# Background màu (nếu không dùng hình)
+		var bg = ColorRect.new()
+		bg.color = Color(0.2, 0.5, 0.8, 0.9)
+		bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+		container.add_child(bg)
+		
+		# Label text
+		var label = Label.new()
+		label.text = text
+		label.set_anchors_preset(Control.PRESET_FULL_RECT)
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		label.add_theme_font_size_override("font_size", int(arrow_size * 0.6))
+		label.add_theme_color_override("font_color", Color.WHITE)
+		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		container.add_child(label)
+	
+	# TouchScreenButton
+	var touch_button = TouchScreenButton.new()
+	var shape = RectangleShape2D.new()
+	shape.size = Vector2(arrow_size, arrow_size)
+	touch_button.shape = shape
+	touch_button.position = Vector2(arrow_size / 2, arrow_size / 2)
+	container.add_child(touch_button)
+	
+	# Connect
+	if text == "◀":
+		touch_button.pressed.connect(_on_prev_pressed)
+		touch_button.released.connect(_on_prev_released)
+	else:
+		touch_button.pressed.connect(_on_next_pressed)
+		touch_button.released.connect(_on_next_released)
+	
+	return container
+
+func _on_prev_pressed():
+	if prev_arrow and current_page > 1:
+		animate_button_down(prev_arrow)
+
+func _on_prev_released():
+	if prev_arrow:
+		animate_button_up(prev_arrow)
+	go_prev_page()
+
+func _on_next_pressed():
+	if next_arrow and current_page < total_pages:
+		animate_button_down(next_arrow)
+
+func _on_next_released():
+	if next_arrow:
+		animate_button_up(next_arrow)
+	go_next_page()
+
+func go_prev_page():
+	if current_page > 1:
+		change_to_page(current_page - 1)
+
+func go_next_page():
+	if current_page < total_pages:
+		change_to_page(current_page + 1)
+
+func change_to_page(new_page: int):
+	current_page = new_page
+	$"/root/AudioController".play_click()
+	create_level_buttons()
+	update_page_display()
+	update_arrows()
 
 func create_page_buttons():
 	# Xóa tất cả page buttons cũ trong PageContainer
@@ -187,15 +374,13 @@ func animate_button_down(button: Node):
 	if tween:
 		tween.kill()
 	tween = create_tween()
-	var original_scale = button.scale
-	tween.tween_property(button, "scale", original_scale * 0.9, 0.1)
+	tween.tween_property(button, "scale", Vector2(0.9, 0.9), 0.1)  # ✅ FIX: Dùng Vector2 cố định
 
 func animate_button_up(button: Node):
 	if tween:
 		tween.kill()
 	tween = create_tween()
-	var original_scale = button.scale / 0.9  # Tính lại scale gốc
-	tween.tween_property(button, "scale", original_scale, 0.1)
+	tween.tween_property(button, "scale", Vector2(1.0, 1.0), 0.1)  # ✅ FIX: Dùng Vector2 cố định
 
 # Khi nhấn xuống level button
 func _on_level_button_pressed(button: TouchScreenButton):
@@ -239,9 +424,9 @@ func _on_level_unlocked(level_number: int):
 	# Auto chuyển đến trang chứa level mới unlock
 	var target_page = int((level_number - 1) / levels_per_page) + 1
 	if target_page != current_page:
-		current_page = target_page
-		update_page_display()
-	create_level_buttons()
+		change_to_page(target_page)
+	else:
+		create_level_buttons()
 
 # Page button handlers (dynamic)
 func _on_page_button_pressed(page_num: int, container: Control):
@@ -268,6 +453,16 @@ func update_page_display():
 			page_buttons[i].modulate = active_page_color
 		else:
 			page_buttons[i].modulate = inactive_page_color
+
+func update_arrows():
+	# ✅ Ẩn/hiện arrows
+	if not show_arrows:
+		return
+	
+	if prev_arrow:
+		prev_arrow.modulate.a = 1.0 if current_page > 1 else 0.3
+	if next_arrow:
+		next_arrow.modulate.a = 1.0 if current_page < total_pages else 0.3
 
 # Compatibility functions (không dùng nữa nhưng giữ để tránh errors từ scene)
 func _on_page1_pressed():
