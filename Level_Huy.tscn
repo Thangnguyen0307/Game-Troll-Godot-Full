@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv8lbiv6ykv42"]
+[gd_scene load_steps=14 format=3 uid="uid://bv8lbiv6ykv42"]
 
 [ext_resource type="Texture2D" uid="uid://bys7i7ki4uf25" path="res://Pixel Adventure 1/Free/Background/pixil-frame-0 (82).png" id="1_1op1s"]
 [ext_resource type="Texture2D" uid="uid://bkt5uj3je8vh4" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_0.png" id="2_03jua"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="3_kgslf"]
 [ext_resource type="Texture2D" uid="uid://et81wap61p4f" path="res://Pixel Adventure 1/Free/Items/Boxes/Box1/Idle.png" id="4_03jua"]
 [ext_resource type="Script" uid="uid://bi08yhw7k7baj" path="res://hide_box.gd" id="4_kgslf"]
+[ext_resource type="Script" uid="uid://dqt77xkq01kww" path="res://box_suprise.gd" id="6_ui25f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ui25f"]
 texture = ExtResource("2_03jua")
@@ -94,6 +95,12 @@ size = Vector2(40, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ui25f"]
 size = Vector2(34, 2)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omgj7"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohxiu"]
+size = Vector2(36, 1)
+
 [node name="Level" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -111,7 +118,7 @@ layer_0/tile_data = PackedInt32Array(1048575, 1, 0, 983040, 65537, 0, 983041, 13
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_kgslf")]
 unique_name_in_owner = true
-position = Vector2(112, 649)
+position = Vector2(1126, 636)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 position = Vector2(-0.333333, -27.6667)
@@ -176,5 +183,27 @@ position = Vector2(331, 564)
 position = Vector2(2, 5)
 shape = SubResource("RectangleShape2D_ui25f")
 
+[node name="Box_Suprise" type="AnimatableBody2D" parent="." groups=["saws"]]
+position = Vector2(1494, 750)
+script = ExtResource("6_ui25f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box_Suprise"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_03jua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box_Suprise"]
+visible = false
+shape = SubResource("RectangleShape2D_omgj7")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1491, 718)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 11.5)
+shape = SubResource("RectangleShape2D_ohxiu")
+
 [connection signal="body_entered" from="Hide_Show_Box/Box_1/TriggerShowBox" to="Hide_Show_Box/Box_1/HideBox" method="_on_saw_trigger_body_entered"]
 [connection signal="body_entered" from="Hide_Show_Box/Box_2/TriggerShowBox" to="Hide_Show_Box/Box_2/HideBox" method="_on_saw_trigger_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Box_Suprise" method="_on_saw_trigger_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Box_Suprise" method="_on_area_2d_body_exited"]
