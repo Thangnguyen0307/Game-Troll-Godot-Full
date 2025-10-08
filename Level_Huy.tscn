@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bv8lbiv6ykv42"]
+[gd_scene load_steps=11 format=3 uid="uid://bv8lbiv6ykv42"]
 
 [ext_resource type="Texture2D" uid="uid://bys7i7ki4uf25" path="res://Pixel Adventure 1/Free/Background/pixil-frame-0 (82).png" id="1_1op1s"]
 [ext_resource type="Texture2D" uid="uid://bkt5uj3je8vh4" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_0.png" id="2_03jua"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="3_kgslf"]
+[ext_resource type="Texture2D" uid="uid://et81wap61p4f" path="res://Pixel Adventure 1/Free/Items/Boxes/Box1/Idle.png" id="4_03jua"]
+[ext_resource type="Script" uid="uid://bi08yhw7k7baj" path="res://hide_box.gd" id="4_kgslf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ui25f"]
 texture = ExtResource("2_03jua")
@@ -83,6 +85,15 @@ texture = ExtResource("2_03jua")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_ui25f")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua20o"]
+size = Vector2(336, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgslf"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ui25f"]
+size = Vector2(34, 2)
+
 [node name="Level" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -92,14 +103,15 @@ texture = ExtResource("1_1op1s")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
+position = Vector2(1, 1)
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_ua20o")
 format = 2
-layer_0/tile_data = PackedInt32Array(1048575, 1, 0, 983040, 65537, 0, 983041, 131073, 0, 983042, 1, 0, 983043, 65537, 0, 983044, 131073, 0, 983045, 196609, 0, 983051, 65537, 0, 983052, 131073, 0, 983053, 196609, 0, 983054, 1, 0, 983055, 65537, 0, 983056, 131073, 0, 983057, 196609, 0, 983058, 1, 0, 983059, 65537, 0, 983060, 131073, 0, 983061, 196609, 0, 983062, 1, 0, 983063, 65537, 0, 983064, 131073, 0, 983065, 196609, 0, 983066, 1, 0, 983067, 65537, 0, 983068, 131073, 0, 983069, 196609, 0, -1, 262145, 0, 65535, 262145, 0, 131071, 262145, 0, 196607, 262145, 0, 262143, 262145, 0, 327679, 262145, 0, 393215, 262145, 0, 458751, 262145, 0, 524287, 262145, 0, 589823, 262145, 0, 655359, 262145, 0, 720895, 262145, 0, 786431, 262145, 0, 851967, 262145, 0, 917503, 262145, 0, 983039, 262145, 0, -65536, 262145, 0, -65535, 262145, 0, -65534, 262145, 0, -65533, 262145, 0, -65532, 262145, 0, -65531, 262145, 0, -65530, 262145, 0, -65529, 262145, 0, -65528, 262145, 0, -65527, 262145, 0, -65526, 262145, 0, -65525, 262145, 0, -65524, 262145, 0, -65523, 262145, 0, -65522, 262145, 0, -65521, 262145, 0, -65520, 262145, 0, -65519, 262145, 0, -65518, 262145, 0, -65517, 262145, 0, -65516, 262145, 0, -65515, 262145, 0, -65514, 262145, 0, -65513, 262145, 0, -65512, 262145, 0, -65511, 262145, 0)
+layer_0/tile_data = PackedInt32Array(1048575, 1, 0, 983040, 65537, 0, 983041, 131073, 0, 983042, 1, 0, 983043, 65537, 0, 983044, 131073, 0, 983045, 196609, 0, 983054, 1, 0, 983055, 65537, 0, 983056, 131073, 0, 983057, 196609, 0, 983058, 1, 0, 983059, 65537, 0, 983060, 131073, 0, 983061, 196609, 0, 983062, 1, 0, 983063, 65537, 0, 983064, 131073, 0, 983065, 196609, 0, 983066, 1, 0, 983067, 65537, 0, 983068, 131073, 0, 983069, 196609, 0, -1, 262145, 0, 65535, 262145, 0, 131071, 262145, 0, 196607, 262145, 0, 262143, 262145, 0, 327679, 262145, 0, 393215, 262145, 0, 458751, 262145, 0, 524287, 262145, 0, 589823, 262145, 0, 655359, 262145, 0, 720895, 262145, 0, 786431, 262145, 0, 851967, 262145, 0, 917503, 262145, 0, 983039, 262145, 0, -65536, 262145, 0, -65535, 262145, 0, -65534, 262145, 0, -65533, 262145, 0, -65532, 262145, 0, -65531, 262145, 0, -65530, 262145, 0, -65529, 262145, 0, -65528, 262145, 0, -65527, 262145, 0, -65526, 262145, 0, -65525, 262145, 0, -65524, 262145, 0, -65523, 262145, 0, -65522, 262145, 0, -65521, 262145, 0, -65520, 262145, 0, -65519, 262145, 0, -65518, 262145, 0, -65517, 262145, 0, -65516, 262145, 0, -65515, 262145, 0, -65514, 262145, 0, -65513, 262145, 0, -65512, 262145, 0, -65511, 262145, 0, 983053, 1, 0)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_kgslf")]
 unique_name_in_owner = true
-position = Vector2(100, 663)
+position = Vector2(112, 649)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 position = Vector2(-0.333333, -27.6667)
@@ -110,3 +122,59 @@ texture_scale = 1.3
 
 [node name="RayCast2D" type="RayCast2D" parent="Player"]
 target_position = Vector2(0, 10)
+
+[node name="Fall" type="Area2D" parent="." groups=["hurt"]]
+position = Vector2(424, 759)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fall"]
+position = Vector2(33, 7.5)
+shape = SubResource("RectangleShape2D_ua20o")
+
+[node name="Hide_Show_Box" type="Node" parent="."]
+
+[node name="Box_1" type="Node" parent="Hide_Show_Box"]
+
+[node name="HideBox" type="AnimatableBody2D" parent="Hide_Show_Box/Box_1" groups=["saws"]]
+position = Vector2(292, 645)
+script = ExtResource("4_kgslf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hide_Show_Box/Box_1/HideBox"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_03jua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Show_Box/Box_1/HideBox"]
+visible = false
+shape = SubResource("RectangleShape2D_kgslf")
+
+[node name="TriggerShowBox" type="Area2D" parent="Hide_Show_Box/Box_1"]
+position = Vector2(291, 660)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Show_Box/Box_1/TriggerShowBox"]
+position = Vector2(1, 5)
+shape = SubResource("RectangleShape2D_ui25f")
+
+[node name="Box_2" type="Node" parent="Hide_Show_Box"]
+
+[node name="HideBox" type="AnimatableBody2D" parent="Hide_Show_Box/Box_2" groups=["saws"]]
+position = Vector2(332, 549)
+script = ExtResource("4_kgslf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hide_Show_Box/Box_2/HideBox"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_03jua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Show_Box/Box_2/HideBox"]
+visible = false
+shape = SubResource("RectangleShape2D_kgslf")
+
+[node name="TriggerShowBox" type="Area2D" parent="Hide_Show_Box/Box_2"]
+position = Vector2(331, 564)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Show_Box/Box_2/TriggerShowBox"]
+position = Vector2(2, 5)
+shape = SubResource("RectangleShape2D_ui25f")
+
+[connection signal="body_entered" from="Hide_Show_Box/Box_1/TriggerShowBox" to="Hide_Show_Box/Box_1/HideBox" method="_on_saw_trigger_body_entered"]
+[connection signal="body_entered" from="Hide_Show_Box/Box_2/TriggerShowBox" to="Hide_Show_Box/Box_2/HideBox" method="_on_saw_trigger_body_entered"]
