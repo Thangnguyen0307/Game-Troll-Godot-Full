@@ -7,10 +7,10 @@
 [ext_resource type="Script" uid="uid://27f4fjhd22u6" path="res://tile_map.gd" id="4_w3lwf"]
 [ext_resource type="Texture2D" uid="uid://d2i85iu2ym6xj" path="res://Pixel Adventure 1/Free/Traps/Sand Mud Ice/Sand Mud Ice (16x6).png" id="4_w5bpb"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="6_0byyk"]
-[ext_resource type="Script" uid="uid://bljcq5c84t8op" path="res://saw_trap_down_move2.gd" id="8_mduvp"]
+[ext_resource type="Script" path="res://saw_trap_down_move2.gd" id="8_mduvp"]
 [ext_resource type="Texture2D" uid="uid://26g1nyycfuji" path="res://Pixel Adventure 1/Free/Traps/Saw/On (38x38).png" id="9_3yd5f"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="10_oua1n"]
-[ext_resource type="Script" uid="uid://cq3hbpr0sjoj5" path="res://spike_trap_right_move2.gd" id="10_r72n4"]
+[ext_resource type="Script" path="res://spike_trap_right_move2.gd" id="10_r72n4"]
 [ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="11_c0loy"]
 [ext_resource type="Script" path="res://spike_hide.gd" id="12_r72n4"]
 [ext_resource type="Script" uid="uid://63yfh466kob" path="res://box_left_move.gd" id="13_ogf0a"]
@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://descmo0bgforf" path="res://All_Level/Map Level 9/dis_trigger_change_dir.gd" id="17_w5bpb"]
 [ext_resource type="Texture2D" uid="uid://c3odeq1pdn71b" path="res://Pixel Adventure 1/Card/Blue_Reverse.png" id="18_p5p45"]
 [ext_resource type="Script" uid="uid://ymv7ewqim46k" path="res://trigger_change_dir.gd" id="19_f18qy"]
-[ext_resource type="Script" uid="uid://yk727oxl3632" path="res://saw_trap_left_move2.gd" id="20_hx2gb"]
+[ext_resource type="Script" path="res://saw_trap_left_move2.gd" id="20_hx2gb"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="22_p5p45"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="23_f18qy"]
 
@@ -960,7 +960,7 @@ position = Vector2(-2, 27)
 shape = SubResource("CapsuleShape2D_kne80")
 
 [node name="TriggerShow" type="Area2D" parent="SpikesHide2"]
-position = Vector2(514, 83)
+position = Vector2(559, 85)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikesHide2/TriggerShow"]
 position = Vector2(-42, -28)
@@ -985,7 +985,7 @@ position = Vector2(-2, 27)
 shape = SubResource("CapsuleShape2D_kne80")
 
 [node name="TriggerShow" type="Area2D" parent="SpikesHide3"]
-position = Vector2(1090, 81)
+position = Vector2(1126, 81)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikesHide3/TriggerShow"]
 position = Vector2(-42, -28)
@@ -1010,7 +1010,7 @@ position = Vector2(-2, 27)
 shape = SubResource("CapsuleShape2D_kne80")
 
 [node name="TriggerShow" type="Area2D" parent="SpikesHide4"]
-position = Vector2(1565, 84)
+position = Vector2(1600, 82)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikesHide4/TriggerShow"]
 position = Vector2(-42, -28)
@@ -1228,6 +1228,7 @@ position = Vector2(2085, 101)
 rotation = -3.14159
 scale = Vector2(4.10359, -3.74664)
 script = ExtResource("15_4jkq3")
+speed = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikeTrap_UpMove2/SpikeTrap_UpMove"]
 texture_filter = 1

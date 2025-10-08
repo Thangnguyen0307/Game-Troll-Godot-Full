@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://t0bdpcergnmd"]
+[gd_scene load_steps=32 format=3 uid="uid://t0bdpcergnmd"]
 
 [ext_resource type="Texture2D" uid="uid://dykufv5680ij8" path="res://Pixel Adventure 1/Free/Background/Yellow.png" id="1_t3gwi"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="2_pt2a5"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://c45xjrfq5ql5k" path="res://holemove.gd" id="6_lq3xa"]
 [ext_resource type="Script" uid="uid://6uvkvr5at215" path="res://hide_block.gd" id="7_pt2a5"]
 [ext_resource type="Script" uid="uid://bn8752m1onop8" path="res://room.gd" id="8_h712r"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="10_o0vva"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfxjg"]
 texture = ExtResource("3_h712r")
@@ -308,7 +309,7 @@ size = Vector2(764.5, 294)
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_top = -210.0
 offset_right = 2546.0
-offset_bottom = 909.0
+offset_bottom = 918.0
 texture = ExtResource("1_t3gwi")
 stretch_mode = 1
 
@@ -482,6 +483,9 @@ shape = SubResource("RectangleShape2D_k6u65")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Room2"]
 position = Vector2(2015.75, 400)
 shape = SubResource("RectangleShape2D_lq3xa")
+
+[node name="Checkpoint" parent="." instance=ExtResource("10_o0vva")]
+position = Vector2(1385, 767)
 
 [connection signal="body_entered" from="TrapGaiMove/gaimovetrigger" to="TrapGaiMove/gaimovetrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="Holemove" to="Holemove" method="_on_body_entered"]
