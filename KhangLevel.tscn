@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://t0bdpcergnmd"]
+[gd_scene load_steps=29 format=3 uid="uid://t0bdpcergnmd"]
 
 [ext_resource type="Texture2D" uid="uid://dykufv5680ij8" path="res://Pixel Adventure 1/Free/Background/Yellow.png" id="1_t3gwi"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="2_pt2a5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dycdavdvo4drb" path="res://Pixel Adventure 1/Free/Traps/Trap2/Spike_B.png" id="5_o0vva"]
 [ext_resource type="Script" uid="uid://c45xjrfq5ql5k" path="res://holemove.gd" id="6_lq3xa"]
 [ext_resource type="Script" uid="uid://6uvkvr5at215" path="res://hide_block.gd" id="7_pt2a5"]
+[ext_resource type="Script" uid="uid://bn8752m1onop8" path="res://room.gd" id="8_h712r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfxjg"]
 texture = ExtResource("3_h712r")
@@ -289,6 +290,15 @@ size = Vector2(1654, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h712r"]
 size = Vector2(48.6875, 23)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6u65"]
+size = Vector2(2597.5, 455)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0vva"]
+size = Vector2(1812, 294)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lq3xa"]
+size = Vector2(764.5, 294)
+
 [node name="KhangLevel" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -421,6 +431,40 @@ block_cell = Vector2i(21, 1)
 position = Vector2(60, 21)
 shape = SubResource("RectangleShape2D_h712r")
 
+[node name="Room" type="Area2D" parent="." groups=["Room_light"]]
+position = Vector2(182, -15)
+script = ExtResource("8_h712r")
+cam_limit_left = -48
+cam_limit_right = 2592
+cam_limit_top = -240
+cam_limit_bottom = 529
+cam_zoom = Vector2(0.95, 0.95)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
+position = Vector2(1080, 22.5)
+shape = SubResource("RectangleShape2D_k6u65")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room"]
+position = Vector2(726, 397)
+shape = SubResource("RectangleShape2D_o0vva")
+
+[node name="Room2" type="Area2D" parent="." groups=["Room_light"]]
+position = Vector2(182, -15)
+script = ExtResource("8_h712r")
+cam_limit_left = -48
+cam_limit_right = 2592
+cam_limit_top = 192
+cam_limit_bottom = 960
+cam_zoom = Vector2(0.95, 0.95)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room2"]
+position = Vector2(1108, 773)
+shape = SubResource("RectangleShape2D_k6u65")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room2"]
+position = Vector2(2015.75, 400)
+shape = SubResource("RectangleShape2D_lq3xa")
+
 [connection signal="body_entered" from="Holemove" to="Holemove" method="_on_body_entered"]
 [connection signal="body_entered" from="Holemove2" to="Holemove2" method="_on_body_entered"]
 [connection signal="body_entered" from="block/HideBlock1" to="block/HideBlock1" method="_on_body_entered"]
@@ -429,3 +473,5 @@ shape = SubResource("RectangleShape2D_h712r")
 [connection signal="body_entered" from="block/HideBlock4" to="block/HideBlock4" method="_on_body_entered"]
 [connection signal="body_entered" from="block/HideBlock5" to="block/HideBlock5" method="_on_body_entered"]
 [connection signal="body_entered" from="block/HideBlock6" to="block/HideBlock6" method="_on_body_entered"]
+[connection signal="body_entered" from="Room" to="Room" method="_on_body_entered"]
+[connection signal="body_entered" from="Room2" to="Room2" method="_on_body_entered"]
