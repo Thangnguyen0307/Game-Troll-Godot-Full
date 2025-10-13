@@ -49,7 +49,7 @@ func connect_to_player_death():
 		print("Platform connected to player death signal")
 
 func _on_trigger_entered(body):
-	if body.name.begins_with("CharacterBody2D") and not has_triggered:
+	if body.is_in_group("player") and not has_triggered:
 		print("Player triggered platform movement!")
 		has_triggered = true
 		move_platform()
