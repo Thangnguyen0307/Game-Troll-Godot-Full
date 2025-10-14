@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c85pk27sc71ds" path="res://level_1.gd" id="1_k7qfd"]
 [ext_resource type="Texture2D" uid="uid://dhkt1prc5cciq" path="res://Pixel Adventure 1/Free/Background/Blue.png" id="1_ovosc"]
 [ext_resource type="Script" uid="uid://bp83ku5px3qw5" path="res://CHiTAN/ChiTanLevel/Xam.gd" id="2_k7qfd"]
-[ext_resource type="Script" uid="uid://cyjh2e8sd10t4" path="res://CHiTAN/ChiTanLevel/Trap_Plus.gd" id="3_dnlp7"]
+[ext_resource type="Script" uid="uid://cyjh2e8sd10t4" path="res://CHiTAN/Trap_Face_2/Trap_Plus.gd" id="3_dnlp7"]
 [ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="4_bb31q"]
 [ext_resource type="Script" uid="uid://ct04dphm552vt" path="res://CHiTAN/ChiTanLevel/activation_zone.gd" id="5_0rc6n"]
 [ext_resource type="Script" uid="uid://di5465m55skol" path="res://CHiTAN/Move_down.gd" id="6_rc3a0"]
