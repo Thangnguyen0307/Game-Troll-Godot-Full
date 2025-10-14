@@ -689,7 +689,6 @@ position = Vector2(-27.2011, -93.8191)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/DeadlyTrap8/TriggerArea"]
 position = Vector2(72.7522, 20.1537)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mpxr1")
 
 [node name="DeadlyTrap10" type="AnimatableBody2D" parent="TextureRect"]
@@ -723,7 +722,6 @@ position = Vector2(208.11, -175.824)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/DeadlyTrap10/TriggerArea"]
 position = Vector2(72.7522, 20.1537)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mpxr1")
 
 [node name="Area2D4" type="AnimatableBody2D" parent="TextureRect"]
@@ -875,7 +873,6 @@ shape = SubResource("RectangleShape2D_egemg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Area2D17"]
 position = Vector2(392.839, 449.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_sr8rc")
 
 [node name="DeadlyTrap5" type="Area2D" parent="TextureRect"]
