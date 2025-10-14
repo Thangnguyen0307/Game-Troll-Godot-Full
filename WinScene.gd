@@ -54,41 +54,41 @@ func create_win_ui():
 	var death_count = GameManager.get_death_count() if GameManager else 0
 	var max_level = GameManager.max_level_unlocked if GameManager else 20
 	stats.bbcode_enabled = true
-	stats.text = "[center][b][color=#FFD700]THỐNG KÊ:[/color][/b]\n\n"
+	stats.text = "[center][b][color=#FFD700][/color][/b]\n\n"
 	stats.text += "[color=#FFFFFF]Cấp độ hoàn thành:[/color] [color=#00FF00][b]" + str(max_level) + "[/b][/color]\n"
 	stats.text += "[color=#FFFFFF]Tổng số lần chết:[/color] [color=#FF5555][b]" + str(death_count) + "[/b][/color][/center]"
-	stats.add_theme_font_size_override("normal_font_size", 32)
-	stats.add_theme_font_size_override("bold_font_size", 38)
+	stats.add_theme_font_size_override("normal_font_size", 30)
+	stats.add_theme_font_size_override("bold_font_size", 36)
 	stats.add_theme_color_override("default_color", Color(1.0, 1.0, 1.0, 1.0))
 	stats.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 0.9))
 	stats.add_theme_constant_override("outline_size", 3)
 	stats.anchor_left = 0.5
 	stats.anchor_right = 0.5
-	stats.anchor_top = 0.42
-	stats.offset_left = -300
-	stats.offset_right = 300
-	stats.offset_top = -70
-	stats.offset_bottom = 70
+	stats.anchor_top = 0.38  # Cao hơn để tạo không gian cho buttons
+	stats.offset_left = -280
+	stats.offset_right = 280
+	stats.offset_top = -65
+	stats.offset_bottom = 65
 	stats.fit_content = true
 	stats.scroll_active = false
 	control.add_child(stats)
 	
 	# VBoxContainer cho các buttons
 	var vbox = VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 30)  # Khoảng cách lớn hơn
+	vbox.add_theme_constant_override("separation", 25)  # Giảm khoảng cách để fit vào màn hình
 	vbox.anchor_left = 0.5
 	vbox.anchor_right = 0.5
-	vbox.anchor_top = 0.62
+	vbox.anchor_top = 0.58  # Cao hơn để hiển thị đủ 3 nút
 	vbox.offset_left = -225
 	vbox.offset_right = 225
 	vbox.offset_top = 0
-	vbox.offset_bottom = 315
+	vbox.offset_bottom = 340  # Tăng chiều cao
 	control.add_child(vbox)
 	
 	# Credits button
 	var credits_btn = Button.new()
 	credits_btn.text = "📜 XEM CREDITS"
-	credits_btn.custom_minimum_size = Vector2(450, 85)
+	credits_btn.custom_minimum_size = Vector2(450, 70)
 	credits_btn.add_theme_font_size_override("font_size", 36)
 	credits_btn.add_theme_color_override("font_color", Color(1.0, 0.95, 0.7, 1.0))  # Vàng nhạt
 	credits_btn.add_theme_color_override("font_hover_color", Color(1.0, 0.85, 0.0, 1.0))  # Vàng đậm
@@ -134,7 +134,8 @@ func _on_menu_pressed():
 		"res://UI/main_menu.tscn",
 		"res://Scenes/main_menu.tscn",
 		"res://MainMenu.tscn",
-		"res://main_menu.tscn"
+		"res://main_menu.tscn",
+		"res://All_Level/Scene Main Start/main.tscn"
 	]
 	
 	for path in menu_paths:
