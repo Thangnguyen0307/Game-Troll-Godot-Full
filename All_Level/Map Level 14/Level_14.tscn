@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bqcygrpxkexkd" path="res://CHiTAN/ChiTanLevel/pngimg.com - doge_meme_PNG8.png" id="10_i8gp3"]
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="11_eep2x"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="11_mpi2w"]
-[ext_resource type="Script" uid="uid://cyjh2e8sd10t4" path="res://CHiTAN/ChiTanLevel/Trap_Plus.gd" id="12_8cf3m"]
+[ext_resource type="Script" uid="uid://cyjh2e8sd10t4" path="res://CHiTAN/Trap_Face_2/Trap_Plus.gd" id="12_8cf3m"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="12_cipw2"]
 [ext_resource type="Script" uid="uid://cn68kf01nitbs" path="res://appearingBox.gd" id="12_enkxr"]
 [ext_resource type="Texture2D" uid="uid://et81wap61p4f" path="res://Pixel Adventure 1/Free/Items/Boxes/Box1/Idle.png" id="13_i8gp3"]
@@ -107,7 +107,7 @@ size = Vector2(116.937, 19.4914)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gry5t"]
 size = Vector2(97, 85)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ldc5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enkxr"]
 texture = ExtResource("6_23ctf")
 0:0/0 = 0
 1:0/0 = 0
@@ -295,7 +295,7 @@ texture = ExtResource("6_23ctf")
 
 [sub_resource type="TileSet" id="TileSet_4a2us"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_6ldc5")
+sources/0 = SubResource("TileSetAtlasSource_enkxr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ldc5"]
 size = Vector2(65, 88)
@@ -1104,10 +1104,10 @@ rotation = 1.9197
 scale = Vector2(0.999975, 1.03161)
 shape = SubResource("RectangleShape2D_i8gp3")
 
-[node name="ActivationZone" type="Area2D" parent="TextureRect2/Trap_Face_2" groups=["Player"]]
+[node name="ActivationZone" type="Area2D" parent="TextureRect2/Trap_Face_2" node_paths=PackedStringArray("deadly_traps") groups=["Player"]]
 position = Vector2(78, 476)
 script = ExtResource("9_oflku")
-target_traps = Array[NodePath]([NodePath("../DeadlyTrap")])
+deadly_traps = [NodePath("../DeadlyTrap")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect2/Trap_Face_2/ActivationZone"]
 position = Vector2(-32, -3)

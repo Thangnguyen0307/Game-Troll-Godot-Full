@@ -307,6 +307,7 @@ offset_bottom = 669.0
 size_flags_horizontal = 0
 texture = ExtResource("2_nsnvd")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1

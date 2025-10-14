@@ -79,8 +79,34 @@ func change_size(multiplier: float, duration: float = 1.0, permanent: bool = tru
 	if size_tween: size_tween.kill()
 	if size_timer: size_timer.queue_free()
 	
-	size_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	# Tìm CollisionShape2D của CharacterBody2D (không phải của HurtBox)
+	var body_collision = null
+	for child in get_children():
+		if child is CollisionShape2D:
+			body_collision = child
+			break
+	
+	# Tắt collision tạm thời
+	if body_collision:
+		body_collision.disabled = true
+	
+	# Đẩy lên để tránh kẹt
+	if multiplier > 1.0:
+		position.y -= 25
+		velocity.y = -180
+	else:
+		velocity.y = -80
+	
+	# Scale với animation mượt hơn (TRANS_CUBIC thay vì ELASTIC)
+	size_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	size_tween.tween_property(self, "scale", original_scale * multiplier, duration)
+	
+	# Bật lại collision sau khi scale xong
+	size_tween.finished.connect(func():
+		await get_tree().create_timer(0.25).timeout
+		if body_collision:
+			body_collision.disabled = false
+	)
 	
 	if not permanent:
 		size_timer = Timer.new()
