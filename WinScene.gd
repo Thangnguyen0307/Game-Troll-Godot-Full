@@ -18,15 +18,15 @@ func create_win_ui():
 	# Victory title
 	var title = Label.new()
 	title.text = "🎉 CHIẾN THẮNG! 🎉"
-	title.add_theme_font_size_override("font_size", 72)
-	title.add_theme_color_override("font_color", Color(1.0, 0.9, 0.2, 1.0))
-	title.add_theme_color_override("font_outline_color", Color(0.2, 0.1, 0.5, 1.0))
-	title.add_theme_constant_override("outline_size", 8)
+	title.add_theme_font_size_override("font_size", 80)
+	title.add_theme_color_override("font_color", Color(1.0, 0.85, 0.0, 1.0))  # Vàng đậm
+	title.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 1.0))  # Viền đen
+	title.add_theme_constant_override("outline_size", 12)  # Viền dày hơn
 	title.anchor_left = 0.5
 	title.anchor_right = 0.5
-	title.anchor_top = 0.2
-	title.offset_left = -300
-	title.offset_right = 300
+	title.anchor_top = 0.15
+	title.offset_left = -350
+	title.offset_right = 350
 	title.offset_top = -50
 	title.offset_bottom = 50
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -35,13 +35,15 @@ func create_win_ui():
 	# Subtitle
 	var subtitle = Label.new()
 	subtitle.text = "Bạn đã hoàn thành tất cả các màn chơi!"
-	subtitle.add_theme_font_size_override("font_size", 32)
+	subtitle.add_theme_font_size_override("font_size", 36)
 	subtitle.add_theme_color_override("font_color", Color(1.0, 1.0, 1.0, 1.0))
+	subtitle.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 0.8))
+	subtitle.add_theme_constant_override("outline_size", 4)
 	subtitle.anchor_left = 0.5
 	subtitle.anchor_right = 0.5
-	subtitle.anchor_top = 0.3
-	subtitle.offset_left = -400
-	subtitle.offset_right = 400
+	subtitle.anchor_top = 0.28
+	subtitle.offset_left = -450
+	subtitle.offset_right = 450
 	subtitle.offset_top = -20
 	subtitle.offset_bottom = 20
 	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -52,61 +54,73 @@ func create_win_ui():
 	var death_count = GameManager.get_death_count() if GameManager else 0
 	var max_level = GameManager.max_level_unlocked if GameManager else 20
 	stats.bbcode_enabled = true
-	stats.text = "[center][b]THỐNG KÊ:[/b]\n\n"
-	stats.text += "Cấp độ hoàn thành: [color=green]" + str(max_level) + "[/color]\n"
-	stats.text += "Tổng số lần chết: [color=red]" + str(death_count) + "[/color][/center]"
-	stats.add_theme_font_size_override("normal_font_size", 28)
-	stats.add_theme_font_size_override("bold_font_size", 32)
+	stats.text = "[center][b][color=#FFD700]THỐNG KÊ:[/color][/b]\n\n"
+	stats.text += "[color=#FFFFFF]Cấp độ hoàn thành:[/color] [color=#00FF00][b]" + str(max_level) + "[/b][/color]\n"
+	stats.text += "[color=#FFFFFF]Tổng số lần chết:[/color] [color=#FF5555][b]" + str(death_count) + "[/b][/color][/center]"
+	stats.add_theme_font_size_override("normal_font_size", 32)
+	stats.add_theme_font_size_override("bold_font_size", 38)
+	stats.add_theme_color_override("default_color", Color(1.0, 1.0, 1.0, 1.0))
+	stats.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 0.9))
+	stats.add_theme_constant_override("outline_size", 3)
 	stats.anchor_left = 0.5
 	stats.anchor_right = 0.5
-	stats.anchor_top = 0.45
-	stats.offset_left = -250
-	stats.offset_right = 250
-	stats.offset_top = -60
-	stats.offset_bottom = 60
+	stats.anchor_top = 0.42
+	stats.offset_left = -300
+	stats.offset_right = 300
+	stats.offset_top = -70
+	stats.offset_bottom = 70
 	stats.fit_content = true
 	stats.scroll_active = false
 	control.add_child(stats)
 	
 	# VBoxContainer cho các buttons
 	var vbox = VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 20)
+	vbox.add_theme_constant_override("separation", 30)  # Khoảng cách lớn hơn
 	vbox.anchor_left = 0.5
 	vbox.anchor_right = 0.5
-	vbox.anchor_top = 0.65
-	vbox.offset_left = -150
-	vbox.offset_right = 150
+	vbox.anchor_top = 0.62
+	vbox.offset_left = -225
+	vbox.offset_right = 225
 	vbox.offset_top = 0
-	vbox.offset_bottom = 200
+	vbox.offset_bottom = 315
 	control.add_child(vbox)
 	
 	# Credits button
 	var credits_btn = Button.new()
 	credits_btn.text = "📜 XEM CREDITS"
-	credits_btn.custom_minimum_size = Vector2(300, 60)
-	credits_btn.add_theme_font_size_override("font_size", 28)
-	credits_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
-	credits_btn.add_theme_color_override("font_hover_color", Color(1, 1, 0, 1))
+	credits_btn.custom_minimum_size = Vector2(450, 85)
+	credits_btn.add_theme_font_size_override("font_size", 36)
+	credits_btn.add_theme_color_override("font_color", Color(1.0, 0.95, 0.7, 1.0))  # Vàng nhạt
+	credits_btn.add_theme_color_override("font_hover_color", Color(1.0, 0.85, 0.0, 1.0))  # Vàng đậm
+	credits_btn.add_theme_color_override("font_pressed_color", Color(0.9, 0.75, 0.0, 1.0))
+	credits_btn.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 1.0))
+	credits_btn.add_theme_constant_override("outline_size", 3)
 	credits_btn.pressed.connect(_on_credits_pressed)
 	vbox.add_child(credits_btn)
 	
 	# Main menu button
 	var menu_btn = Button.new()
 	menu_btn.text = "🏠 MENU CHÍNH"
-	menu_btn.custom_minimum_size = Vector2(300, 60)
-	menu_btn.add_theme_font_size_override("font_size", 28)
-	menu_btn.add_theme_color_override("font_color", Color(1, 1, 1, 1))
-	menu_btn.add_theme_color_override("font_hover_color", Color(1, 1, 0, 1))
+	menu_btn.custom_minimum_size = Vector2(450, 85)
+	menu_btn.add_theme_font_size_override("font_size", 36)
+	menu_btn.add_theme_color_override("font_color", Color(0.7, 0.95, 1.0, 1.0))  # Xanh nhạt
+	menu_btn.add_theme_color_override("font_hover_color", Color(0.3, 0.85, 1.0, 1.0))  # Xanh đậm
+	menu_btn.add_theme_color_override("font_pressed_color", Color(0.2, 0.75, 0.9, 1.0))
+	menu_btn.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 1.0))
+	menu_btn.add_theme_constant_override("outline_size", 3)
 	menu_btn.pressed.connect(_on_menu_pressed)
 	vbox.add_child(menu_btn)
 	
 	# Quit button
 	var quit_btn = Button.new()
 	quit_btn.text = "❌ THOÁT GAME"
-	quit_btn.custom_minimum_size = Vector2(300, 60)
-	quit_btn.add_theme_font_size_override("font_size", 28)
-	quit_btn.add_theme_color_override("font_color", Color(1, 0.8, 0.8, 1))
-	quit_btn.add_theme_color_override("font_hover_color", Color(1, 0, 0, 1))
+	quit_btn.custom_minimum_size = Vector2(450, 85)
+	quit_btn.add_theme_font_size_override("font_size", 36)
+	quit_btn.add_theme_color_override("font_color", Color(1.0, 0.7, 0.7, 1.0))  # Đỏ nhạt
+	quit_btn.add_theme_color_override("font_hover_color", Color(1.0, 0.3, 0.3, 1.0))  # Đỏ đậm
+	quit_btn.add_theme_color_override("font_pressed_color", Color(0.9, 0.2, 0.2, 1.0))
+	quit_btn.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 1.0))
+	quit_btn.add_theme_constant_override("outline_size", 3)
 	quit_btn.pressed.connect(_on_quit_pressed)
 	vbox.add_child(quit_btn)
 
