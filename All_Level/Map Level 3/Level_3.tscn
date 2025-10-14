@@ -328,10 +328,10 @@ rotation = 1.9197
 scale = Vector2(0.999975, 1.03161)
 shape = SubResource("RectangleShape2D_v7nk6")
 
-[node name="ActivationZone" type="Area2D" parent="Trap_Face_2" groups=["Player"]]
+[node name="ActivationZone" type="Area2D" parent="Trap_Face_2" node_paths=PackedStringArray("deadly_traps") groups=["Player"]]
 position = Vector2(730, 290)
 script = ExtResource("5_0rc6n")
-target_traps = Array[NodePath]([NodePath("../DeadlyTrap")])
+deadly_traps = [NodePath("../DeadlyTrap")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trap_Face_2/ActivationZone"]
 position = Vector2(-32, -3)
