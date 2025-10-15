@@ -538,7 +538,7 @@ texture = ExtResource("1_t3gwi")
 stretch_mode = 1
 
 [node name="CharacterBody2D" parent="." groups=["Player"] instance=ExtResource("2_pt2a5")]
-position = Vector2(1985, 433)
+position = Vector2(61, 155)
 
 [node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
 position = Vector2(-4.33333, -20.6667)
