@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kqn0p"]
-height = 44.0
+height = 42.0
 
 [node name="FireFall" type="Area2D" groups=["hurt", "saws"]]
 script = ExtResource("1_333ir")

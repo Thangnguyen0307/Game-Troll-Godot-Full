@@ -1198,7 +1198,6 @@ position = Vector2(1573.5, -44.5)
 shape = SubResource("RectangleShape2D_03jua")
 
 [node name="Icearea2" type="Area2D" parent="Ice"]
-visible = false
 position = Vector2(3419, 682)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ice/Icearea2"]
@@ -1213,7 +1212,6 @@ position = Vector2(1281, -77)
 shape = SubResource("RectangleShape2D_jcuhh")
 
 [node name="Icearea4" type="Area2D" parent="Ice"]
-visible = false
 position = Vector2(5818, 683)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ice/Icearea4"]
