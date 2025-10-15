@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bqewjukephym"]
+[gd_scene load_steps=76 format=3 uid="uid://bqewjukephym"]
 
 [ext_resource type="Texture2D" uid="uid://dykufv5680ij8" path="res://Pixel Adventure 1/Free/Background/Yellow.png" id="1_6t07o"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_trxc3"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="10_0lprw"]
 [ext_resource type="Script" uid="uid://cbvdi0my6rvcu" path="res://Khang/shrink.gd" id="11_67cx6"]
 [ext_resource type="Texture2D" uid="uid://b55xprnuf4puk" path="res://Pixel Adventure 1/Free/Items/Fruits/Strawberry.png" id="12_rr3pj"]
+[ext_resource type="Script" uid="uid://d1e1esyh54whf" path="res://Khang/trigger_show.gd" id="13_rr3pj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yrpau"]
 texture = ExtResource("2_trxc3")
@@ -660,11 +661,95 @@ animations = [{
 radius = 21.0
 height = 60.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_beujv"]
+atlas = ExtResource("4_trxc3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuovo"]
+atlas = ExtResource("4_trxc3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yigum"]
+atlas = ExtResource("4_trxc3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3khv"]
+atlas = ExtResource("4_trxc3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwvl3"]
+atlas = ExtResource("4_trxc3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcmoa"]
+atlas = ExtResource("4_trxc3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wl05"]
+atlas = ExtResource("4_trxc3")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uihpi"]
+atlas = ExtResource("4_trxc3")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1mfx"]
+atlas = ExtResource("4_trxc3")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pnl0"]
+atlas = ExtResource("4_trxc3")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pujo2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beujv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuovo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yigum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3khv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwvl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcmoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wl05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uihpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1mfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pnl0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v4vl"]
+size = Vector2(30, 13)
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_h5luw"]
+length = 61.0
+
 [node name="KhangLv" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -4
-offset_left = -712.0
+offset_left = 98.0
 offset_top = -210.0
 offset_right = 2970.0
 offset_bottom = 666.0
@@ -679,7 +764,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-327666, 458752, 6, -327665, 458752, 6, -327664, 458752, 6, -327663, 458752, 6, -327662, 458752, 6, -327661, 458752, 6, -327660, 458752, 6, -327659, 458752, 6, -327658, 458752, 6, -327657, 458752, 6, -327656, 458752, 6, -327655, 458752, 6, -327654, 458752, 6, -327653, 458752, 6, -327652, 458752, 6, -327651, 458752, 6, -327650, 458752, 6, -327649, 458752, 6, -327648, 458752, 6, -327647, 458752, 6, -327646, 458752, 6, -327645, 458752, 6, -327644, 458752, 6, -327643, 458752, 6, -327642, 458752, 6, -327641, 458752, 6, -327640, 458752, 6, -327639, 458752, 6, -327638, 458752, 6, -327637, 458752, 6, -327636, 458752, 6, -327635, 458752, 6, -327634, 458752, 6, -327633, 458752, 6, -327632, 458752, 6, -327631, 458752, 6, -327630, 458752, 6, -327629, 458752, 6, -327628, 458752, 6, -327627, 458752, 6, -262083, 393216, 5, -196547, 393216, 5, -131011, 393216, 5, -65475, 393216, 5, 61, 393216, 5, 65597, 393216, 5, 131133, 393216, 5, 196669, 393216, 5, 262205, 393216, 5, 327741, 393216, 5, 393277, 393216, 5, 458813, 393216, 5, -327626, 458752, 6, -327625, 458752, 6, -327624, 458752, 6, -327623, 458752, 6, -327622, 458752, 6, -327621, 458752, 6, -327620, 458752, 6, -327619, 458752, 6, 524349, 393216, 5, 589885, 393216, 5, 655377, 458752, 4, 720913, 458752, 5, 655378, 458752, 4, 720914, 458752, 5, 655379, 458752, 4, 720915, 458752, 5, 655380, 458752, 4, 720916, 458752, 5, 655381, 458752, 4, 720917, 458752, 5, 655382, 458752, 4, 720918, 458752, 5, 655383, 458752, 4, 720919, 458752, 5, 655384, 458752, 4, 720920, 458752, 5, 655398, 458752, 4, 720934, 458752, 5, 655399, 458752, 4, 720935, 458752, 5, 655400, 458752, 4, 720936, 458752, 5, 655401, 458752, 4, 720937, 458752, 5, 655402, 458752, 4, 720938, 458752, 5, 655403, 458752, 4, 720939, 458752, 5, 655404, 458752, 4, 720940, 458752, 5, 655405, 458752, 4, 720941, 458752, 5, 655406, 458752, 4, 720942, 458752, 5, 655407, 458752, 4, 720943, 458752, 5, 655408, 458752, 4, 720944, 458752, 5, 655409, 458752, 4, 720945, 458752, 5, 655410, 458752, 4, 720946, 458752, 5, 655411, 458752, 4, 720947, 458752, 5, 655412, 458752, 4, 720948, 458752, 5, 655413, 458752, 4, 720949, 458752, 5, 655414, 458752, 4, 720950, 458752, 5, 655415, 458752, 4, 720951, 458752, 5, 655416, 458752, 4, 720952, 458752, 5, 655417, 458752, 4, 720953, 458752, 5, 655418, 458752, 4, 720954, 458752, 5, 655419, 458752, 4, 720955, 458752, 5, 655420, 458752, 4, 720956, 458752, 5, 851984, 458752, 5, 786449, 458752, 5, 851985, 458752, 5, 786450, 458752, 5, 851986, 458752, 5, 786451, 458752, 5, 851987, 458752, 5, 786452, 458752, 5, 851988, 458752, 5, 786453, 458752, 5, 851989, 458752, 5, 786454, 458752, 5, 851990, 458752, 5, 786455, 458752, 5, 851991, 458752, 5, 786456, 458752, 5, 851992, 458752, 5, 786470, 458752, 5, 852006, 458752, 5, 786471, 458752, 5, 852007, 458752, 5, 786472, 458752, 5, 852008, 458752, 5, 786473, 458752, 5, 852009, 458752, 5, 786474, 458752, 5, 852010, 458752, 5, 786475, 458752, 5, 852011, 458752, 5, 786476, 458752, 5, 852012, 458752, 5, 786477, 458752, 5, 852013, 458752, 5, 786478, 458752, 5, 852014, 458752, 5, 786479, 458752, 5, 852015, 458752, 5, 786480, 458752, 5, 852016, 458752, 5, 786481, 458752, 5, 852017, 458752, 5, 786482, 458752, 5, 852018, 458752, 5, 786483, 458752, 5, 852019, 458752, 5, 786484, 458752, 5, 852020, 458752, 5, 786485, 458752, 5, 852021, 458752, 5, 786486, 458752, 5, 852022, 458752, 5, 786487, 458752, 5, 852023, 458752, 5, 786488, 458752, 5, 852024, 458752, 5, 786489, 458752, 5, 852025, 458752, 5, 786490, 458752, 5, 852026, 458752, 5, 786491, 458752, 5, 852027, 458752, 5, 786492, 458752, 5, 852028, 458752, 5, 655421, 393216, 5, 720957, 393216, 5, 786493, 393216, 5, 852029, 393216, 5, 655391, 458752, 4, 720927, 458752, 5, 786463, 458752, 5, 851999, 458752, 5, 655392, 458752, 4, 720928, 458752, 5, 786464, 458752, 5, 852000, 458752, 5, 655389, 458752, 4, 720925, 458752, 5, 786461, 458752, 5, 851997, 458752, 5, 655390, 458752, 4, 720926, 458752, 5, 786462, 458752, 5, 851998, 458752, 5, 655393, 458752, 4, 720929, 458752, 5, 786465, 458752, 5, 655394, 458752, 4, 720930, 458752, 5, 786466, 458752, 5, 655395, 458752, 4, 720931, 458752, 5, 786467, 458752, 5, 655396, 458752, 4, 720932, 458752, 5, 786468, 458752, 5, 655397, 458752, 4, 720933, 458752, 5, 786469, 458752, 5, 852002, 458752, 5, 852003, 458752, 5, 852004, 458752, 5, 852005, 458752, 5, 852001, 458752, 5, 655374, 458752, 5, 720910, 458752, 5, 786446, 458752, 5, 851982, 458752, 5, 851983, 458752, 5, 786447, 458752, 5, 786448, 458752, 5, -327672, 458752, 6, 655368, 458752, 5, 720904, 458752, 5, 786440, 458752, 5, 851976, 458752, 5, -327671, 458752, 6, 655369, 458752, 5, 720905, 458752, 5, 786441, 458752, 5, 851977, 458752, 5, -327670, 458752, 6, 655370, 458752, 5, 720906, 458752, 5, 786442, 458752, 5, 851978, 458752, 5, -327669, 458752, 6, 655371, 458752, 5, 720907, 458752, 5, 786443, 458752, 5, 851979, 458752, 5, -327668, 458752, 6, 655372, 458752, 5, 720908, 458752, 5, 786444, 458752, 5, 851980, 458752, 5, -327667, 458752, 6, 655373, 458752, 5, 720909, 458752, 5, 786445, 458752, 5, 851981, 458752, 5, 655375, 458752, 5, 720911, 458752, 5, 655376, 458752, 4, 720912, 458752, 5, -327676, 458752, 6, 655364, 458752, 5, 720900, 458752, 5, 786436, 458752, 5, 851972, 458752, 5, -327675, 458752, 6, 655365, 458752, 5, 720901, 458752, 5, 786437, 458752, 5, 851973, 458752, 5, -327678, 524288, 5, -262142, 524288, 5, -196606, 524288, 5, -131070, 524288, 5, -65534, 524288, 5, 2, 524288, 5, 65538, 524288, 5, 131074, 524288, 5, 196610, 524288, 5, 262146, 524288, 5, 327682, 524288, 5, 393218, 524288, 5, 458754, 524288, 5, 524290, 524288, 5, 589826, 524288, 5, 655362, 524288, 5, 720898, 524288, 5, 786434, 524288, 5, 851970, 524288, 5, -327677, 458752, 6, 655363, 458752, 5, 720899, 458752, 5, 786435, 458752, 5, 851971, 458752, 5, 655366, 458752, 5, 720902, 458752, 5, 786438, 458752, 5, 851974, 458752, 5, 655367, 458752, 5, 720903, 458752, 5, 786439, 458752, 5, 851975, 458752, 5, -327674, 458752, 6, -327673, 458752, 6)
 
 [node name="CharacterBody2D" parent="." groups=["Player"] instance=ExtResource("3_13kab")]
-position = Vector2(2721, 440)
+position = Vector2(983, 451)
 
 [node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
 position = Vector2(-4.33333, -20.6667)
@@ -875,8 +960,61 @@ sprite_frames = SubResource("SpriteFrames_yigum")
 position = Vector2(39, -23)
 shape = SubResource("CapsuleShape2D_d3khv")
 
+[node name="Gai+" type="Node2D" parent="."]
+z_index = -4
+position = Vector2(195, 400)
+
+[node name="Gai1" type="Area2D" parent="Gai+" groups=["hurt"]]
+position = Vector2(82, 32)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gai+/Gai1"]
+texture_filter = 1
+position = Vector2(-82, -6)
+sprite_frames = SubResource("SpriteFrames_pujo2")
+frame = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gai+/Gai1"]
+position = Vector2(-82, -6.5)
+shape = SubResource("RectangleShape2D_4v4vl")
+
+[node name="Gai2" type="Area2D" parent="Gai+" groups=["hurt"]]
+position = Vector2(113, 32)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gai+/Gai2"]
+texture_filter = 1
+position = Vector2(-82, -6)
+sprite_frames = SubResource("SpriteFrames_pujo2")
+frame = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gai+/Gai2"]
+position = Vector2(-82, -6.5)
+shape = SubResource("RectangleShape2D_4v4vl")
+
+[node name="Gai3" type="Area2D" parent="Gai+" groups=["hurt"]]
+position = Vector2(144, 32)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gai+/Gai3"]
+texture_filter = 1
+position = Vector2(-82, -6)
+sprite_frames = SubResource("SpriteFrames_pujo2")
+frame = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gai+/Gai3"]
+position = Vector2(-82, -6.5)
+shape = SubResource("RectangleShape2D_4v4vl")
+
+[node name="TriggerShow" type="Area2D" parent="." node_paths=PackedStringArray("gai_node")]
+position = Vector2(468, 445)
+script = ExtResource("13_rr3pj")
+gai_node = NodePath("../Gai+")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerShow"]
+position = Vector2(-29, -81)
+shape = SubResource("SeparationRayShape2D_h5luw")
+
 [connection signal="body_entered" from="GaiTriggerShow" to="GaiTriggerShow" method="_on_body_entered"]
 [connection signal="body_entered" from="Room" to="Room" method="_on_body_entered"]
 [connection signal="body_entered" from="Room2" to="Room2" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerSawShow" to="TriggerSawShow" method="_on_body_entered"]
 [connection signal="body_entered" from="Shrink" to="Shrink" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerShow" to="TriggerShow" method="_on_body_entered"]
