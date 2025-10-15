@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://d1rvokycetodh"]
+[gd_scene load_steps=76 format=3 uid="uid://d1rvokycetodh"]
 
 [ext_resource type="Texture2D" uid="uid://bys7i7ki4uf25" path="res://Pixel Adventure 1/Free/Background/pixil-frame-0 (82).png" id="1_8pmvq"]
 [ext_resource type="Texture2D" uid="uid://d2i85iu2ym6xj" path="res://Pixel Adventure 1/Free/Traps/Sand Mud Ice/Sand Mud Ice (16x6).png" id="2_0l1gj"]
@@ -19,13 +19,14 @@
 [ext_resource type="Script" uid="uid://63yfh466kob" path="res://box_left_move.gd" id="17_gl3bd"]
 [ext_resource type="Texture2D" uid="uid://sg5gxyeqs7dq" path="res://Pixel Adventure 1/Free/Traps/Rock Head/Blink (42x42).png" id="18_xuf8v"]
 [ext_resource type="Texture2D" uid="uid://dcv7w0ce31n67" path="res://Pixel Adventure 1/Free/Traps/Spike Head/Blink (54x52).png" id="19_myy7i"]
-[ext_resource type="Script" uid="uid://cdx65t72fqvwd" path="res://spike_hide.gd" id="20_8lwa1"]
+[ext_resource type="Script" path="res://spike_hide.gd" id="20_8lwa1"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="21_qhg4p"]
 [ext_resource type="Script" uid="uid://distnvfjbs27t" path="res://All_Level/Map Level 7/checkpoint_respawn.gd" id="22_csx6m"]
 [ext_resource type="Texture2D" uid="uid://c8v1kucqyrpvq" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Start/Start (Idle).png" id="23_2rafr"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="24_0idfu"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="25_64o2k"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="26_1xpsq"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="27_0l1gj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6a2v7"]
 texture = ExtResource("2_0l1gj")
@@ -1719,6 +1720,13 @@ shape = SubResource("RectangleShape2D_xoi4b")
 visible = false
 
 [node name="PauseButton" parent="." instance=ExtResource("26_1xpsq")]
+
+[node name="Checkpoint2" parent="." instance=ExtResource("27_0l1gj")]
+position = Vector2(7637, 523)
+completed_level_number = 15
+next_level = "res://All_Level/Map Level 16/Level_16.tscn"
+
+[node name="TouchControls2" parent="." instance=ExtResource("24_0idfu")]
 
 [connection signal="body_entered" from="TriggerDir/TriggerChangeDir" to="TriggerDir/TriggerChangeDir" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerDir/TriggerChangeDir2" to="TriggerDir/TriggerChangeDir2" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://d2eq3wrxwou1t"]
+[gd_scene load_steps=115 format=3 uid="uid://d2eq3wrxwou1t"]
 
 [ext_resource type="Texture2D" uid="uid://dykufv5680ij8" path="res://Pixel Adventure 1/Free/Background/Yellow.png" id="1_7tstj"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_jtkhu"]
@@ -32,6 +32,9 @@
 [ext_resource type="Script" uid="uid://r4s6vslk6i7k" path="res://change_tele.gd" id="30_8sqtw"]
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="31_dcoqd"]
 [ext_resource type="Script" uid="uid://dleamn8gf0n53" path="res://trap_text.gd" id="32_s3bnq"]
+[ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="33_dk3oa"]
+[ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="34_n5y7a"]
+[ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="35_kfbha"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7tstj"]
 texture = ExtResource("2_jtkhu")
@@ -1644,6 +1647,8 @@ shape = SubResource("SeparationRayShape2D_segmn")
 
 [node name="Checkpoint" parent="MapTele2" instance=ExtResource("31_dcoqd")]
 position = Vector2(-1066, 3984)
+completed_level_number = 13
+next_level = "res://All_Level/Map Level 14/Level_14.tscn"
 
 [node name="TrapText" type="Area2D" parent="MapTele2"]
 position = Vector2(209, 3911)
@@ -1679,6 +1684,8 @@ position = Vector2(12, 66)
 position = Vector2(106, 118)
 shape = SubResource("RectangleShape2D_lj51n")
 
+[node name="TouchControls" parent="MapTele2" instance=ExtResource("33_dk3oa")]
+
 [node name="CheckpointRespawn" type="Area2D" parent="."]
 position = Vector2(71, 445)
 script = ExtResource("19_y6tk5")
@@ -1690,6 +1697,11 @@ texture = ExtResource("20_57vyq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckpointRespawn"]
 position = Vector2(-39, 0)
 shape = SubResource("RectangleShape2D_w04ql")
+
+[node name="PauseMenu" parent="." instance=ExtResource("34_n5y7a")]
+visible = false
+
+[node name="PauseButton" parent="." instance=ExtResource("35_kfbha")]
 
 [connection signal="body_entered" from="Gai_Down/Trigger" to="Gai_Down" method="_on_trigger_entered"]
 [connection signal="body_entered" from="Gai_Up/Trigger" to="Gai_Up" method="_on_trigger_entered"]
@@ -1722,3 +1734,5 @@ shape = SubResource("RectangleShape2D_w04ql")
 [connection signal="body_entered" from="MapTele2/MoveTele" to="MapTele2/MoveTele" method="_on_body_entered"]
 [connection signal="body_entered" from="MapTele2/ChangeTele" to="MapTele2/ChangeTele" method="_on_body_entered"]
 [connection signal="body_entered" from="CheckpointRespawn" to="CheckpointRespawn" method="_on_body_entered"]
+
+[editable path="PauseButton"]
