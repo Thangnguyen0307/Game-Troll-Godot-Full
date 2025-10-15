@@ -5,6 +5,9 @@ const JUMP_VELOCITY = -430.0
 const FRICTION_NORMAL = 15 # Tốc độ dừng lại bình thường 
 const FRICTION_ICE = 1.2   # Tốc độ dừng lại rất chậm khi trên băng
 
+var current_speed: float = SPEED
+var current_jump_velocity: float = JUMP_VELOCITY
+
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var ground_ray: RayCast2D = get_node_or_null("RayCast2D") # an toàn hơn
@@ -58,16 +61,16 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("jump") and on_ground:
 			$"/root/AudioController".play_jump()
 			if is_gravity_inverted:
-				velocity.y = -JUMP_VELOCITY
+				velocity.y = -current_jump_velocity
 			else:
-				velocity.y = JUMP_VELOCITY
+				velocity.y = current_jump_velocity
 
 		# Di chuyển trái/phải
 		var direction := Input.get_axis("left", "right")
 		if control_inverted:
 			direction = -direction
 		if direction:
-			velocity.x = direction * SPEED
+			velocity.x = direction * current_speed
 		else:
 			var current_friction = FRICTION_ICE if is_on_ice else FRICTION_NORMAL
 			velocity.x = move_toward(velocity.x, 0, current_friction)
@@ -134,7 +137,7 @@ func reset_color():
 
 func _on_force_jump_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		velocity.y = JUMP_VELOCITY * 3 
+		velocity.y = current_jump_velocity * 3 
 
 func _on_icearea_body_entered(body: Node2D) -> void:
 	if body == self:
