@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://dwiovpsjb1od" path="res://triggersaw_1.gd" id="19_bjrx2"]
 [ext_resource type="Script" uid="uid://5xnighmdaold" path="res://triggersaw_move.gd" id="20_bjrx2"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfxjg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbw0d"]
 texture = ExtResource("3_h712r")
 0:0/0 = 0
 1:0/0 = 0
@@ -210,7 +210,7 @@ texture = ExtResource("3_h712r")
 
 [sub_resource type="TileSet" id="TileSet_gdcxq"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_lfxjg")
+sources/0 = SubResource("TileSetAtlasSource_gbw0d")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dsv0"]
 atlas = ExtResource("5_o0vva")
