@@ -6,14 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://bbogo0ju0hnhe" path="res://Pixel Adventure 1/Free/Background/2DBackground_20.png" id="3_1if3u"]
 [ext_resource type="Texture2D" uid="uid://d2i85iu2ym6xj" path="res://Pixel Adventure 1/Free/Traps/Sand Mud Ice/Sand Mud Ice (16x6).png" id="3_03jua"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="3_kgslf"]
-[ext_resource type="Script" uid="uid://ccv4qg66txmdr" path="res://lava_trap2.gd" id="4_jcuhh"]
+[ext_resource type="Script" path="res://lava_trap2.gd" id="4_jcuhh"]
 [ext_resource type="Texture2D" uid="uid://cool2brf0gpfw" path="res://Pixel Adventure 1/Card/32x32 Lava Tiles/10001.png" id="5_adgcn"]
-[ext_resource type="Script" uid="uid://vdgpalgblry5" path="res://yuki_spawner.gd" id="5_kgslf"]
+[ext_resource type="Script" path="res://yuki_spawner.gd" id="5_kgslf"]
 [ext_resource type="Texture2D" uid="uid://df4x1pqr3p3l5" path="res://Bg-Dark/Tileset/Dark_Horror_Asset_pack.png" id="6_cxris"]
 [ext_resource type="Texture2D" uid="uid://dirj3fodendma" path="res://Pixel Adventure 1/Card/32x32 Lava Tiles/10002.png" id="6_qa3xu"]
 [ext_resource type="PackedScene" uid="uid://b1jrx8qvrpaeu" path="res://yuki_fall.tscn" id="6_ua20o"]
 [ext_resource type="Texture2D" uid="uid://dhg8ys4cmc6ke" path="res://Pixel Adventure 1/Card/32x32 Lava Tiles/10003.png" id="7_f3mfs"]
-[ext_resource type="Script" uid="uid://cdx65t72fqvwd" path="res://spike_hide.gd" id="7_omgj7"]
+[ext_resource type="Script" path="res://spike_hide.gd" id="7_omgj7"]
 [ext_resource type="Texture2D" uid="uid://c8hqvd0rycb46" path="res://Pixel Adventure 1/Card/32x32 Lava Tiles/10004.png" id="8_875yj"]
 [ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="8_ohxiu"]
 [ext_resource type="Texture2D" uid="uid://bce5pnpe4xect" path="res://Pixel Adventure 1/Card/32x32 Lava Tiles/10005.png" id="9_x2qje"]
@@ -1333,6 +1333,8 @@ shape = SubResource("RectangleShape2D_x2qje")
 
 [node name="Checkpoint" parent="." instance=ExtResource("27_qa3xu")]
 position = Vector2(1276, -435)
+completed_level_number = 11
+next_level = "res://All_Level/Map Level 12/Level_12.tscn"
 
 [node name="PauseMenu" parent="." instance=ExtResource("28_875yj")]
 visible = false

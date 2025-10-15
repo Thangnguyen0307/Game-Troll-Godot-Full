@@ -755,6 +755,8 @@ shape = SubResource("RectangleShape2D_84k76")
 
 [node name="Checkpoint" parent="." instance=ExtResource("10_o0vva")]
 position = Vector2(1385, 767)
+completed_level_number = 18
+next_level = "res://All_Level/Map Level 19/Level_19.tscn"
 
 [node name="ChangeMoveTele" type="Area2D" parent="."]
 position = Vector2(2067, 778)
