@@ -1,4 +1,4 @@
-[gd_scene load_steps=303 format=4 uid="uid://hseiofumqiis"]
+[gd_scene load_steps=293 format=4 uid="uid://hseiofumqiis"]
 
 [ext_resource type="Script" uid="uid://sp0u2okl74w6" path="res://level_Switch.gd" id="1_jh4ry"]
 [ext_resource type="Texture2D" uid="uid://dhkt1prc5cciq" path="res://Pixel Adventure 1/Free/Background/Blue.png" id="2_hrquq"]
@@ -36,20 +36,21 @@
 [ext_resource type="Texture2D" uid="uid://h5kqsgu2qkvx" path="res://Enemies/Ghost/Hit (44x30).png" id="34_uf8q8"]
 [ext_resource type="Texture2D" uid="uid://dqnhjtaymxnyc" path="res://Enemies/Ghost/Idle (44x30).png" id="35_46yau"]
 [ext_resource type="Texture2D" uid="uid://bi8i803235f1x" path="res://Enemies/Ghost/Appear (44x30).png" id="36_321fe"]
-[ext_resource type="Script" uid="uid://bckcmvgx1ma05" path="res://ghost2.gd" id="37_od4ne"]
+[ext_resource type="Script" path="res://ghost2.gd" id="37_od4ne"]
 [ext_resource type="Texture2D" uid="uid://f2dekvvx5qdt" path="res://Enemies/Ghost/Desappear (44x30).png" id="38_dx4ag"]
-[ext_resource type="Script" uid="uid://lrpja7dttw67" path="res://zombie_2.gd" id="39_pgp6j"]
+[ext_resource type="Script" path="res://zombie_2.gd" id="39_pgp6j"]
 [ext_resource type="Texture2D" uid="uid://dg8t7kbvlwxtn" path="res://Enemies/Zombies/Zombie_4/Dead.png" id="40_ehi0u"]
 [ext_resource type="Texture2D" uid="uid://ckh6473fr1gyd" path="res://Enemies/Zombies/Zombie_4/Walk.png" id="41_kjtq0"]
 [ext_resource type="Texture2D" uid="uid://d4hbayfr8xx13" path="res://Enemies/Zombies/Zombie_4/Idle.png" id="42_dw5r0"]
-[ext_resource type="Script" uid="uid://783y8k1k4ym8" path="res://saw_trap_down_move.gd" id="43_fp2bk"]
+[ext_resource type="Script" path="res://saw_trap_down_move.gd" id="43_fp2bk"]
 [ext_resource type="Texture2D" uid="uid://26g1nyycfuji" path="res://Pixel Adventure 1/Free/Traps/Saw/On (38x38).png" id="44_88thd"]
-[ext_resource type="Script" uid="uid://ble31uajxtft5" path="res://saw_trap_up_move.gd" id="45_pfsnq"]
+[ext_resource type="Script" path="res://saw_trap_up_move.gd" id="45_pfsnq"]
 [ext_resource type="Script" uid="uid://uc5pyyxwsxif" path="res://fade_area.gd" id="46_ral38"]
 [ext_resource type="Texture2D" uid="uid://3o72ly24grlg" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="47_604ds"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="48_g0jnm"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="49_r7v83"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="50_5dltd"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="51_hrquq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aughn"]
 size = Vector2(14, 7)
@@ -3493,84 +3494,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_melll"]
 size = Vector2(30, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ni5u"]
-atlas = ExtResource("47_604ds")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3w5ib"]
-atlas = ExtResource("47_604ds")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p7xqj"]
-atlas = ExtResource("47_604ds")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ibopj"]
-atlas = ExtResource("47_604ds")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h8tdp"]
-atlas = ExtResource("47_604ds")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qhurc"]
-atlas = ExtResource("47_604ds")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xci4b"]
-atlas = ExtResource("47_604ds")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_20i66"]
-atlas = ExtResource("47_604ds")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4g2h"]
-atlas = ExtResource("47_604ds")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fq3rt"]
-atlas = ExtResource("47_604ds")
-region = Rect2(576, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e8kgy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3ni5u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3w5ib")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p7xqj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ibopj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h8tdp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qhurc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xci4b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_20i66")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b4g2h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fq3rt")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="Level-huy" type="Node2D" node_paths=PackedStringArray("player1", "player2")]
 script = ExtResource("1_jh4ry")
 player1 = NodePath("Player/Player1")
@@ -4333,19 +4256,18 @@ frame_progress = 0.0876868
 position = Vector2(2, 9)
 shape = SubResource("RectangleShape2D_melll")
 
-[node name="CheckPoint" type="Area2D" parent="."]
-position = Vector2(2109, -607)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CheckPoint"]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_e8kgy")
-
 [node name="TouchControls" parent="." instance=ExtResource("48_g0jnm")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("49_r7v83")]
 visible = false
 
 [node name="PauseButton" parent="." instance=ExtResource("50_5dltd")]
+
+[node name="Checkpoint" parent="." instance=ExtResource("51_hrquq")]
+position = Vector2(1192, -691)
+scale = Vector2(0.8, 0.8)
+completed_level_number = 12
+next_level = "res://All_Level/Map Level 13/Level_13.tscn"
 
 [connection signal="body_entered" from="SpikeTrap_UpMove/SpikeTrigger" to="SpikeTrap_UpMove/SpikeTrap_UpMove" method="_on_saw_trigger_body_entered"]
 [connection signal="body_entered" from="SpikeTrap_LeftMove/SpikeTrigger" to="SpikeTrap_LeftMove/SpikeTrap_LeftMove" method="_on_saw_trigger_body_entered"]
