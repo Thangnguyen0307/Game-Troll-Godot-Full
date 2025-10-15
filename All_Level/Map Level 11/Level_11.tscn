@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://s4e8wdkqomyw"]
+[gd_scene load_steps=73 format=3 uid="uid://s4e8wdkqomyw"]
 
 [ext_resource type="Texture2D" uid="uid://dv50md80fysl8" path="res://Pixel Adventure 1/Free/Background/2DBackground_50.png" id="1_1op1s"]
 [ext_resource type="Texture2D" uid="uid://bkt5uj3je8vh4" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_0.png" id="2_03jua"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="3_kgslf"]
 [ext_resource type="Script" path="res://lava_trap2.gd" id="4_jcuhh"]
 [ext_resource type="Texture2D" uid="uid://cool2brf0gpfw" path="res://Pixel Adventure 1/Card/32x32 Lava Tiles/10001.png" id="5_adgcn"]
+[ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="5_dp8h8"]
 [ext_resource type="Script" path="res://yuki_spawner.gd" id="5_kgslf"]
 [ext_resource type="Texture2D" uid="uid://df4x1pqr3p3l5" path="res://Bg-Dark/Tileset/Dark_Horror_Asset_pack.png" id="6_cxris"]
 [ext_resource type="Texture2D" uid="uid://dirj3fodendma" path="res://Pixel Adventure 1/Card/32x32 Lava Tiles/10002.png" id="6_qa3xu"]
@@ -1366,6 +1367,8 @@ texture = ExtResource("31_ntt2b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckpointRespawn2"]
 position = Vector2(-19.25, 0)
 shape = SubResource("RectangleShape2D_xoi4b")
+
+[node name="TouchControls" parent="." instance=ExtResource("5_dp8h8")]
 
 [connection signal="body_entered" from="LavalTrap/TriggerLava" to="LavalTrap/LavaTrap" method="_on_trigger_lava_body_entered"]
 [connection signal="body_entered" from="Ice_area/Icearea" to="Player" method="_on_icearea_body_entered"]
