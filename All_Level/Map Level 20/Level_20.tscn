@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cw12io2rh11tx"]
+[gd_scene load_steps=57 format=3 uid="uid://cw12io2rh11tx"]
 
 [ext_resource type="Texture2D" uid="uid://bo3gi6m4w3jkx" path="res://Pixel Adventure 1/Free/Background/Pink.png" id="1_422hn"]
 [ext_resource type="Script" uid="uid://deg3pt3o0e73b" path="res://CHiTAN/ChiTanLevel/changeSize.gd" id="2_nw40j"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bglou6eu75n13" path="res://CHiTAN/ChiTanLevel/PikPng.com_meme-png_2575455.png" id="15_egemg"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="22_c8645"]
 [ext_resource type="Script" uid="uid://bn8752m1onop8" path="res://room.gd" id="23_ma06k"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="24_via7a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3duhm"]
 size = Vector2(17.8603, 18.1526)
@@ -1106,10 +1107,6 @@ shape = SubResource("RectangleShape2D_wgt8j")
 
 [node name="TouchControls" parent="." instance=ExtResource("22_c8645")]
 
-[node name="Checkpoint" parent="." instance=ExtResource("23_ma06k")]
-position = Vector2(-1084, 0)
-completed_level_number = 20
-next_level = "res://All_Level/Map Level 21/Level_21.tscn"
 [node name="Room" type="Area2D" parent="." groups=["Room_light"]]
 visible = false
 position = Vector2(182, -15)
@@ -1122,6 +1119,11 @@ cam_limit_bottom = 864
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
 position = Vector2(1361.25, 385.75)
 shape = SubResource("RectangleShape2D_via7a")
+
+[node name="Checkpoint" parent="." instance=ExtResource("24_via7a")]
+position = Vector2(-1081, -3)
+completed_level_number = 20
+next_level = "res://All_Level/Map Level 21/Level_21.tscn"
 
 [connection signal="body_entered" from="TextureRect/Teleport" to="TextureRect/Teleport" method="_on_body_entered"]
 [connection signal="pressed" from="PauseButton/Pause" to="PauseMenu" method="show_menu"]
