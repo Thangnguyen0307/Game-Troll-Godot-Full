@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://d2eq3wrxwou1t"]
+[gd_scene load_steps=50 format=3 uid="uid://d2eq3wrxwou1t"]
 
 [ext_resource type="Script" uid="uid://c85pk27sc71ds" path="res://level_1.gd" id="1_dk26m"]
 [ext_resource type="Texture2D" uid="uid://dykufv5680ij8" path="res://Pixel Adventure 1/Free/Background/Yellow.png" id="2_dk26m"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://cn68kf01nitbs" path="res://appearingBox.gd" id="12_enkxr"]
 [ext_resource type="Texture2D" uid="uid://et81wap61p4f" path="res://Pixel Adventure 1/Free/Items/Boxes/Box1/Idle.png" id="13_i8gp3"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="14_i8gp3"]
+[ext_resource type="Script" uid="uid://bn8752m1onop8" path="res://room.gd" id="22_mpi2w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gf767"]
 atlas = ExtResource("4_2lamd")
@@ -305,6 +306,15 @@ size = Vector2(65, 88)
 size = Vector2(1523, 61)
 
 [sub_resource type="Theme" id="Theme_enkxr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_632e0"]
+size = Vector2(2644.75, 1009.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq7aj"]
+size = Vector2(775, 529)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhcga"]
+size = Vector2(987, 324)
 
 [node name="Chitan4" type="Node2D"]
 script = ExtResource("1_dk26m")
@@ -1173,6 +1183,81 @@ theme = SubResource("Theme_enkxr")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "CHỌN ĐƯỜNG ĐÚNG"
 
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -4
+offset_left = -539.0
+offset_top = -1264.0
+offset_right = 2903.0
+offset_bottom = 2386.0
+texture = ExtResource("2_dk26m")
+stretch_mode = 1
+
+[node name="Room" type="Area2D" parent="." groups=["Room_light"]]
+position = Vector2(182, -15)
+script = ExtResource("22_mpi2w")
+cam_limit_left = -48
+cam_limit_right = 2592
+cam_limit_top = -192
+cam_limit_bottom = 1000
+cam_zoom = Vector2(0.61, 0.61)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
+visible = false
+position = Vector2(1085.63, 337.375)
+shape = SubResource("RectangleShape2D_632e0")
+
+[node name="Room2" type="Area2D" parent="." groups=["Room_light"]]
+position = Vector2(573, 1184)
+script = ExtResource("22_mpi2w")
+cam_limit_left = 541
+cam_limit_right = 1250
+cam_limit_top = 1175
+cam_limit_bottom = 1800
+cam_zoom = Vector2(1.3, 1.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room2"]
+position = Vector2(377.5, 254.5)
+shape = SubResource("RectangleShape2D_kq7aj")
+
+[node name="Room3" type="Area2D" parent="." groups=["Room_light"]]
+position = Vector2(1729, 1645)
+script = ExtResource("22_mpi2w")
+cam_limit_left = 1742
+cam_limit_right = 2517
+cam_limit_top = 1638
+cam_limit_bottom = 2167
+cam_zoom = Vector2(1.3, 1.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3"]
+position = Vector2(400, 258)
+shape = SubResource("RectangleShape2D_kq7aj")
+
+[node name="Room4" type="Area2D" parent="." groups=["Room_light"]]
+position = Vector2(-141, -1070)
+script = ExtResource("22_mpi2w")
+cam_limit_left = -144
+cam_limit_right = 672
+cam_limit_top = -1138
+cam_limit_bottom = -600
+cam_zoom = Vector2(1.6, 1.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room4"]
+position = Vector2(400, 258)
+shape = SubResource("RectangleShape2D_kq7aj")
+
+[node name="Room5" type="Area2D" parent="." groups=["Room_light"]]
+position = Vector2(656, -1063)
+script = ExtResource("22_mpi2w")
+cam_limit_left = 624
+cam_limit_right = 1584
+cam_limit_top = -1100
+cam_limit_bottom = -600
+cam_zoom = Vector2(1.36, 1.36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room5"]
+position = Vector2(483.5, 223)
+shape = SubResource("RectangleShape2D_bhcga")
+
 [connection signal="body_entered" from="TextureRect2/Teleport" to="TextureRect2/Teleport" method="_on_body_entered"]
 [connection signal="body_entered" from="TextureRect2/Teleport2" to="TextureRect2/Teleport2" method="_on_body_entered"]
 [connection signal="body_entered" from="TextureRect2/Teleport3" to="TextureRect2/Teleport3" method="_on_body_entered"]
@@ -1189,5 +1274,10 @@ text = "CHỌN ĐƯỜNG ĐÚNG"
 [connection signal="body_entered" from="TextureRect2/Appearing5" to="TextureRect2/Appearing5/Box4" method="_on_player_body_entered_box1"]
 [connection signal="body_exited" from="TextureRect2/Appearing5" to="TextureRect2/Appearing5/Box4" method="_on_player_body_exited_box1"]
 [connection signal="pressed" from="PauseButton/Pause" to="PauseMenu" method="show_menu"]
+[connection signal="body_entered" from="Room" to="Room" method="_on_body_entered"]
+[connection signal="body_entered" from="Room2" to="Room2" method="_on_body_entered"]
+[connection signal="body_entered" from="Room3" to="Room3" method="_on_body_entered"]
+[connection signal="body_entered" from="Room4" to="Room4" method="_on_body_entered"]
+[connection signal="body_entered" from="Room5" to="Room5" method="_on_body_entered"]
 
 [editable path="PauseButton"]

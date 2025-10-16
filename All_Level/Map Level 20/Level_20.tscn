@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cw12io2rh11tx"]
+[gd_scene load_steps=56 format=3 uid="uid://cw12io2rh11tx"]
 
 [ext_resource type="Texture2D" uid="uid://bo3gi6m4w3jkx" path="res://Pixel Adventure 1/Free/Background/Pink.png" id="1_422hn"]
 [ext_resource type="Script" uid="uid://deg3pt3o0e73b" path="res://CHiTAN/ChiTanLevel/changeSize.gd" id="2_nw40j"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://cyjh2e8sd10t4" path="res://CHiTAN/Trap_Face_2/Trap_Plus.gd" id="14_wgt8j"]
 [ext_resource type="Texture2D" uid="uid://bglou6eu75n13" path="res://CHiTAN/ChiTanLevel/PikPng.com_meme-png_2575455.png" id="15_egemg"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="22_c8645"]
+[ext_resource type="Script" uid="uid://bn8752m1onop8" path="res://room.gd" id="23_ma06k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3duhm"]
 size = Vector2(17.8603, 18.1526)
@@ -352,6 +353,9 @@ sources/0 = SubResource("TileSetAtlasSource_ywddb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgt8j"]
 size = Vector2(82, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_via7a"]
+size = Vector2(3209.5, 1098.5)
 
 [node name="Level19" type="Node2D"]
 
@@ -1102,8 +1106,22 @@ shape = SubResource("RectangleShape2D_wgt8j")
 
 [node name="TouchControls" parent="." instance=ExtResource("22_c8645")]
 
+[node name="Room" type="Area2D" parent="." groups=["Room_light"]]
+visible = false
+position = Vector2(182, -15)
+script = ExtResource("23_ma06k")
+cam_limit_left = -48
+cam_limit_right = 3120
+cam_limit_top = -192
+cam_limit_bottom = 864
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
+position = Vector2(1361.25, 385.75)
+shape = SubResource("RectangleShape2D_via7a")
+
 [connection signal="body_entered" from="TextureRect/Teleport" to="TextureRect/Teleport" method="_on_body_entered"]
 [connection signal="pressed" from="PauseButton/Pause" to="PauseMenu" method="show_menu"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Room" to="Room" method="_on_body_entered"]
 
 [editable path="PauseButton"]
