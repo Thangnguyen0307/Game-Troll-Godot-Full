@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://63yfh466kob" path="res://box_left_move.gd" id="17_gl3bd"]
 [ext_resource type="Texture2D" uid="uid://sg5gxyeqs7dq" path="res://Pixel Adventure 1/Free/Traps/Rock Head/Blink (42x42).png" id="18_xuf8v"]
 [ext_resource type="Texture2D" uid="uid://dcv7w0ce31n67" path="res://Pixel Adventure 1/Free/Traps/Spike Head/Blink (54x52).png" id="19_myy7i"]
-[ext_resource type="Script" path="res://spike_hide.gd" id="20_8lwa1"]
+[ext_resource type="Script" uid="uid://cdx65t72fqvwd" path="res://spike_hide.gd" id="20_8lwa1"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="21_qhg4p"]
 [ext_resource type="Script" uid="uid://distnvfjbs27t" path="res://All_Level/Map Level 7/checkpoint_respawn.gd" id="22_csx6m"]
 [ext_resource type="Texture2D" uid="uid://c8v1kucqyrpvq" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Start/Start (Idle).png" id="23_2rafr"]

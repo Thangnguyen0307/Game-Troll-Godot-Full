@@ -93,6 +93,34 @@ func try_alternative_paths(level_number: int):
 			return
 	
 	print("No valid level file found for level ", level_number)
+	
+	# ✅ CHUYỂN QUA WINSCENE KHI KHÔNG CÓ LEVEL TIẾP THEO
+	print("🎉 All levels completed! Going to WinScene...")
+	go_to_win_scene()
+
+# ✅ HÀM MỚI: Chuyển qua WinScene
+func go_to_win_scene():
+	var win_scene_path = "res://WinScene.tscn"
+	
+	if ResourceLoader.exists(win_scene_path):
+		get_tree().change_scene_to_file(win_scene_path)
+		print("✅ Loaded WinScene successfully!")
+	else:
+		# Thử các đường dẫn khác
+		var alternative_win_paths = [
+			"res://UI/WinScene.tscn",
+			"res://Scenes/WinScene.tscn",
+			"res://win_scene.tscn",
+			"res://UI/win_scene.tscn"
+		]
+		
+		for path in alternative_win_paths:
+			if ResourceLoader.exists(path):
+				get_tree().change_scene_to_file(path)
+				print("✅ Found WinScene at: ", path)
+				return
+		
+		print("❌ WinScene not found!")
 
 # Kiểm tra level có unlock không
 func is_level_unlocked(level_number: int) -> bool:

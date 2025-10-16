@@ -32,12 +32,12 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3jria")
-max_levels = 35
+max_levels = 50
 page_button_scale = Vector2(2.5, 2.5)
 page_spacing = 50.0
 label_style = 3
 arrow_size = 100.0
-arrow_spacing = 50.0
+arrow_spacing = 300.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
