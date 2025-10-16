@@ -88,39 +88,48 @@ func create_win_ui():
 	# Credits button
 	var credits_btn = Button.new()
 	credits_btn.text = "📜 XEM CREDITS"
-	credits_btn.custom_minimum_size = Vector2(450, 70)
+	credits_btn.custom_minimum_size = Vector2(450, 80)
 	credits_btn.add_theme_font_size_override("font_size", 36)
 	credits_btn.add_theme_color_override("font_color", Color(1.0, 0.95, 0.7, 1.0))  # Vàng nhạt
 	credits_btn.add_theme_color_override("font_hover_color", Color(1.0, 0.85, 0.0, 1.0))  # Vàng đậm
 	credits_btn.add_theme_color_override("font_pressed_color", Color(0.9, 0.75, 0.0, 1.0))
 	credits_btn.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 1.0))
 	credits_btn.add_theme_constant_override("outline_size", 3)
+	# QUAN TRỌNG: Bật mouse filter để mobile touch hoạt động
+	credits_btn.mouse_filter = Control.MOUSE_FILTER_STOP
+	credits_btn.focus_mode = Control.FOCUS_ALL
 	credits_btn.pressed.connect(_on_credits_pressed)
 	vbox.add_child(credits_btn)
 	
 	# Main menu button
 	var menu_btn = Button.new()
 	menu_btn.text = "🏠 MENU CHÍNH"
-	menu_btn.custom_minimum_size = Vector2(450, 85)
+	menu_btn.custom_minimum_size = Vector2(450, 80)
 	menu_btn.add_theme_font_size_override("font_size", 36)
 	menu_btn.add_theme_color_override("font_color", Color(0.7, 0.95, 1.0, 1.0))  # Xanh nhạt
 	menu_btn.add_theme_color_override("font_hover_color", Color(0.3, 0.85, 1.0, 1.0))  # Xanh đậm
 	menu_btn.add_theme_color_override("font_pressed_color", Color(0.2, 0.75, 0.9, 1.0))
 	menu_btn.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 1.0))
 	menu_btn.add_theme_constant_override("outline_size", 3)
+	# QUAN TRỌNG: Bật mouse filter để mobile touch hoạt động
+	menu_btn.mouse_filter = Control.MOUSE_FILTER_STOP
+	menu_btn.focus_mode = Control.FOCUS_ALL
 	menu_btn.pressed.connect(_on_menu_pressed)
 	vbox.add_child(menu_btn)
 	
 	# Quit button
 	var quit_btn = Button.new()
 	quit_btn.text = "❌ THOÁT GAME"
-	quit_btn.custom_minimum_size = Vector2(450, 85)
+	quit_btn.custom_minimum_size = Vector2(450, 80)
 	quit_btn.add_theme_font_size_override("font_size", 36)
 	quit_btn.add_theme_color_override("font_color", Color(1.0, 0.7, 0.7, 1.0))  # Đỏ nhạt
 	quit_btn.add_theme_color_override("font_hover_color", Color(1.0, 0.3, 0.3, 1.0))  # Đỏ đậm
 	quit_btn.add_theme_color_override("font_pressed_color", Color(0.9, 0.2, 0.2, 1.0))
 	quit_btn.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 1.0))
 	quit_btn.add_theme_constant_override("outline_size", 3)
+	# QUAN TRỌNG: Bật mouse filter để mobile touch hoạt động
+	quit_btn.mouse_filter = Control.MOUSE_FILTER_STOP
+	quit_btn.focus_mode = Control.FOCUS_ALL
 	quit_btn.pressed.connect(_on_quit_pressed)
 	vbox.add_child(quit_btn)
 
