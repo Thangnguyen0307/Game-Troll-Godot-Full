@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://irremkkx1a01" path="res://CHiTAN/Trap_tái_sử_dụng/remove_tile_map_xxx.gd" id="14_o4wo7"]
 [ext_resource type="Script" uid="uid://cyjh2e8sd10t4" path="res://CHiTAN/Trap_Face_2/Trap_Plus.gd" id="14_wgt8j"]
 [ext_resource type="Texture2D" uid="uid://bglou6eu75n13" path="res://CHiTAN/ChiTanLevel/PikPng.com_meme-png_2575455.png" id="15_egemg"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="22_c8645"]
+[ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="22_c8645"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3duhm"]
 size = Vector2(17.8603, 18.1526)
@@ -1100,10 +1100,7 @@ new_tiles_data = Array[Dictionary]([{}])
 position = Vector2(-187, -9)
 shape = SubResource("RectangleShape2D_wgt8j")
 
-[node name="Checkpoint2" parent="." instance=ExtResource("22_c8645")]
-position = Vector2(-1089, -3)
-completed_level_number = 20
-next_level = "res://All_Level/Map Level 21/Level_21.tscn"
+[node name="TouchControls" parent="." instance=ExtResource("22_c8645")]
 
 [connection signal="body_entered" from="TextureRect/Teleport" to="TextureRect/Teleport" method="_on_body_entered"]
 [connection signal="pressed" from="PauseButton/Pause" to="PauseMenu" method="show_menu"]

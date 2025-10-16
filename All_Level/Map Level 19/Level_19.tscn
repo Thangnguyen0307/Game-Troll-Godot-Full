@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bv8lbiv6ykv42"]
+[gd_scene load_steps=39 format=3 uid="uid://bv8lbiv6ykv42"]
 
 [ext_resource type="Texture2D" uid="uid://h6v8xw84adyl" path="res://Pixel Adventure 1/Free/Background/2DBackground_46.png" id="1_v0jux"]
 [ext_resource type="Texture2D" uid="uid://bys7i7ki4uf25" path="res://Pixel Adventure 1/Free/Background/pixil-frame-0 (82).png" id="2_3duhm"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="11_ffmw5"]
 [ext_resource type="Script" uid="uid://csnki2cmswyv1" path="res://Room_2.gd" id="12_wjsfe"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="13_j2dr6"]
+[ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="14_vvvsn"]
+[ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="15_5o7pw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ui25f"]
 texture = ExtResource("3_vvvsn")
@@ -100,7 +102,7 @@ load_path = "res://.godot/imported/radial_gradient_light.png-a4d4002ca77f58ef17e
 size = Vector2(40, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ui25f"]
-size = Vector2(34, 2)
+size = Vector2(42, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ua20o"]
 size = Vector2(336, 5)
@@ -218,7 +220,7 @@ shape = SubResource("RectangleShape2D_kgslf")
 position = Vector2(291, 660)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Show_Box/Box_1/TriggerShowBox"]
-position = Vector2(1, 5)
+position = Vector2(1, -15)
 shape = SubResource("RectangleShape2D_ui25f")
 
 [node name="Box_2" type="Node" parent="Hide_Show_Box"]
@@ -240,7 +242,7 @@ shape = SubResource("RectangleShape2D_kgslf")
 position = Vector2(331, 564)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Show_Box/Box_2/TriggerShowBox"]
-position = Vector2(2, 5)
+position = Vector2(1, -15)
 shape = SubResource("RectangleShape2D_ui25f")
 
 [node name="Fall" type="Node" parent="."]
@@ -16981,11 +16983,12 @@ shape = SubResource("RectangleShape2D_xge7j")
 
 [node name="Checkpoint" parent="." instance=ExtResource("10_sr8rc")]
 position = Vector2(2202, -1242)
+completed_level_number = 19
+next_level = "res://All_Level/Map Level 20/Level_20.tscn"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="Room1" type="Area2D" parent="." node_paths=PackedStringArray("canvas_mod") groups=["Room_light"]]
-visible = false
 position = Vector2(182, -15)
 script = ExtResource("11_ffmw5")
 canvas_mod = NodePath("../CanvasModulate")
@@ -17000,7 +17003,6 @@ position = Vector2(496, 448)
 shape = SubResource("RectangleShape2D_ptj6m")
 
 [node name="Room2" type="Area2D" parent="." node_paths=PackedStringArray("canvas_mod") groups=["Room_light"]]
-visible = false
 position = Vector2(763, 1128)
 script = ExtResource("11_ffmw5")
 canvas_mod = NodePath("../CanvasModulate")
@@ -17037,6 +17039,11 @@ position = Vector2(496.75, -683)
 shape = SubResource("RectangleShape2D_df3ot")
 
 [node name="TouchControls" parent="." instance=ExtResource("13_j2dr6")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_vvvsn")]
+visible = false
+
+[node name="PauseButton" parent="." instance=ExtResource("15_5o7pw")]
 
 [connection signal="body_entered" from="Hide_Show_Box/Box_1/TriggerShowBox" to="Hide_Show_Box/Box_1/HideBox" method="_on_saw_trigger_body_entered"]
 [connection signal="body_entered" from="Hide_Show_Box/Box_2/TriggerShowBox" to="Hide_Show_Box/Box_2/HideBox" method="_on_saw_trigger_body_entered"]
@@ -18561,3 +18568,5 @@ shape = SubResource("RectangleShape2D_df3ot")
 [connection signal="body_entered" from="Room2" to="Room2" method="_on_body_entered"]
 [connection signal="body_entered" from="RoomLight" to="RoomLight" method="_on_body_entered"]
 [connection signal="body_entered" from="RoomLDark" to="RoomLDark" method="_on_body_entered"]
+
+[editable path="PauseButton"]

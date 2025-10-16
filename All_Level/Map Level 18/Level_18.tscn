@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://t0bdpcergnmd"]
+[gd_scene load_steps=78 format=3 uid="uid://t0bdpcergnmd"]
 
 [ext_resource type="Texture2D" uid="uid://dykufv5680ij8" path="res://Pixel Adventure 1/Free/Background/Yellow.png" id="1_t3gwi"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="2_pt2a5"]
@@ -20,8 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://26g1nyycfuji" path="res://Pixel Adventure 1/Free/Traps/Saw/On (38x38).png" id="18_4t6rx"]
 [ext_resource type="Script" uid="uid://dwiovpsjb1od" path="res://triggersaw_1.gd" id="19_bjrx2"]
 [ext_resource type="Script" uid="uid://5xnighmdaold" path="res://triggersaw_move.gd" id="20_bjrx2"]
+[ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="21_vbuld"]
+[ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="22_k0dkr"]
+[ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="23_rqxna"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfxjg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbw0d"]
 texture = ExtResource("3_h712r")
 0:0/0 = 0
 1:0/0 = 0
@@ -210,7 +213,7 @@ texture = ExtResource("3_h712r")
 
 [sub_resource type="TileSet" id="TileSet_gdcxq"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_lfxjg")
+sources/0 = SubResource("TileSetAtlasSource_gbw0d")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dsv0"]
 atlas = ExtResource("5_o0vva")
@@ -538,7 +541,7 @@ texture = ExtResource("1_t3gwi")
 stretch_mode = 1
 
 [node name="CharacterBody2D" parent="." groups=["Player"] instance=ExtResource("2_pt2a5")]
-position = Vector2(1985, 433)
+position = Vector2(61, 155)
 
 [node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
 position = Vector2(-4.33333, -20.6667)
@@ -755,6 +758,8 @@ shape = SubResource("RectangleShape2D_84k76")
 
 [node name="Checkpoint" parent="." instance=ExtResource("10_o0vva")]
 position = Vector2(1385, 767)
+completed_level_number = 18
+next_level = "res://All_Level/Map Level 19/Level_19.tscn"
 
 [node name="ChangeMoveTele" type="Area2D" parent="."]
 position = Vector2(2067, 778)
@@ -873,6 +878,13 @@ move_duration = 1.2
 position = Vector2(-74, -40)
 shape = SubResource("SeparationRayShape2D_w04ql")
 
+[node name="TouchControls" parent="." instance=ExtResource("21_vbuld")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("22_k0dkr")]
+visible = false
+
+[node name="PauseButton" parent="." instance=ExtResource("23_rqxna")]
+
 [connection signal="body_entered" from="TrapGaiMove/gaimovetrigger" to="TrapGaiMove/gaimovetrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="TrapGaiMove/movetrigger2" to="TrapGaiMove/movetrigger2" method="_on_body_entered"]
 [connection signal="body_entered" from="Holemove" to="Holemove" method="_on_body_entered"]
@@ -892,3 +904,5 @@ shape = SubResource("SeparationRayShape2D_w04ql")
 [connection signal="body_entered" from="triggersaw1" to="triggersaw1" method="_on_body_entered"]
 [connection signal="body_entered" from="triggersaw2" to="triggersaw2" method="_on_body_entered"]
 [connection signal="body_entered" from="triggersawMove" to="triggersawMove" method="_on_body_entered"]
+
+[editable path="PauseButton"]

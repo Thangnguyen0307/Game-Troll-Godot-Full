@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://d2eq3wrxwou1t"]
+[gd_scene load_steps=46 format=3 uid="uid://d2eq3wrxwou1t"]
 
 [ext_resource type="Script" uid="uid://c85pk27sc71ds" path="res://level_1.gd" id="1_dk26m"]
 [ext_resource type="Texture2D" uid="uid://dykufv5680ij8" path="res://Pixel Adventure 1/Free/Background/Yellow.png" id="2_dk26m"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="12_cipw2"]
 [ext_resource type="Script" uid="uid://cn68kf01nitbs" path="res://appearingBox.gd" id="12_enkxr"]
 [ext_resource type="Texture2D" uid="uid://et81wap61p4f" path="res://Pixel Adventure 1/Free/Items/Boxes/Box1/Idle.png" id="13_i8gp3"]
+[ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="14_i8gp3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gf767"]
 atlas = ExtResource("4_2lamd")
@@ -1112,6 +1113,8 @@ deadly_traps = [NodePath("../DeadlyTrap")]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect2/Trap_Face_2/ActivationZone"]
 position = Vector2(-32, -3)
 shape = SubResource("RectangleShape2D_gry5t")
+
+[node name="TouchControls" parent="TextureRect2" instance=ExtResource("14_i8gp3")]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(3, 3)
