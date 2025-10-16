@@ -18568,5 +18568,6 @@ visible = false
 [connection signal="body_entered" from="Room2" to="Room2" method="_on_body_entered"]
 [connection signal="body_entered" from="RoomLight" to="RoomLight" method="_on_body_entered"]
 [connection signal="body_entered" from="RoomLDark" to="RoomLDark" method="_on_body_entered"]
+[connection signal="pressed" from="PauseButton/Pause" to="PauseMenu" method="show_menu"]
 
 [editable path="PauseButton"]

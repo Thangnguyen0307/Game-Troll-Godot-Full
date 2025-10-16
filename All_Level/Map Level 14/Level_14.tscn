@@ -1171,7 +1171,7 @@ offset_right = 276.0
 offset_bottom = 673.0
 theme = SubResource("Theme_enkxr")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "CHỌN ĐƯỜNG ĐÚNG"
+text = "True way"
 
 [connection signal="body_entered" from="TextureRect2/Teleport" to="TextureRect2/Teleport" method="_on_body_entered"]
 [connection signal="body_entered" from="TextureRect2/Teleport2" to="TextureRect2/Teleport2" method="_on_body_entered"]
