@@ -16,38 +16,38 @@ func create_win_ui():
 	canvas_layer.add_child(control)
 	
 	# Victory title
-	var title = Label.new()
-	title.text = "🎉 CHIẾN THẮNG! 🎉"
-	title.add_theme_font_size_override("font_size", 80)
-	title.add_theme_color_override("font_color", Color(1.0, 0.85, 0.0, 1.0))  # Vàng đậm
-	title.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 1.0))  # Viền đen
-	title.add_theme_constant_override("outline_size", 12)  # Viền dày hơn
-	title.anchor_left = 0.5
-	title.anchor_right = 0.5
-	title.anchor_top = 0.15
-	title.offset_left = -350
-	title.offset_right = 350
-	title.offset_top = -50
-	title.offset_bottom = 50
-	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	control.add_child(title)
-	
-	# Subtitle
-	var subtitle = Label.new()
-	subtitle.text = "Bạn đã hoàn thành tất cả các màn chơi!"
-	subtitle.add_theme_font_size_override("font_size", 36)
-	subtitle.add_theme_color_override("font_color", Color(1.0, 1.0, 1.0, 1.0))
-	subtitle.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 0.8))
-	subtitle.add_theme_constant_override("outline_size", 4)
-	subtitle.anchor_left = 0.5
-	subtitle.anchor_right = 0.5
-	subtitle.anchor_top = 0.28
-	subtitle.offset_left = -450
-	subtitle.offset_right = 450
-	subtitle.offset_top = -20
-	subtitle.offset_bottom = 20
-	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	control.add_child(subtitle)
+	#var title = Label.new()
+	#title.text = "🎉 CHIẾN THẮNG! 🎉"
+	#title.add_theme_font_size_override("font_size", 80)
+	#title.add_theme_color_override("font_color", Color(1.0, 0.85, 0.0, 1.0))  # Vàng đậm
+	#title.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 1.0))  # Viền đen
+	#title.add_theme_constant_override("outline_size", 12)  # Viền dày hơn
+	#title.anchor_left = 0.5
+	#title.anchor_right = 0.5
+	#title.anchor_top = 0.15
+	#title.offset_left = -350
+	#title.offset_right = 350
+	#title.offset_top = -50
+	#title.offset_bottom = 50
+	#title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	#control.add_child(title)
+	#
+	## Subtitle
+	#var subtitle = Label.new()
+	#subtitle.text = "Bạn đã hoàn thành tất cả các màn chơi!"
+	#subtitle.add_theme_font_size_override("font_size", 36)
+	#subtitle.add_theme_color_override("font_color", Color(1.0, 1.0, 1.0, 1.0))
+	#subtitle.add_theme_color_override("font_outline_color", Color(0.0, 0.0, 0.0, 0.8))
+	#subtitle.add_theme_constant_override("outline_size", 4)
+	#subtitle.anchor_left = 0.5
+	#subtitle.anchor_right = 0.5
+	#subtitle.anchor_top = 0.28
+	#subtitle.offset_left = -450
+	#subtitle.offset_right = 450
+	#subtitle.offset_top = -20
+	#subtitle.offset_bottom = 20
+	#subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	#control.add_child(subtitle)
 	
 	# Stats
 	var stats = RichTextLabel.new()
