@@ -1,6 +1,6 @@
 [gd_scene load_steps=39 format=3 uid="uid://mhwnib7cebs5"]
 
-[ext_resource type="Script" uid="uid://c85pk27sc71ds" path="res://level_1.gd" id="1_4y57e"]
+[ext_resource type="Script" uid="uid://c85pk27sc71ds" path="res://ScriptsScenes/misc/level_1.gd" id="1_4y57e"]
 [ext_resource type="Texture2D" uid="uid://dhkt1prc5cciq" path="res://Pixel Adventure 1/Free/Background/Blue.png" id="2_epwhl"]
 [ext_resource type="Script" uid="uid://f7wkvuj85q1u" path="res://CHiTAN/Trap-up-Low.gd" id="3_wib0y"]
 [ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="4_cgcne"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c82u71xim8u8g" path="res://Hello.png" id="12_akww8"]
 [ext_resource type="Texture2D" uid="uid://cv75emh7is5wj" path="res://UI/ImgBlock/TrapImg.tres" id="13_ka5vl"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="14_x1akf"]
-[ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="15_a515o"]
+[ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://ScriptsScenes/MainCharacter/character_body_2d.tscn" id="15_a515o"]
 [ext_resource type="Script" uid="uid://dhbe4nrvokkhm" path="res://CHiTAN/ChiTanNV.gd" id="16_xyv3u"]
 [ext_resource type="Script" uid="uid://d0i3764jsu8oy" path="res://CHiTAN/TrapXoay.gd" id="17_di44y"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="18_vp6q2"]
@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="22_wib0y"]
 [ext_resource type="Script" uid="uid://11o0nnucsv8j" path="res://All_Level/Map Level 1/room.gd" id="23_cgcne"]
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="23_slgrp"]
-[ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="23_wib0y"]
+[ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="23_wib0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dj87x"]
 size = Vector2(106.82, 15.3959)

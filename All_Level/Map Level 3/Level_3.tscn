@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://dv55l6kd8ty8u"]
 
-[ext_resource type="Script" uid="uid://c85pk27sc71ds" path="res://level_1.gd" id="1_k7qfd"]
+[ext_resource type="Script" uid="uid://c85pk27sc71ds" path="res://ScriptsScenes/misc/level_1.gd" id="1_k7qfd"]
 [ext_resource type="Texture2D" uid="uid://dhkt1prc5cciq" path="res://Pixel Adventure 1/Free/Background/Blue.png" id="1_ovosc"]
 [ext_resource type="Script" uid="uid://bp83ku5px3qw5" path="res://CHiTAN/ChiTanLevel/Xam.gd" id="2_k7qfd"]
 [ext_resource type="Script" uid="uid://cyjh2e8sd10t4" path="res://CHiTAN/Trap_Face_2/Trap_Plus.gd" id="3_dnlp7"]
@@ -16,12 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="13_203x5"]
 [ext_resource type="Script" uid="uid://irremkkx1a01" path="res://CHiTAN/Trap_tái_sử_dụng/remove_tile_map_xxx.gd" id="14_4lug0"]
 [ext_resource type="Texture2D" uid="uid://bqcygrpxkexkd" path="res://CHiTAN/ChiTanLevel/pngimg.com - doge_meme_PNG8.png" id="15_fu8fe"]
-[ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://Scenes/character_body_2d.tscn" id="16_yxbak"]
+[ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://ScriptsScenes/MainCharacter/character_body_2d.tscn" id="16_yxbak"]
 [ext_resource type="Script" uid="uid://dhbe4nrvokkhm" path="res://CHiTAN/ChiTanNV.gd" id="17_j1gla"]
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="18_s2rjt"]
 [ext_resource type="Script" uid="uid://da4i60m7nl6k7" path="res://Checkpoint/Level_3/checkpoint_3.gd" id="19_pmb6u"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="21_bb31q"]
-[ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://PauseButton.tscn" id="22_rc3a0"]
+[ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="22_rc3a0"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="23_rc3a0"]
 [ext_resource type="Script" uid="uid://11o0nnucsv8j" path="res://All_Level/Map Level 1/room.gd" id="24_rtpcx"]
 

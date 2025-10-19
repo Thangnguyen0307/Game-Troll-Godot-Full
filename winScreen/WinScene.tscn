@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://ycwtrqjv541u"]
+
+[ext_resource type="Texture2D" uid="uid://587as1fm0kkm" path="res://Pixel Adventure 1/Free/Background/WinBG.png" id="1_t3pix"]
+[ext_resource type="Script" uid="uid://cnfnl6wjldgmb" path="res://winScreen/WinScene.gd" id="1_winscene"]
+[ext_resource type="Texture2D" uid="uid://boqnewygascjc" path="res://home_icon_21x22.png" id="2_uuemd"]
+[ext_resource type="Script" uid="uid://d2extkqcfbitg" path="res://CommonScripts/button.gd" id="3_j4jwh"]
+[ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="4_g0tah"]
+[ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="5_6ag3o"]
+
+[node name="WinScene" type="Node2D"]
+script = ExtResource("1_winscene")
+
+[node name="ChatGptImage12140211Thg9,2025" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(635, 359.5)
+scale = Vector2(0.828125, 0.702149)
+texture = ExtResource("1_t3pix")
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+offset_left = -394.0
+offset_top = 154.0
+offset_right = -365.0
+offset_bottom = 184.0
+scale = Vector2(3.0083, 2.73761)
+icon = ExtResource("2_uuemd")
+flat = true
+script = ExtResource("3_j4jwh")
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_g0tah")]
+visible = false
+
+[node name="PauseButton" parent="." instance=ExtResource("5_6ag3o")]
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="PauseButton/Pause" to="PauseMenu" method="show_menu"]
+
+[editable path="PauseButton"]

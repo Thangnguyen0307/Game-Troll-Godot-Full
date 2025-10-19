@@ -85,7 +85,7 @@ func _on_home_button_up():
 	animate_button_up($"CenterContainer/VBoxContainer/HomeButton")
 	$"/root/AudioController".play_click()
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://All_Level/Scene Main Start/main.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://Scene Main Start/main.tscn")
 
 # Sound button
 func _on_sound_button_down():
