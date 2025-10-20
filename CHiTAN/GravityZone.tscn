@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7hveipcmpxya"]
+
+[ext_resource type="Script" uid="uid://s324i7bvurn7" path="res://CHiTAN/GravityZone.gd" id="1_gravity"]
+
+[node name="GravityZone" type="Area2D"]
+script = ExtResource("1_gravity")
