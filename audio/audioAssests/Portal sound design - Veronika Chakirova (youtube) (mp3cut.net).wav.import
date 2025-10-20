@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://3mjkignwgabq"
+path="res://.godot/imported/Portal sound design - Veronika Chakirova (youtube) (mp3cut.net).wav-a54b75bb15a478b8104a00d3c1807551.sample"
+
+[deps]
+
+source_file="res://audio/audioAssests/Portal sound design - Veronika Chakirova (youtube) (mp3cut.net).wav"
+dest_files=["res://.godot/imported/Portal sound design - Veronika Chakirova (youtube) (mp3cut.net).wav-a54b75bb15a478b8104a00d3c1807551.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

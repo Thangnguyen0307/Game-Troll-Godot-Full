@@ -399,7 +399,7 @@ func _on_back_button_pressed():
 func _on_back_button_released():
 	animate_button_up(back_button)
 	$"/root/AudioController".play_click()
-	get_tree().change_scene_to_file("res://All_Level/Scene Main Start/main.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://Scene Main Start/main.tscn")
 
 # Reset button signals  
 func _on_reset_button_pressed():
