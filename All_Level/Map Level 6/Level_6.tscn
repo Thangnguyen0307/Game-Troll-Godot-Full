@@ -554,7 +554,7 @@ scale = Vector2(0.37512, 0.566092)
 shape = SubResource("RectangleShape2D_u68p4")
 
 [node name="Trap-d6" type="Area2D" parent="TextureRect"]
-position = Vector2(829, 260)
+position = Vector2(821, 262)
 script = ExtResource("4_55koy")
 
 [node name="NewAtlasTexture" type="Sprite2D" parent="TextureRect/Trap-d6"]
