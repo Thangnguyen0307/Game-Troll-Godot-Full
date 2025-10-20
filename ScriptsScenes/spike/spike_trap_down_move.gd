@@ -8,10 +8,12 @@ var start_position: Vector2
 
 func _ready():
 	start_position = global_position
+	visible = false
 
 func _physics_process(delta: float) -> void:
 	if triggered:
 		global_position.y += direction * speed * delta
+		visible = true
 
 func _on_saw_trigger_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -21,6 +23,7 @@ func _on_saw_trigger_body_entered(body: Node2D) -> void:
 func reset_trap():
 	global_position = start_position
 	triggered = false
+	_ready()
 
 
 func _on_spike_trigger_body_entered(body: Node2D) -> void:
