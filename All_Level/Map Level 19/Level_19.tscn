@@ -204,7 +204,7 @@ target_position = Vector2(0, 10)
 [node name="Box_1" type="Node" parent="Hide_Show_Box"]
 
 [node name="HideBox" type="AnimatableBody2D" parent="Hide_Show_Box/Box_1" groups=["saws"]]
-position = Vector2(292, 645)
+position = Vector2(292, 647)
 script = ExtResource("5_1tvyh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hide_Show_Box/Box_1/HideBox"]
@@ -217,7 +217,7 @@ visible = false
 shape = SubResource("RectangleShape2D_kgslf")
 
 [node name="TriggerShowBox" type="Area2D" parent="Hide_Show_Box/Box_1"]
-position = Vector2(291, 660)
+position = Vector2(291, 662)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Show_Box/Box_1/TriggerShowBox"]
 position = Vector2(1, -15)
@@ -226,7 +226,7 @@ shape = SubResource("RectangleShape2D_ui25f")
 [node name="Box_2" type="Node" parent="Hide_Show_Box"]
 
 [node name="HideBox" type="AnimatableBody2D" parent="Hide_Show_Box/Box_2" groups=["saws"]]
-position = Vector2(332, 549)
+position = Vector2(376, 552)
 script = ExtResource("5_1tvyh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hide_Show_Box/Box_2/HideBox"]
@@ -239,9 +239,53 @@ visible = false
 shape = SubResource("RectangleShape2D_kgslf")
 
 [node name="TriggerShowBox" type="Area2D" parent="Hide_Show_Box/Box_2"]
-position = Vector2(331, 564)
+position = Vector2(375, 567)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Show_Box/Box_2/TriggerShowBox"]
+position = Vector2(1, -15)
+shape = SubResource("RectangleShape2D_ui25f")
+
+[node name="Box_3" type="Node" parent="Hide_Show_Box"]
+
+[node name="HideBox" type="AnimatableBody2D" parent="Hide_Show_Box/Box_3" groups=["saws"]]
+position = Vector2(332, 647)
+script = ExtResource("5_1tvyh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hide_Show_Box/Box_3/HideBox"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_5clxk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Show_Box/Box_3/HideBox"]
+visible = false
+shape = SubResource("RectangleShape2D_kgslf")
+
+[node name="TriggerShowBox" type="Area2D" parent="Hide_Show_Box/Box_3"]
+position = Vector2(331, 662)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Show_Box/Box_3/TriggerShowBox"]
+position = Vector2(1, -15)
+shape = SubResource("RectangleShape2D_ui25f")
+
+[node name="Box_4" type="Node" parent="Hide_Show_Box"]
+
+[node name="HideBox" type="AnimatableBody2D" parent="Hide_Show_Box/Box_4" groups=["saws"]]
+position = Vector2(417, 552)
+script = ExtResource("5_1tvyh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hide_Show_Box/Box_4/HideBox"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_5clxk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Show_Box/Box_4/HideBox"]
+visible = false
+shape = SubResource("RectangleShape2D_kgslf")
+
+[node name="TriggerShowBox" type="Area2D" parent="Hide_Show_Box/Box_4"]
+position = Vector2(416, 567)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Show_Box/Box_4/TriggerShowBox"]
 position = Vector2(1, -15)
 shape = SubResource("RectangleShape2D_ui25f")
 
@@ -17047,6 +17091,8 @@ visible = false
 
 [connection signal="body_entered" from="Hide_Show_Box/Box_1/TriggerShowBox" to="Hide_Show_Box/Box_1/HideBox" method="_on_saw_trigger_body_entered"]
 [connection signal="body_entered" from="Hide_Show_Box/Box_2/TriggerShowBox" to="Hide_Show_Box/Box_2/HideBox" method="_on_saw_trigger_body_entered"]
+[connection signal="body_entered" from="Hide_Show_Box/Box_3/TriggerShowBox" to="Hide_Show_Box/Box_3/HideBox" method="_on_saw_trigger_body_entered"]
+[connection signal="body_entered" from="Hide_Show_Box/Box_4/TriggerShowBox" to="Hide_Show_Box/Box_4/HideBox" method="_on_saw_trigger_body_entered"]
 [connection signal="body_entered" from="Box_Suprise/Under/Box1/TriggerShowBox" to="Box_Suprise/Under/Box1/Box_Suprise" method="_on_saw_trigger_body_entered"]
 [connection signal="body_exited" from="Box_Suprise/Under/Box1/TriggerShowBox" to="Box_Suprise/Under/Box1/Box_Suprise" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Box_Suprise/Under/Box2/TriggerShowBox" to="Box_Suprise/Under/Box2/Box_Suprise" method="_on_saw_trigger_body_entered"]
