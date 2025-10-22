@@ -28,8 +28,11 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		sprite_2d.animation = "Jumping"
+		# Tắt âm thanh đi khi nhảy
+		$"/root/AudioController".stop_walk()
 	elif Input.is_action_just_pressed("jump"):
 		$"/root/AudioController".play_jump()
+		$"/root/AudioController".stop_walk()  # Tắt walk trước khi nhảy
 		velocity.y = JUMP_VELOCITY
 	
 	# Ground animations & sound
