@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://d1e1esyh54whf" path="res://All_Level/Map Level 22/Script_lv22/trigger_show.gd" id="13_uir80"]
 [ext_resource type="Script" uid="uid://fice40q36uxr" path="res://All_Level/Map Level 22/Script_lv22/trigger_show_2.gd" id="14_ifr1a"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yrpau"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wo0o3"]
 texture = ExtResource("2_g418a")
 0:0/0 = 0
 1:0/0 = 0
@@ -204,7 +204,7 @@ texture = ExtResource("2_g418a")
 
 [sub_resource type="TileSet" id="TileSet_jxycx"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_yrpau")
+sources/0 = SubResource("TileSetAtlasSource_wo0o3")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dsv0"]
 atlas = ExtResource("4_ms38m")
