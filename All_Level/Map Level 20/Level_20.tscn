@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://deg3pt3o0e73b" path="res://CHiTAN/ChiTanLevel/changeSize.gd" id="2_nw40j"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_xgw58"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://ScriptsScenes/MainCharacter/character_body_2d.tscn" id="3_0knv2"]
-[ext_resource type="Texture2D" uid="uid://bqcygrpxkexkd" path="res://CHiTAN/ChiTanLevel/pngimg.com - doge_meme_PNG8.png" id="3_1ghqc"]
 [ext_resource type="Script" uid="uid://dhbe4nrvokkhm" path="res://CHiTAN/ChiTanNV.gd" id="4_a4sme"]
 [ext_resource type="Script" uid="uid://dmwtg3a5hhtfi" path="res://CHiTAN/Trap_tái_sử_dụng/Move_U_L_D.gd" id="4_anthm"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="5_a4sme"]
 [ext_resource type="Texture2D" uid="uid://cqhyknp06hc4x" path="res://UI/ImgBlock/blocksand.tres" id="5_anthm"]
+[ext_resource type="Texture2D" uid="uid://dofq4km6afxem" path="res://Pixel Adventure 1/Free/Items/Fruits/new_atlas_texture.tres" id="5_c2lr5"]
 [ext_resource type="Script" uid="uid://ow7lj5frkx85" path="res://CHiTAN/Trap_tái_sử_dụng/Trap_DULR.gd" id="6_dfui8"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="6_ywddb"]
 [ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="7_v0jux"]
@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://ct04dphm552vt" path="res://CHiTAN/ChiTanLevel/activation_zone.gd" id="12_1tvyh"]
 [ext_resource type="Script" uid="uid://irremkkx1a01" path="res://CHiTAN/Trap_tái_sử_dụng/remove_tile_map_xxx.gd" id="14_o4wo7"]
 [ext_resource type="Script" uid="uid://cyjh2e8sd10t4" path="res://CHiTAN/Trap_Face_2/Trap_Plus.gd" id="14_wgt8j"]
-[ext_resource type="Texture2D" uid="uid://bglou6eu75n13" path="res://CHiTAN/ChiTanLevel/PikPng.com_meme-png_2575455.png" id="15_egemg"]
+[ext_resource type="Texture2D" uid="uid://cdd373xfplsr5" path="res://Pixel Adventure 1/Free/Traps/Rock Head/Idle.png" id="15_via7a"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="22_c8645"]
 [ext_resource type="Script" uid="uid://bn8752m1onop8" path="res://ScriptsScenes/switchBodyLevel/room.gd" id="23_ma06k"]
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="24_via7a"]
@@ -479,9 +479,10 @@ is_permanent = false
 temporary_duration = 10000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect/Area2D"]
-position = Vector2(34.9729, 35.4425)
-scale = Vector2(0.114372, 0.0917474)
-texture = ExtResource("3_1ghqc")
+texture_filter = 1
+position = Vector2(34.9729, 34.0531)
+scale = Vector2(2.83731, 2.92613)
+texture = ExtResource("5_c2lr5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Area2D"]
 position = Vector2(34.9729, 34.0526)
@@ -495,9 +496,10 @@ growth_duration = 1.0
 temporary_duration = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect/Area2D7"]
-position = Vector2(34.9729, 35.4425)
-scale = Vector2(0.114372, 0.0917474)
-texture = ExtResource("3_1ghqc")
+texture_filter = 1
+position = Vector2(34.5388, 36.4851)
+scale = Vector2(2.59058, 2.88955)
+texture = ExtResource("5_c2lr5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Area2D7"]
 position = Vector2(34.9729, 34.0526)
@@ -872,7 +874,7 @@ rotation = -0.34932
 scale = Vector2(0.878281, 0.8882)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Area2D17/TriggerArea"]
-position = Vector2(664.451, -45.0071)
+position = Vector2(655.801, -46.0798)
 rotation = 1.9197
 scale = Vector2(0.999975, 1.03161)
 shape = SubResource("RectangleShape2D_egemg")
@@ -962,10 +964,11 @@ move_distance_down = 550.0
 move_speed = 2.7
 
 [node name="NewAtlasTexture2" type="Sprite2D" parent="TextureRect/DeadlyTrap9"]
-position = Vector2(132.953, 193.96)
+texture_filter = 1
+position = Vector2(128.289, 190.93)
 rotation = -12.5634
-scale = Vector2(0.0333653, 0.0894361)
-texture = ExtResource("15_egemg")
+scale = Vector2(2.35731, 4.36872)
+texture = ExtResource("15_via7a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/DeadlyTrap9"]
 position = Vector2(128.57, 249.21)
