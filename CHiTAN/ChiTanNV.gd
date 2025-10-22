@@ -33,8 +33,24 @@ func _physics_process(delta: float) -> void:
 				in_zero_gravity = true
 				break
 		
-		# Chỉ áp dụng gravity Godot nếu KHÔNG trong vùng tắt gravity
-		if not in_zero_gravity:
+		# Kiểm tra có trong GravityFieldZone không
+		var custom_gravity = Vector2.ZERO
+		var has_custom_gravity = false
+		for field in get_tree().get_nodes_in_group("gravity_field_zones"):
+			if field.has_method("is_player_in_zone") and field.is_player_in_zone(self):
+				custom_gravity = field.get_custom_gravity_for_player(self)
+				has_custom_gravity = true
+				break
+		
+		# Áp dụng gravity
+		if in_zero_gravity:
+			# Không có gravity
+			pass
+		elif has_custom_gravity:
+			# Dùng custom gravity từ GravityFieldZone
+			velocity += custom_gravity * delta
+		else:
+			# Gravity Godot bình thường
 			velocity += get_gravity() * delta
 		
 		sprite_2d.animation = "Jumping"
