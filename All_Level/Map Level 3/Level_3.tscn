@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://ow7lj5frkx85" path="res://CHiTAN/Trap_tái_sử_dụng/Trap_DULR.gd" id="12_krlqr"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="13_203x5"]
 [ext_resource type="Script" uid="uid://irremkkx1a01" path="res://CHiTAN/Trap_tái_sử_dụng/remove_tile_map_xxx.gd" id="14_4lug0"]
-[ext_resource type="Texture2D" uid="uid://bqcygrpxkexkd" path="res://CHiTAN/ChiTanLevel/pngimg.com - doge_meme_PNG8.png" id="15_fu8fe"]
+[ext_resource type="Texture2D" uid="uid://4730e6sxu1o7" path="res://Pixel Adventure 1/Free/Main Characters/Mask Dude/Jump (32x32).png" id="14_rc3a0"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://ScriptsScenes/MainCharacter/character_body_2d.tscn" id="16_yxbak"]
 [ext_resource type="Script" uid="uid://dhbe4nrvokkhm" path="res://CHiTAN/ChiTanNV.gd" id="17_j1gla"]
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="18_s2rjt"]
@@ -26,7 +26,7 @@
 [ext_resource type="Script" uid="uid://11o0nnucsv8j" path="res://All_Level/Map Level 1/room.gd" id="24_rtpcx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnol3"]
-size = Vector2(78, 31)
+size = Vector2(78, 39.218)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhfeh"]
 size = Vector2(20, 54)
@@ -276,12 +276,13 @@ offset_right = 56.0
 offset_bottom = 35.0
 scale = Vector2(1.17331, 1.2152)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "GÂU GÂU"
+text = "You really
+ good"
 flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(22, 25)
+position = Vector2(22, 31.41)
 scale = Vector2(1.45977, 1.56)
 shape = SubResource("RectangleShape2D_jnol3")
 
@@ -477,6 +478,13 @@ rotation = 1.9197
 scale = Vector2(0.999975, 1.03161)
 shape = SubResource("RectangleShape2D_v7nk6")
 
+[node name="Pngimg_com-DogeMemePng8" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1969, 211)
+rotation = -3.13166
+scale = Vector2(8.60859, -10.7294)
+texture = ExtResource("14_rc3a0")
+
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_ydjpo")
@@ -492,12 +500,6 @@ individual_tiles = Array[Vector2i]([Vector2i(21, 7), Vector2i(22, 7)])
 position = Vector2(-182, -9)
 shape = SubResource("RectangleShape2D_x5y7t")
 
-[node name="Pngimg_com-DogeMemePng8" type="Sprite2D" parent="."]
-position = Vector2(1954.82, 219.311)
-rotation = -0.110998
-scale = Vector2(0.516, 0.484756)
-texture = ExtResource("15_fu8fe")
-
 [node name="CharacterBody2D2" parent="." groups=["Player"] instance=ExtResource("16_yxbak")]
 position = Vector2(93, 301)
 script = ExtResource("17_j1gla")
@@ -505,7 +507,7 @@ script = ExtResource("17_j1gla")
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D2"]
 
 [node name="Checkpoint" parent="." instance=ExtResource("18_s2rjt")]
-position = Vector2(825, 180)
+position = Vector2(842, 189)
 script = ExtResource("19_pmb6u")
 completed_level_number = 3
 next_level = "res://All_Level/Map Level 4/Level_4.tscn"

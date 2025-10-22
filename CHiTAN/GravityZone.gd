@@ -8,6 +8,7 @@ class_name GravityZone
 @export var gravity_strength: float = 500.0  ## Lực hút (pixels/s²)
 @export var attraction_radius: float = 200.0  ## Phạm vi hút (pixels)
 @export var max_pull_speed: float = 400.0  ## Tốc độ hút tối đa
+@export var disable_world_gravity: bool = true  ## Tắt trọng lực Godot khi vào vùng này?
 
 @export_group("Visual Settings")
 @export var show_debug_circle: bool = true  ## Hiển thị vòng tròn phạm vi
@@ -20,8 +21,12 @@ class_name GravityZone
 
 var players_in_zone: Array = []
 var center_position: Vector2
+var players_with_disabled_gravity: Array = []  # Danh sách player đã tắt gravity
 
 func _ready():
+	# Thêm vào group để player có thể tìm thấy
+	add_to_group("gravity_zones")
+	
 	# Setup collision shape dựa trên attraction_radius
 	setup_collision_shape()
 	
@@ -109,13 +114,30 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		if not body in players_in_zone:
 			players_in_zone.append(body)
-			print("Player entered gravity zone!")
+			
+			# Đánh dấu player để tắt gravity trong _physics_process
+			if disable_world_gravity:
+				if not body in players_with_disabled_gravity:
+					players_with_disabled_gravity.append(body)
+				print("🌌 Player entered gravity zone! World gravity will be DISABLED")
+			else:
+				print("🌌 Player entered gravity zone!")
 
 func _on_body_exited(body):
 	"""Khi vật rời khỏi vùng hút"""
 	if body.is_in_group("player"):
 		players_in_zone.erase(body)
-		print("Player exited gravity zone!")
+		
+		# Bỏ đánh dấu tắt gravity
+		if body in players_with_disabled_gravity:
+			players_with_disabled_gravity.erase(body)
+			print("🌍 Player exited gravity zone! World gravity RESTORED")
+		else:
+			print("🌍 Player exited gravity zone!")
+
+func is_player_gravity_disabled(player) -> bool:
+	"""Kiểm tra xem player này có bị tắt gravity không"""
+	return disable_world_gravity and (player in players_with_disabled_gravity)
 
 func _draw():
 	"""Vẽ visual cho gravity zone"""

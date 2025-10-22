@@ -26,10 +26,39 @@ func _physics_process(delta: float) -> void:
 	
 	# Gravity & Jump
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		# Kiểm tra có trong vùng GravityZone disable_world_gravity không
+		var in_zero_gravity = false
+		for zone in get_tree().get_nodes_in_group("gravity_zones"):
+			if zone.has_method("is_player_gravity_disabled") and zone.is_player_gravity_disabled(self):
+				in_zero_gravity = true
+				break
+		
+		# Kiểm tra có trong GravityFieldZone không
+		var custom_gravity = Vector2.ZERO
+		var has_custom_gravity = false
+		for field in get_tree().get_nodes_in_group("gravity_field_zones"):
+			if field.has_method("is_player_in_zone") and field.is_player_in_zone(self):
+				custom_gravity = field.get_custom_gravity_for_player(self)
+				has_custom_gravity = true
+				break
+		
+		# Áp dụng gravity
+		if in_zero_gravity:
+			# Không có gravity
+			pass
+		elif has_custom_gravity:
+			# Dùng custom gravity từ GravityFieldZone
+			velocity += custom_gravity * delta
+		else:
+			# Gravity Godot bình thường
+			velocity += get_gravity() * delta
+		
 		sprite_2d.animation = "Jumping"
+		# Tắt âm thanh đi khi nhảy
+		$"/root/AudioController".stop_walk()
 	elif Input.is_action_just_pressed("jump"):
 		$"/root/AudioController".play_jump()
+		$"/root/AudioController".stop_walk()  # Tắt walk trước khi nhảy
 		velocity.y = JUMP_VELOCITY
 	
 	# Ground animations & sound

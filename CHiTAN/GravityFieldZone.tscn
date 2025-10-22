@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm8dx3k7qy2w"]
+
+[ext_resource type="Script" path="res://CHiTAN/GravityFieldZone.gd" id="1_field"]
+
+[node name="GravityFieldZone" type="Area2D"]
+script = ExtResource("1_field")
+custom_gravity = Vector2(0, 980)
+gravity_multiplier = 1.0
+override_gravity = true
+zone_width = 300.0
+zone_height = 400.0
+use_rectangle = true
+zone_radius = 200.0
+show_debug_area = true
+area_color = Color(0.3, 0.5, 0.8, 0.3)
+border_color = Color(0.4, 0.7, 1, 0.6)
+show_gravity_arrows = true

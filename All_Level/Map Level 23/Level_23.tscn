@@ -1,12 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://cix44xfcqavcx"]
+[gd_scene load_steps=15 format=3 uid="uid://cix44xfcqavcx"]
 
 [ext_resource type="Texture2D" uid="uid://bo3gi6m4w3jkx" path="res://Pixel Adventure 1/Free/Background/Pink.png" id="1_c77y2"]
+[ext_resource type="Script" uid="uid://ow7lj5frkx85" path="res://CHiTAN/Trap_tái_sử_dụng/Trap_DULR.gd" id="2_kvlq1"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_yfxh7"]
+[ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="3_bcxbb"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://ScriptsScenes/MainCharacter/character_body_2d.tscn" id="3_fhvmb"]
 [ext_resource type="Script" uid="uid://dhbe4nrvokkhm" path="res://CHiTAN/ChiTanNV.gd" id="4_dco1y"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="5_2arnb"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="6_ucgpo"]
 [ext_resource type="PackedScene" uid="uid://c7hveipcmpxya" path="res://CHiTAN/GravityZone.tscn" id="7_ucgpo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imrcp"]
+size = Vector2(219.149, 133.545)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pknd"]
+size = Vector2(21.9457, 240)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fhvmb"]
 texture = ExtResource("2_yfxh7")
@@ -198,6 +206,9 @@ texture = ExtResource("2_yfxh7")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fhvmb")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucgpo"]
+size = Vector2(3140.92, 61)
+
 [node name="Level23" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -205,18 +216,74 @@ offset_left = -24.0
 offset_top = -174.0
 offset_right = 1312.0
 offset_bottom = 547.0
-scale = Vector2(2.31608, 1.43894)
+scale = Vector2(3.16513, 1.46398)
 size_flags_horizontal = 0
 texture = ExtResource("1_c77y2")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Area2D18" type="Area2D" parent="TextureRect"]
+texture_filter = 1
+position = Vector2(406.303, 360.66)
+rotation = 1.5724
+script = ExtResource("2_kvlq1")
+distances = Array[float]([27.0, 0.0, 0.0, 0.0])
+speeds = Array[float]([0.2, 0.0, 0.0, 0.0])
+reset_delay = 0.0
+is_active = true
+
+[node name="NewAtlasTexture" type="Sprite2D" parent="TextureRect/Area2D18"]
+position = Vector2(-340.922, 225.864)
+rotation = 1.5708
+scale = Vector2(3.14582, 2.42886)
+texture = ExtResource("3_bcxbb")
+
+[node name="NewAtlasTexture2" type="Sprite2D" parent="TextureRect/Area2D18"]
+position = Vector2(-340.922, 177.864)
+rotation = 1.5708
+scale = Vector2(3.14582, 2.42886)
+texture = ExtResource("3_bcxbb")
+
+[node name="NewAtlasTexture3" type="Sprite2D" parent="TextureRect/Area2D18"]
+position = Vector2(-340.922, 129.864)
+rotation = 1.5708
+scale = Vector2(3.14582, 2.42886)
+texture = ExtResource("3_bcxbb")
+
+[node name="NewAtlasTexture4" type="Sprite2D" parent="TextureRect/Area2D18"]
+position = Vector2(-341.525, 82.0048)
+rotation = 1.5708
+scale = Vector2(3.14582, 2.42886)
+texture = ExtResource("3_bcxbb")
+
+[node name="NewAtlasTexture5" type="Sprite2D" parent="TextureRect/Area2D18"]
+position = Vector2(-341.922, 33.8636)
+rotation = 1.5708
+scale = Vector2(3.14582, 2.42886)
+texture = ExtResource("3_bcxbb")
+
+[node name="TriggerArea" type="Area2D" parent="TextureRect/Area2D18"]
+position = Vector2(-504.3, 385.701)
+rotation = -0.34932
+scale = Vector2(0.878281, 0.8882)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Area2D18/TriggerArea"]
+position = Vector2(341.515, -176.796)
+rotation = 1.9197
+scale = Vector2(0.999975, 1.03161)
+shape = SubResource("RectangleShape2D_imrcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Area2D18"]
+position = Vector2(-355.027, 132)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7pknd")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_dco1y")
 format = 2
-layer_0/tile_data = PackedInt32Array(-131073, 983040, 9, -65537, 983040, 9, -1, 983040, 9, 65535, 983040, 9, 131071, 983040, 9, 196607, 983040, 9, 262143, 983040, 9, 327679, 983040, 9, 393215, 983040, 9, 458751, 983040, 9, 589823, 983040, 9, 655359, 983040, 9, 720895, 983040, 9, 786431, 983040, 9, 851967, 983040, 9, 917503, 983040, 9, 983039, 983040, 9, 1048575, 983040, 9, 1114111, 983040, 9, -196609, 786432, 9, -262144, 851968, 8, -262143, 851968, 8, -262142, 851968, 8, -262141, 851968, 8, -262140, 851968, 8, -262139, 851968, 8, -262138, 851968, 8, -262137, 851968, 8, -262136, 851968, 8, -262135, 851968, 8, -262134, 851968, 8, -262133, 851968, 8, -262132, 851968, 8, -262131, 851968, 8, -262130, 851968, 8, -262129, 851968, 8, -262128, 851968, 8, -262127, 851968, 8, -262126, 851968, 8, -262124, 851968, 8, -262123, 851968, 8, -262122, 851968, 8, -262121, 851968, 8, -262120, 851968, 8, -262119, 851968, 8, -262118, 851968, 8, -262117, 851968, 8, -262116, 851968, 8, -262115, 851968, 8, -262114, 851968, 8, -262113, 851968, 8, -262112, 851968, 8, -262111, 851968, 8, -262110, 851968, 8, -262109, 851968, 8, -262108, 851968, 8, -262107, 851968, 8, -262106, 851968, 8, -262105, 851968, 8, -262104, 851968, 8, -262103, 851968, 8, -262102, 851968, 8, -262101, 851968, 8, -262100, 851968, 8, -262099, 851968, 8, -262098, 851968, 8, -262097, 851968, 8, -262096, 851968, 8, -262095, 851968, 8, -262094, 851968, 8, -262093, 851968, 8, -262091, 851968, 8, -262092, 851968, 8, -262125, 851968, 8, 524287, 983040, 9, 852017, 458752, 4, 852018, 458752, 4, 852019, 458752, 4, -262090, 851968, 8, -262089, 851968, 8, -262088, 851968, 8, -262087, 851968, 8, -262086, 851968, 8, -262085, 851968, 8, -262084, 851968, 8, -262083, 851968, 8, -262082, 851968, 8, -262081, 851968, 8, -196544, 983040, 9, -131008, 983040, 9, -65472, 983040, 9, 64, 983040, 9, 65600, 983040, 9, 131136, 983040, 9, 196672, 983040, 9, 262208, 983040, 9, 327744, 983040, 9, 393280, 983040, 9, 458816, 983040, 9, 524352, 983040, 9, 589888, 983040, 9, 655424, 983040, 9, 720960, 983040, 9, 786496, 983040, 9, 852032, 983040, 9, 917568, 983040, 9, 983104, 983040, 9, 1048640, 983040, 9, 1114176, 786432, 9, -262080, 786432, 9, 1179647, 786432, 9, 851968, 458752, 4, 851969, 458752, 4, 851970, 458752, 4, 851971, 458752, 4, 851972, 458752, 4, 851973, 458752, 4, 851979, 458752, 4, 851980, 458752, 4, 851981, 458752, 4, 851982, 458752, 4, 851983, 458752, 4, 851984, 458752, 4, 851985, 458752, 4, 851992, 458752, 4, 851993, 458752, 4, 851994, 458752, 4, 851991, 458752, 4, 852004, 458752, 4, 852005, 458752, 4, 852006, 458752, 4, 851995, 458752, 4, 852003, 458752, 4, 852014, 458752, 4, 852015, 458752, 4, 852016, 458752, 4, 852013, 458752, 4, 851986, 458752, 4, 851978, 458752, 4, 852002, 458752, 4)
+layer_0/tile_data = PackedInt32Array(-131073, 983040, 9, -65537, 983040, 9, -1, 983040, 9, 65535, 983040, 9, 131071, 983040, 9, 196607, 983040, 9, 262143, 983040, 9, 327679, 983040, 9, 393215, 983040, 9, 458751, 983040, 9, 589823, 983040, 9, 655359, 983040, 9, 720895, 983040, 9, 786431, 983040, 9, 851967, 983040, 9, 917503, 983040, 9, 983039, 983040, 9, 1048575, 983040, 9, 1114111, 983040, 9, -196609, 786432, 9, -262144, 851968, 8, -262143, 851968, 8, -262142, 851968, 8, -262141, 851968, 8, -262140, 851968, 8, -262139, 851968, 8, -262138, 851968, 8, -262137, 851968, 8, -262136, 851968, 8, -262135, 851968, 8, -262134, 851968, 8, -262133, 851968, 8, -262132, 851968, 8, -262131, 851968, 8, -262130, 851968, 8, -262129, 851968, 8, -262128, 851968, 8, -262127, 851968, 8, -262126, 851968, 8, -262124, 851968, 8, -262123, 851968, 8, -262122, 851968, 8, -262121, 851968, 8, -262120, 851968, 8, -262119, 851968, 8, -262118, 851968, 8, -262117, 851968, 8, -262116, 851968, 8, -262115, 851968, 8, -262114, 851968, 8, -262113, 851968, 8, -262112, 851968, 8, -262111, 851968, 8, -262110, 851968, 8, -262109, 851968, 8, -262108, 851968, 8, -262107, 851968, 8, -262106, 851968, 8, -262105, 851968, 8, -262104, 851968, 8, -262103, 851968, 8, -262102, 851968, 8, -262101, 851968, 8, -262100, 851968, 8, -262099, 851968, 8, -262098, 851968, 8, -262097, 851968, 8, -262096, 851968, 8, -262095, 851968, 8, -262094, 851968, 8, -262093, 851968, 8, -262091, 851968, 8, -262092, 851968, 8, -262125, 851968, 8, 524287, 983040, 9, -262090, 851968, 8, -262089, 851968, 8, -262088, 851968, 8, -262087, 851968, 8, -262086, 851968, 8, -262085, 851968, 8, -262084, 851968, 8, -262083, 851968, 8, -262082, 851968, 8, -262081, 851968, 8, -262080, 786432, 9, 1179647, 786432, 9, 851968, 458752, 4, 851969, 458752, 4, 851970, 458752, 4, 851971, 458752, 4, 851972, 458752, 4, 851973, 458752, 4, 720945, 458752, 4, 720925, 458752, 4)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_fhvmb")]
 position = Vector2(128, 563)
@@ -231,10 +298,29 @@ visible = false
 [node name="PauseButton" parent="." instance=ExtResource("6_ucgpo")]
 
 [node name="GravityZone" parent="." instance=ExtResource("7_ucgpo")]
-position = Vector2(595, 248)
-gravity_strength = 8000.0
-attraction_radius = 500.0
+position = Vector2(610, 276)
+gravity_strength = 5500.0
+attraction_radius = 400.0
 max_pull_speed = 100.0
+
+[node name="GravityZone2" parent="." instance=ExtResource("7_ucgpo")]
+position = Vector2(1804, 272)
+gravity_strength = 5000.0
+attraction_radius = 400.0
+max_pull_speed = 100.0
+
+[node name="GravityZone3" parent="." instance=ExtResource("7_ucgpo")]
+position = Vector2(2868, 269)
+gravity_strength = 8000.0
+attraction_radius = 300.0
+max_pull_speed = 100.0
+
+[node name="Area2D3" type="Area2D" parent="." groups=["hurt"]]
+position = Vector2(304, 774)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(1238.46, 51)
+shape = SubResource("RectangleShape2D_ucgpo")
 
 [connection signal="pressed" from="PauseButton/Pause" to="PauseMenu" method="show_menu"]
 

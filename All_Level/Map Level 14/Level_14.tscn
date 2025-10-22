@@ -9,11 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="6_23ctf"]
 [ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="7_2lamd"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://ScriptsScenes/MainCharacter/character_body_2d.tscn" id="7_eep2x"]
-[ext_resource type="Texture2D" uid="uid://bglou6eu75n13" path="res://CHiTAN/ChiTanLevel/PikPng.com_meme-png_2575455.png" id="8_2lamd"]
 [ext_resource type="Script" uid="uid://dhbe4nrvokkhm" path="res://CHiTAN/ChiTanNV.gd" id="8_8cf3m"]
+[ext_resource type="Texture2D" uid="uid://cdd373xfplsr5" path="res://Pixel Adventure 1/Free/Traps/Rock Head/Idle.png" id="8_mpi2w"]
 [ext_resource type="Script" uid="uid://deg3pt3o0e73b" path="res://CHiTAN/ChiTanLevel/changeSize.gd" id="9_enkxr"]
 [ext_resource type="Script" uid="uid://ct04dphm552vt" path="res://CHiTAN/ChiTanLevel/activation_zone.gd" id="9_oflku"]
-[ext_resource type="Texture2D" uid="uid://bqcygrpxkexkd" path="res://CHiTAN/ChiTanLevel/pngimg.com - doge_meme_PNG8.png" id="10_i8gp3"]
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="11_eep2x"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="11_mpi2w"]
 [ext_resource type="Script" uid="uid://cyjh2e8sd10t4" path="res://CHiTAN/Trap_Face_2/Trap_Plus.gd" id="12_8cf3m"]
@@ -21,6 +20,7 @@
 [ext_resource type="Script" uid="uid://cn68kf01nitbs" path="res://ScriptsScenes/box/appearingBox.gd" id="12_enkxr"]
 [ext_resource type="Texture2D" uid="uid://et81wap61p4f" path="res://Pixel Adventure 1/Free/Items/Boxes/Box1/Idle.png" id="13_i8gp3"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="14_i8gp3"]
+[ext_resource type="Texture2D" uid="uid://dofq4km6afxem" path="res://Pixel Adventure 1/Free/Items/Fruits/new_atlas_texture.tres" id="19_mpi2w"]
 [ext_resource type="Script" uid="uid://bn8752m1onop8" path="res://ScriptsScenes/switchBodyLevel/room.gd" id="22_mpi2w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gf767"]
@@ -787,9 +787,9 @@ is_active = true
 
 [node name="PikPng_comMeme-png2575455" type="Sprite2D" parent="TextureRect2/Area2D15"]
 texture_filter = 1
-position = Vector2(46, -168)
-scale = Vector2(0.237977, 0.221297)
-texture = ExtResource("8_2lamd")
+position = Vector2(45.9999, -163)
+scale = Vector2(14.0714, 10.2857)
+texture = ExtResource("8_mpi2w")
 
 [node name="TriggerArea" type="Area2D" parent="TextureRect2/Area2D15"]
 position = Vector2(-447, 705)
@@ -1147,9 +1147,10 @@ growth_duration = 90.0
 temporary_duration = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(36, 17.5001)
-scale = Vector2(0.216, 0.166159)
-texture = ExtResource("10_i8gp3")
+texture_filter = 1
+position = Vector2(32, 21)
+scale = Vector2(4.85714, 4.42105)
+texture = ExtResource("19_mpi2w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(33.5, 19.5001)
@@ -1185,10 +1186,10 @@ text = "True way"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -4
-offset_left = -539.0
-offset_top = -1264.0
-offset_right = 2903.0
-offset_bottom = 2386.0
+offset_left = -447.0
+offset_top = -1185.0
+offset_right = 2995.0
+offset_bottom = 2465.0
 texture = ExtResource("2_dk26m")
 stretch_mode = 1
 
