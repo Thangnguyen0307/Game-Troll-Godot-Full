@@ -276,8 +276,7 @@ offset_right = 56.0
 offset_bottom = 35.0
 scale = Vector2(1.17331, 1.2152)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "You really
- good"
+text = "You good"
 flat = true
 metadata/_edit_use_anchors_ = true
 
