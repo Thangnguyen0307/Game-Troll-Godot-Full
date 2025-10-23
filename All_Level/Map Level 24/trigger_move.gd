@@ -11,8 +11,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if triggered:
-		collision_shape_2d.call_deferred("set_disabled", true
-		)
+		collision_shape_2d.call_deferred("set_disabled", true)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
