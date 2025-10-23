@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cdx65t72fqvwd" path="res://ScriptsScenes/spike/spike_hide.gd" id="8_c08um"]
 [ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="9_xvywh"]
 [ext_resource type="Script" uid="uid://doofi3s02e6uy" path="res://All_Level/Map Level 24/terrain_move_left.gd" id="10_gnob5"]
-[ext_resource type="Texture2D" uid="uid://cv75emh7is5wj" path="res://UI/ImgBlock/TrapImg.tres" id="11_ii0fj"]
+[ext_resource type="Texture2D" uid="uid://c1on6l7brppma" path="res://UI/ImgBlock/Terrain.tres" id="11_8mdp4"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="12_e6jbi"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="13_brhls"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="14_ljj4u"]
@@ -472,7 +472,7 @@ script = ExtResource("10_gnob5")
 texture_filter = 1
 position = Vector2(7.75, -1.00003)
 scale = Vector2(2.02778, 2.04255)
-texture = ExtResource("11_ii0fj")
+texture = ExtResource("11_8mdp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TerrainMoveLeft/TerrainMoveLeft"]
 position = Vector2(7.5, -1)
