@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cix44xfcqavcx"]
+[gd_scene load_steps=29 format=3 uid="uid://cix44xfcqavcx"]
 
 [ext_resource type="Texture2D" uid="uid://bo3gi6m4w3jkx" path="res://Pixel Adventure 1/Free/Background/Pink.png" id="1_c77y2"]
 [ext_resource type="Script" uid="uid://ow7lj5frkx85" path="res://CHiTAN/Trap_tái_sử_dụng/Trap_DULR.gd" id="2_kvlq1"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="3_bcxbb"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://ScriptsScenes/MainCharacter/character_body_2d.tscn" id="3_fhvmb"]
 [ext_resource type="Script" uid="uid://dhbe4nrvokkhm" path="res://CHiTAN/ChiTanNV.gd" id="4_dco1y"]
-[ext_resource type="Script" uid="uid://dmwtg3a5hhtfi" path="res://CHiTAN/Trap_tái_sử_dụng/Move_U_L_D.gd" id="4_imrcp"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="5_2arnb"]
 [ext_resource type="Texture2D" uid="uid://d32rmvwyc3w8w" path="res://UI/ImgBlock/new_atlas_texture.tres" id="5_7pknd"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="6_ucgpo"]
@@ -19,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="17_pdmoa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imrcp"]
-size = Vector2(219.149, 133.545)
+size = Vector2(219.149, 31.6568)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7pknd"]
 size = Vector2(21.9457, 240)
@@ -28,7 +27,7 @@ size = Vector2(21.9457, 240)
 size = Vector2(15.797, 33.2936)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l85uv"]
-size = Vector2(74.8783, 194.238)
+size = Vector2(73.9516, 70.137)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tocni"]
 size = Vector2(40.671, 149.374)
@@ -251,6 +250,18 @@ texture = ExtResource("1_c77y2")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 3456.0
+offset_top = -107.0
+offset_right = 3629.0
+offset_bottom = -49.0
+theme_override_colors/font_color = Color(0.706788, 0.524068, 0.236586, 1)
+theme_override_font_sizes/font_size = 30
+text = "GRAVITY = 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Area2D18" type="Area2D" parent="."]
 texture_filter = 1
 position = Vector2(1263.4, 363.151)
@@ -294,12 +305,12 @@ scale = Vector2(3.14582, 2.42886)
 texture = ExtResource("3_bcxbb")
 
 [node name="TriggerArea" type="Area2D" parent="Area2D18"]
-position = Vector2(-504.3, 385.701)
+position = Vector2(-505.853, 316.538)
 rotation = -0.34932
 scale = Vector2(0.878281, 0.8882)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D18/TriggerArea"]
-position = Vector2(341.515, -176.796)
+position = Vector2(292.127, -194.763)
 rotation = 1.9197
 scale = Vector2(0.999975, 1.03161)
 shape = SubResource("RectangleShape2D_imrcp")
@@ -311,9 +322,10 @@ shape = SubResource("RectangleShape2D_7pknd")
 [node name="Area2D8" type="AnimatableBody2D" parent="."]
 position = Vector2(2019.22, 534.064)
 scale = Vector2(3.16857, 1.48936)
-script = ExtResource("4_imrcp")
-move_up_distance = 0.0
-move_down_distance = 0.0
+script = ExtResource("14_g0hib")
+distances = Array[float]([0.0, 100.0, 0.0])
+speeds = Array[float]([0.0, 0.1, 0.0])
+is_active = true
 
 [node name="MapChiTan2" type="Sprite2D" parent="Area2D8"]
 texture_filter = 1
@@ -329,7 +341,7 @@ shape = SubResource("RectangleShape2D_oxi4v")
 position = Vector2(126.377, 18.4429)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8/TriggerArea"]
-position = Vector2(11.058, -153.568)
+position = Vector2(-3.99366, -70.8574)
 shape = SubResource("RectangleShape2D_l85uv")
 
 [node name="DeadlyTrap7" type="Area2D" parent="."]
@@ -380,7 +392,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-131073, 983040, 9, -65537, 983040, 9, -1, 983040, 9, 65535, 983040, 9, 131071, 983040, 9, 196607, 983040, 9, 262143, 983040, 9, 327679, 983040, 9, 393215, 983040, 9, 458751, 983040, 9, 589823, 983040, 9, 655359, 983040, 9, 720895, 983040, 9, 786431, 983040, 9, 851967, 983040, 9, 917503, 983040, 9, 983039, 983040, 9, 1048575, 983040, 9, 1114111, 983040, 9, -196609, 786432, 9, -262144, 851968, 8, -262143, 851968, 8, -262142, 851968, 8, -262141, 851968, 8, -262140, 851968, 8, -262139, 851968, 8, -262138, 851968, 8, -262137, 851968, 8, -262136, 851968, 8, -262135, 851968, 8, -262134, 851968, 8, -262133, 851968, 8, -262132, 851968, 8, -262131, 851968, 8, -262130, 851968, 8, -262129, 851968, 8, -262128, 851968, 8, -262127, 851968, 8, -262126, 851968, 8, -262124, 851968, 8, -262123, 851968, 8, -262122, 851968, 8, -262121, 851968, 8, -262120, 851968, 8, -262119, 851968, 8, -262118, 851968, 8, -262117, 851968, 8, -262116, 851968, 8, -262115, 851968, 8, -262114, 851968, 8, -262113, 851968, 8, -262112, 851968, 8, -262111, 851968, 8, -262110, 851968, 8, -262109, 851968, 8, -262108, 851968, 8, -262107, 851968, 8, -262106, 851968, 8, -262105, 851968, 8, -262104, 851968, 8, -262103, 851968, 8, -262102, 851968, 8, -262101, 851968, 8, -262100, 851968, 8, -262099, 851968, 8, -262098, 851968, 8, -262097, 851968, 8, -262096, 851968, 8, -262095, 851968, 8, -262094, 851968, 8, -262093, 851968, 8, -262091, 851968, 8, -262092, 851968, 8, -262125, 851968, 8, 524287, 983040, 9, -262090, 851968, 8, -262089, 851968, 8, -262088, 851968, 8, -262087, 851968, 8, -262086, 851968, 8, -262085, 851968, 8, -262084, 851968, 8, 1179647, 786432, 9, 851968, 458752, 4, 851969, 458752, 4, 851970, 458752, 4, 851971, 458752, 4, 851972, 458752, 4, 851973, 458752, 4, 720925, 458752, 4, 64, 458752, 4, 65, 458752, 4, 66, 458752, 4, 67, 458752, 4, 68, 458752, 4, -262083, 851968, 8, -262082, 851968, 8, -262081, 851968, 8, -262080, 851968, 8, -262079, 851968, 8, -262078, 851968, 8, -262077, 851968, 8, -262076, 851968, 8, -262075, 851968, 8, -262074, 851968, 8, -262073, 851968, 8, -262072, 851968, 8, -262071, 851968, 8, -262070, 851968, 8, -262069, 851968, 8, -262068, 851968, 8, -262067, 851968, 8, -262066, 851968, 8, -262065, 851968, 8, -262064, 851968, 8, -262063, 851968, 8, -262062, 851968, 8, -262061, 851968, 8, -262060, 851968, 8, -262059, 851968, 8, -262058, 851968, 8, 69, 458752, 4, 393311, 458752, 4, 393312, 458752, 4, 458855, 458752, 4, 458856, 458752, 4, 458857, 458752, 4, 458858, 458752, 4, 458859, 458752, 4, 458860, 458752, 4, 458854, 458752, 4, 458861, 458752, 4, -262057, 851968, 8, -262056, 851968, 8, -262055, 851968, 8, -262054, 851968, 8, -262053, 851968, 8, -262052, 851968, 8, -262051, 851968, 8, -262050, 851968, 8, -262049, 851968, 8, -262048, 851968, 8, -262047, 851968, 8, -262046, 851968, 8, -262045, 851968, 8, -262044, 851968, 8, -262043, 851968, 8, -262042, 851968, 8, -262041, 851968, 8, -262040, 851968, 8, -262039, 851968, 8, -262038, 851968, 8, -262037, 851968, 8, -262036, 851968, 8, -262035, 851968, 8, -262034, 851968, 8, -262033, 851968, 8, -262032, 851968, 8, -262031, 851968, 8, -262030, 851968, 8, -262029, 851968, 8, -262028, 851968, 8, -262027, 851968, 8, -262026, 851968, 8, -262025, 851968, 8, -262024, 851968, 8, -262023, 786432, 9, -196487, 983040, 9, -130951, 983040, 9, -65415, 983040, 9, 121, 983040, 9, 65657, 983040, 9, 131193, 983040, 9, 196729, 983040, 9, 262265, 983040, 9, 327801, 983040, 9, 393337, 983040, 9, 458873, 983040, 9, 524409, 983040, 9, 589945, 983040, 9, 655481, 983040, 9, 721017, 983040, 9, 786553, 983040, 9, 852089, 983040, 9, 917625, 983040, 9, 983161, 983040, 9, 1048697, 983040, 9, 1114233, 983040, 9)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_fhvmb")]
-position = Vector2(4602, 227)
+position = Vector2(158, 552)
 scale = Vector2(3.57574, 3.6399)
 script = ExtResource("4_dco1y")
 
@@ -486,7 +498,7 @@ shape = SubResource("RectangleShape2D_7oihw")
 position = Vector2(239, 304)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D10/TriggerArea"]
-position = Vector2(-82.3411, -92.6974)
+position = Vector2(-96.9998, -38)
 scale = Vector2(0.972503, 0.974548)
 shape = SubResource("RectangleShape2D_pdmoa")
 
