@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://26g1nyycfuji" path="res://Pixel Adventure 1/Free/Traps/Saw/On (38x38).png" id="9_6rtiu"]
 [ext_resource type="Script" uid="uid://5xnighmdaold" path="res://ScriptsScenes/saw/triggersaw_move.gd" id="10_67cx6"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="11_6rtiu"]
-[ext_resource type="Script" uid="uid://4rrc3vjg0vkx" path="res://Khang/triggersaw_move_extra.gd" id="12_wuovo"]
+[ext_resource type="Script" uid="uid://4rrc3vjg0vkx" path="res://All_Level/Map Level 26/triggersaw_move_extra.gd" id="12_wuovo"]
 [ext_resource type="Script" uid="uid://bn0nh15yepald" path="res://ScriptsScenes/gai/gai_up.gd" id="13_beujv"]
 [ext_resource type="Texture2D" uid="uid://dycdavdvo4drb" path="res://Pixel Adventure 1/Free/Traps/Trap2/Spike_B.png" id="14_wuovo"]
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="16_krqc2"]
