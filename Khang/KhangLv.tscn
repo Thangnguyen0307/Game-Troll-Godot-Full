@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b60f6wyq5w6sa"]
+[gd_scene load_steps=58 format=3 uid="uid://b60f6wyq5w6sa"]
 
 [ext_resource type="Texture2D" uid="uid://cf4ms2y2h4nfc" path="res://Pixel Adventure 1/Free/Background/Background_1.png" id="1_67cx6"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_13kab"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://bn0nh15yepald" path="res://ScriptsScenes/gai/gai_up.gd" id="13_beujv"]
 [ext_resource type="Texture2D" uid="uid://dycdavdvo4drb" path="res://Pixel Adventure 1/Free/Traps/Trap2/Spike_B.png" id="14_wuovo"]
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="16_krqc2"]
+[ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="17_oe15g"]
+[ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="18_xolb0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kir50"]
 texture = ExtResource("2_13kab")
@@ -804,6 +806,11 @@ position = Vector2(877, 525)
 completed_level_number = 18
 next_level = "res://All_Level/Map Level 19/Level_19.tscn"
 
+[node name="PauseMenu" parent="." instance=ExtResource("17_oe15g")]
+visible = false
+
+[node name="PauseButton" parent="." instance=ExtResource("18_xolb0")]
+
 [connection signal="body_entered" from="Room" to="Room" method="_on_body_entered"]
 [connection signal="body_entered" from="Shrink" to="Shrink" method="_on_body_entered"]
 [connection signal="body_entered" from="Shrink3" to="Shrink3" method="_on_body_entered"]
@@ -814,3 +821,5 @@ next_level = "res://All_Level/Map Level 19/Level_19.tscn"
 [connection signal="body_entered" from="triggersawMove" to="triggersawMove" method="_on_body_entered"]
 [connection signal="body_entered" from="triggersawMoveExtra" to="triggersawMoveExtra" method="_on_body_entered"]
 [connection signal="body_entered" from="Gai_Up/Trigger" to="Gai_Up" method="_on_trigger_entered"]
+
+[editable path="PauseButton"]
