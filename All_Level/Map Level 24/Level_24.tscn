@@ -6,7 +6,11 @@
 [ext_resource type="Script" uid="uid://dlsl5n0i0fh48" path="res://All_Level/Map Level 24/level_drop.gd" id="4_ql7qv"]
 [ext_resource type="Script" uid="uid://e3cnttgr7mkc" path="res://All_Level/Map Level 24/trigger_move.gd" id="5_co6p8"]
 [ext_resource type="Script" uid="uid://dud22lkugqfcj" path="res://All_Level/Map Level 24/terrain_move.gd" id="6_sfiyf"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://damnsinley7c2" path="res://UI/ImgBlock/Img_Level/BlockLevel24.tres" id="7_8mdp4"]
+=======
+[ext_resource type="Texture2D" uid="uid://6pch5atfx7tn" path="res://UI/ImgBlock/khongduocsua.tres" id="7_ixhbp"]
+>>>>>>> main
 [ext_resource type="Script" uid="uid://cdx65t72fqvwd" path="res://ScriptsScenes/spike/spike_hide.gd" id="8_c08um"]
 [ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="9_xvywh"]
 [ext_resource type="Script" uid="uid://doofi3s02e6uy" path="res://All_Level/Map Level 24/terrain_move_left.gd" id="10_gnob5"]
