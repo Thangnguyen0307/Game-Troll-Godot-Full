@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cfqyxasa5evtb" path="res://All_Level/Map Level 25/saw_right.gd" id="8_tvtma"]
 [ext_resource type="Texture2D" uid="uid://26g1nyycfuji" path="res://Pixel Adventure 1/Free/Traps/Saw/On (38x38).png" id="9_4tnce"]
 [ext_resource type="Script" uid="uid://1ki01i66wujv" path="res://All_Level/Map Level 25/terrain_hide.gd" id="10_b4plf"]
-[ext_resource type="Texture2D" uid="uid://cv75emh7is5wj" path="res://UI/ImgBlock/TrapImg.tres" id="11_i5gsb"]
+[ext_resource type="Texture2D" uid="uid://wk2asdrhpa2m" path="res://UI/ImgBlock/Img_Level/BlockLevel25.tres" id="11_onc6h"]
 [ext_resource type="Script" uid="uid://bbcbc6cvj240a" path="res://All_Level/Map Level 25/saw_hide.gd" id="12_4ftdb"]
 [ext_resource type="Script" uid="uid://b2eox7vgutx6h" path="res://All_Level/Map Level 25/saw_left.gd" id="13_4hpjs"]
 [ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="14_l6gxo"]
@@ -471,7 +471,7 @@ script = ExtResource("10_b4plf")
 texture_filter = 1
 position = Vector2(7.75, -1.00003)
 scale = Vector2(2.02778, 2.04255)
-texture = ExtResource("11_i5gsb")
+texture = ExtResource("11_onc6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Traps/TerrainHide/TerrainHide"]
 position = Vector2(8, -1)
