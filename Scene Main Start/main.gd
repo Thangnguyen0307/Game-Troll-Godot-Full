@@ -2,36 +2,37 @@ extends Node2D
 
 var tween: Tween
 
+# Đường dẫn scene
+const MAIN_SCENE := "res://Scene Main Start/main.tscn"
+const SPECIAL_SCENE := "res://Special Main Scene/special_main.tscn"
+
+# Đường dẫn Menu chọn level (Bạn cần tạo thêm cái SpecialLevelSelect)
+const MAIN_LEVEL_SELECT := "res://UI/level_select_menu.tscn"
+const SPECIAL_LEVEL_SELECT := "res://Special Main Scene/SpecialLevelSelect.tscn" # <--- Tạo file này sau
+
 func _ready():
-	# Connect TouchScreenButton signals
+	# Kết nối nút (Giữ nguyên code cũ)
 	$"Start-BT".pressed.connect(_on_start_bt_down)
 	$"Start-BT".released.connect(_on_start_bt_up)
 	$"LevelSelectBt".pressed.connect(_on_level_select_bt_down)
 	$"LevelSelectBt".released.connect(_on_level_select_bt_up)
 	$"Quit-BT".pressed.connect(_on_quit_bt_down)
 	$"Quit-BT".released.connect(_on_quit_bt_up)
+	$"Troll-Bt".pressed.connect(_on_troll_bt_down)
+	$"Troll-Bt".released.connect(_on_troll_bt_up)
+	
+	# Kiểm tra xem đang ở Scene nào để phát nhạc cho đúng
+	var current_path := get_tree().current_scene.scene_file_path
+	
+	if current_path == SPECIAL_SCENE:
+		print("Đang ở chế độ Special")
+		AudioController.play_special_music()
+		# Thay đổi hình nền hoặc màu sắc nút ở đây nếu muốn báo hiệu cho người chơi
+	else:
+		print("Đang ở chế độ Main")
+		AudioController.play_main_music()
 
-func animate_button_down(button: Node):
-	if not is_instance_valid(button):
-		return
-		
-	if tween:
-		tween.kill()
-	tween = create_tween()
-	if tween:
-		tween.tween_property(button, "scale", button.scale * 0.9, 0.1)
-
-func animate_button_up(button: Node):
-	if not is_instance_valid(button):
-		return
-		
-	if tween:
-		tween.kill()
-	tween = create_tween()
-	if tween:
-		tween.tween_property(button, "scale", button.scale / 0.9, 0.1)
-
-# Start Button
+# --- XỬ LÝ NÚT START ---
 func _on_start_bt_down():
 	animate_button_down($"Start-BT")
 
@@ -39,17 +40,28 @@ func _on_start_bt_up():
 	animate_button_up($"Start-BT")
 	$"/root/AudioController".play_click()
 	
-	# ✅ KIỂM TRA DEATH LIMIT TRƯỚC KHI VÀO GAME
+	# 1. Kiểm tra Death Limit (Chung cho cả 2 chế độ)
 	if not GameManager.can_player_die():
 		show_death_limit_blocked_message()
 		return
 	
-	# Vào level cuối cùng đã unlock thay vì current_level
-	var last_unlocked = GameManager.max_level_unlocked
-	print("Going to last unlocked level: ", last_unlocked)
-	GameManager.go_to_level(last_unlocked)
+	# 2. Kiểm tra đang ở Menu nào để hành động tương ứng
+	var current_path := get_tree().current_scene.scene_file_path
+	
+	if current_path == SPECIAL_SCENE:
+		# --- CHẾ ĐỘ SPECIAL ---
+		# Start game = Luôn bắt đầu từ Level 1 + Có Intro kể chuyện
+		print("MAIN: Bắt đầu Special Mode!")
+		GameManager.start_special_level(1) 
+		
+	else:
+		# --- CHẾ ĐỘ MAIN THƯỜNG ---
+		# Start game = Tiếp tục level cao nhất đã mở (Load Progress)
+		var last_unlocked = GameManager.max_level_unlocked
+		print("MAIN: Tiếp tục Main Mode tại level: ", last_unlocked)
+		GameManager.go_to_level(last_unlocked)
 
-# Level Select Button  
+# --- XỬ LÝ NÚT LEVEL SELECT ---
 func _on_level_select_bt_down():
 	animate_button_down($"LevelSelectBt")
 
@@ -57,14 +69,53 @@ func _on_level_select_bt_up():
 	animate_button_up($"LevelSelectBt")
 	$"/root/AudioController".play_click()
 	
-	# ✅ KIỂM TRA DEATH LIMIT TRƯỚC KHI VÀO LEVEL SELECT
 	if not GameManager.can_player_die():
 		show_death_limit_blocked_message()
 		return
 		
-	get_tree().change_scene_to_file.call_deferred("res://UI/level_select_menu.tscn")
+	# Điều hướng sang bảng chọn level tương ứng
+	var current_path := get_tree().current_scene.scene_file_path
 	
-# Quit Button
+	if current_path == SPECIAL_SCENE:
+		# Mở bảng chọn level của Special (1-10)
+		if ResourceLoader.exists(SPECIAL_LEVEL_SELECT):
+			get_tree().change_scene_to_file.call_deferred(SPECIAL_LEVEL_SELECT)
+		else:
+			print("❌ Chưa tạo file SpecialLevelSelect.tscn!")
+	else:
+		# Mở bảng chọn level thường (1-50)
+		get_tree().change_scene_to_file.call_deferred(MAIN_LEVEL_SELECT)
+
+# --- XỬ LÝ NÚT TROLL (CHUYỂN ĐỔI MAIN <-> SPECIAL) ---
+# (Phần này giữ nguyên logic của bạn, rất tốt rồi)
+func _on_troll_bt_down():
+	animate_button_down($"Troll-Bt")
+
+func _on_troll_bt_up():
+	animate_button_up($"Troll-Bt")
+	$"/root/AudioController".play_click()
+	_toggle_main_special_scene()
+
+func _toggle_main_special_scene():
+	var current_scene := get_tree().current_scene
+	if not current_scene: return
+
+	var current_path := current_scene.scene_file_path
+	var next_scene := ""
+
+	if current_path == MAIN_SCENE:
+		next_scene = SPECIAL_SCENE
+	elif current_path == SPECIAL_SCENE:
+		next_scene = MAIN_SCENE
+	else:
+		next_scene = MAIN_SCENE # Mặc định về Main nếu lạc trôi
+
+	if ResourceLoader.exists(next_scene):
+		get_tree().change_scene_to_file.call_deferred(next_scene)
+	else:
+		push_error("❌ Scene not found: " + next_scene)
+
+# --- CÁC HÀM PHỤ TRỢ KHÁC (Quit, Animation, Popup) GIỮ NGUYÊN ---
 func _on_quit_bt_down():
 	animate_button_down($"Quit-BT")
 
@@ -72,6 +123,19 @@ func _on_quit_bt_up():
 	animate_button_up($"Quit-BT")
 	$"/root/AudioController".play_click()
 	get_tree().quit()
+
+func animate_button_down(button: Node):
+	if not is_instance_valid(button): return
+	if tween: tween.kill()
+	tween = create_tween()
+	tween.tween_property(button, "scale", button.scale * 0.9, 0.1)
+
+func animate_button_up(button: Node):
+	if not is_instance_valid(button): return
+	if tween: tween.kill()
+	tween = create_tween()
+	tween.tween_property(button, "scale", button.scale / 0.9, 0.1)
+
 
 # Keep old functions for compatibility (but they won't be called)
 func _on_quit_bt_pressed() -> void:
@@ -82,6 +146,9 @@ func _on_start_bt_pressed() -> void:
 
 func _on_level_select_bt_pressed() -> void:
 	pass
+
+func _on_troll_bt_pressed() -> void:
+	pass # Replace with function body.
 
 # ✅ HIỆN THÔNG BÁO DEATH LIMIT CHẶN GAME
 func show_death_limit_blocked_message():

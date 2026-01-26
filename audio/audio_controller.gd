@@ -2,20 +2,34 @@ extends Node2D
 
 @export var mute: bool = false
 
-func _ready():
-	if not mute:
-		play_music()
+@onready var music_main := $Music
+@onready var music_special := $MusicSpecial
+
 
 # Phát nhạc nền
-func play_music():
-	if not mute:
-		$Music.play()
+
+func stop_all_music():
+	music_main.stop()
+	music_special.stop()
+
+func play_main_music():
+	if mute: return
+	stop_all_music()
+	music_main.play()
+
+func play_special_music():
+	if mute: return
+	stop_all_music()
+	music_special.play()
 
 # Phát âm thanh khi nhảy
 func play_jump() -> void:
 	if not mute:	
 		$Jump.play()
-
+# âm thanh khi ngã 
+func play_fall() -> void:
+	if not mute:
+		$fall.play()
 # Phát âm thanh bước chân (loop khi chạy)
 func play_walk() -> void:
 	if not mute and not $Walk.playing:
