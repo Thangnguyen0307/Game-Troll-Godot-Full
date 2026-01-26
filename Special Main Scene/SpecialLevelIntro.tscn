@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceg67ecpoxqj7"]
+
+[ext_resource type="Script" uid="uid://cjfyssqc3apag" path="res://Special Main Scene/special_level_intro.gd" id="1_er20m"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_er20m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+color = Color(0, 0, 0, 1)
+
+[node name="StoryLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+horizontal_alignment = 1
