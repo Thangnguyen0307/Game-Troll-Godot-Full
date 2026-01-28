@@ -82,16 +82,83 @@ func _on_special_level_released(level_number: int, button: TouchScreenButton):
 	animate_button_up(button)
 	$"/root/AudioController".play_click()
 	
-	# --- THAY ĐỔI 3: KIỂM TRA DEATH LIMIT ---
+	# --- KIỂM TRA LEVEL CÓ TỒN TẠI KHÔNG ---
+	if not is_level_available(level_number):
+		show_unavailable_message()
+		return
+	
+	# --- KIỂM TRA DEATH LIMIT ---
 	if not GameManager.can_player_die():
-		# Gọi hàm hiện thông báo lỗi từ Main (nếu có) hoặc tự xử lý
-		# Vì script này độc lập, ta gọi qua GameManager để hiện popup nếu cần
 		GameManager._show_death_limit_block_message()
 		return
 
-	# --- THAY ĐỔI 4: GỌI HÀM START_SPECIAL_LEVEL ---
+	# --- GỌI HÀM START_SPECIAL_LEVEL ---
 	print("Vào Special Level: ", level_number)
 	GameManager.start_special_level(level_number)
+
+func is_level_available(level_number: int) -> bool:
+	"""Kiểm tra level có scene file không"""
+	var path = "res://All_Level/Special_Level/Special_Level_" + str(level_number) + "/Special_Level_" + str(level_number) + ".tscn"
+	return ResourceLoader.exists(path)
+
+func show_unavailable_message():
+	
+	# Tạo CanvasLayer để overlay lên toàn màn hình
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 100  # Layer cao để hiện trên cùng
+	
+	# Background tối full screen
+	var bg = ColorRect.new()
+	bg.color = Color(0, 0, 0, 0.85)
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.mouse_filter = Control.MOUSE_FILTER_STOP
+	
+	# Tạo popup label center
+	var popup = Label.new()
+	popup.text = "UNAVAILABLE"
+	
+	# Set anchors cho center
+	popup.set_anchors_preset(Control.PRESET_CENTER)
+	popup.offset_left = -300
+	popup.offset_top = -50
+	popup.offset_right = 300
+	popup.offset_bottom = 50
+	popup.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	popup.grow_vertical = Control.GROW_DIRECTION_BOTH
+	
+	popup.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	popup.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	
+	# Style - Màu đỏ sáng pixel game
+	popup.add_theme_font_size_override("font_size", 56)
+	popup.add_theme_color_override("font_color", Color(1.0, 0.2, 0.2, 1))  # Đỏ sáng
+	popup.add_theme_color_override("font_outline_color", Color(0.1, 0, 0, 1))  # Viền đen đỏ
+	popup.add_theme_constant_override("outline_size", 6)
+	
+	# Thêm vào CanvasLayer
+	canvas_layer.add_child(bg)
+	canvas_layer.add_child(popup)
+	
+	# Thêm CanvasLayer vào root
+	get_tree().root.add_child(canvas_layer)
+	
+	# Animation: Hiện -> Dừng -> Fade đi
+	popup.modulate.a = 0
+	bg.modulate.a = 0
+	
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(popup, "modulate:a", 1.0, 0.4)  # Fade in chậm hơn
+	tween.tween_property(bg, "modulate:a", 1.0, 0.4)
+	tween.set_parallel(false)
+	tween.tween_interval(3.5)  # Hiển thị 3.5s thay vì 2s
+	tween.set_parallel(true)
+	tween.tween_property(popup, "modulate:a", 0.0, 0.6)  # Fade out chậm hơn
+	tween.tween_property(bg, "modulate:a", 0.0, 0.6)
+	tween.set_parallel(false)
+	tween.tween_callback(func():
+		canvas_layer.queue_free()  # Xóa cả CanvasLayer
+	)
 
 # --- XỬ LÝ NÚT BACK ---
 func connect_signals():
@@ -109,11 +176,68 @@ func _on_back_button_released():
 
 # --- HIỆU ỨNG ANIMATION (Giữ nguyên) ---
 func animate_button_down(button: Node):
-	if tween: tween.kill()
+	if tween:
+		tween.kill()
 	tween = create_tween()
-	tween.tween_property(button, "scale", Vector2(0.9, 0.9), 0.1)
+	
+	# Xử lý khác nhau cho Control và Node2D
+	if button is Control:
+		# Nếu là Button trong container với TouchScreenButton child, animate child thay vì parent
+		if button is Button and button.get_child_count() > 0:
+			var touch_button = button.get_child(0)
+			if touch_button is Node2D:
+				animate_button_down(touch_button)  # Recursive call cho TouchScreenButton
+				return
+		
+		# Control nodes thông thường - dùng pivot_offset
+		button.pivot_offset = button.size / 2
+		tween.tween_property(button, "scale", Vector2(0.9, 0.9), 0.1)
+	elif button is Node2D:
+		# Node2D (TouchScreenButton) - lưu base scale và scale từ center
+		if not button.has_meta("base_scale"):
+			button.set_meta("base_scale", button.scale)
+		if not button.has_meta("base_position"):
+			button.set_meta("base_position", button.position)
+		
+		var base_scale = button.get_meta("base_scale")
+		var base_pos = button.get_meta("base_position")
+		var target_scale = base_scale * 0.9
+		
+		# Tính toán position offset để giữ center cố định
+		var texture_size = Vector2.ZERO
+		if button.texture_normal:
+			texture_size = button.texture_normal.get_size()
+		var center_offset = texture_size * base_scale * 0.05  # 0.05 = (1.0 - 0.9) / 2
+		
+		tween.parallel().tween_property(button, "scale", target_scale, 0.1)
+		tween.parallel().tween_property(button, "position", base_pos + center_offset, 0.1)
 
 func animate_button_up(button: Node):
-	if tween: tween.kill()
+	if tween:
+		tween.kill()
 	tween = create_tween()
-	tween.tween_property(button, "scale", Vector2(1.0, 1.0), 0.1)
+	
+	# Xử lý khác nhau cho Control và Node2D
+	if button is Control:
+		# Nếu là Button trong container với TouchScreenButton child, animate child thay vì parent
+		if button is Button and button.get_child_count() > 0:
+			var touch_button = button.get_child(0)
+			if touch_button is Node2D:
+				animate_button_up(touch_button)  # Recursive call cho TouchScreenButton
+				return
+		
+		# Control nodes thông thường - dùng pivot_offset
+		button.pivot_offset = button.size / 2
+		tween.tween_property(button, "scale", Vector2(1.0, 1.0), 0.1)
+	elif button is Node2D:
+		# Node2D (TouchScreenButton) - restore về base scale và position
+		if not button.has_meta("base_scale"):
+			button.set_meta("base_scale", button.scale)
+		if not button.has_meta("base_position"):
+			button.set_meta("base_position", button.position)
+		
+		var base_scale = button.get_meta("base_scale")
+		var base_pos = button.get_meta("base_position")
+		
+		tween.parallel().tween_property(button, "scale", base_scale, 0.1)
+		tween.parallel().tween_property(button, "position", base_pos, 0.1)
