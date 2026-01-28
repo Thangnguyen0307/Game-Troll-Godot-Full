@@ -506,7 +506,8 @@ var special_level_stories = {
 	1: [
 		"Chào mừng đến với Vùng Hỗn Mang...",
 		"Tại đây, quy tắc vật lý không còn đúng nữa.",
-		"Hãy chuẩn bị tinh thần..."
+		"Hãy chuẩn bị tinh thần...",
+		"Hỡi Jump King vĩ đại!"
 	],
 	2: [
 		"Bạn tưởng thoát rồi sao?",
@@ -547,6 +548,8 @@ func go_to_actual_special_level(level_number: int):
 	
 	if ResourceLoader.exists(path):
 		get_tree().change_scene_to_file(path)
+		# Phát nhạc level Special
+		AudioController.play_level_special_music()
 		# Tự động load hệ thống tin nhắn chết
 		call_deferred("_ensure_death_message_system")
 	else:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cb6jqesiik6jl"]
 
 [ext_resource type="Script" uid="uid://rfgme1u3dwts" path="res://Scene Main Start/main.gd" id="1_hmd4f"]
-[ext_resource type="Texture2D" uid="uid://c5mypcg2ngxj2" path="res://Pixel Adventure 1/Free/Background/Gemini_Generated_Image_e3e9nne3e9nne3e9.png" id="2_xhe4x"]
+[ext_resource type="Texture2D" uid="uid://cwswcr0gqc3b6" path="res://Pixel Adventure 1/Free/Background/Special_scenebg_without_troll.png" id="2_hmd4f"]
 [ext_resource type="Texture2D" uid="uid://bky10qw4s16e" path="res://Pixel Adventure 1/Free/Other/Screenshot 2026-01-22 111352.png" id="3_hmd4f"]
 [ext_resource type="Texture2D" uid="uid://cq66kicrjgn80" path="res://Pixel Adventure 1/Free/Other/Screenshot 2026-01-22 112546.png" id="4_ghfta"]
 [ext_resource type="Texture2D" uid="uid://dqfbs5x7b2j67" path="res://Pixel Adventure 1/Free/Other/Screenshot_2026-01-22_112600-removebg-preview.png" id="5_bqe4f"]
@@ -16,37 +16,49 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1.9999996
-offset_right = 1693.813
-offset_bottom = 1132.9482
+offset_right = 1721.7878
+offset_bottom = 1219.1338
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.750674, 0.638158)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_xhe4x")
+texture = ExtResource("2_hmd4f")
 expand_mode = 1
 
-[node name="Start-BT" type="TouchScreenButton" parent="."]
-position = Vector2(486, 114)
+[node name="StartRoot" type="Node2D" parent="."]
+position = Vector2(630, 207)
+
+[node name="Start-BT" type="TouchScreenButton" parent="StartRoot"]
+position = Vector2(-112.99994, -82)
 scale = Vector2(0.6535212, 0.81005585)
 texture_normal = ExtResource("3_hmd4f")
 
-[node name="LevelSelectBt" type="TouchScreenButton" parent="."]
-position = Vector2(488.99997, 259.00003)
+[node name="LevelRoot" type="Node2D" parent="."]
+position = Vector2(635, 341)
+
+[node name="LevelSelectBt" type="TouchScreenButton" parent="LevelRoot"]
+position = Vector2(-113, -72.999985)
 scale = Vector2(0.65745866, 0.7814207)
 texture_normal = ExtResource("4_ghfta")
 
-[node name="Quit-BT" type="TouchScreenButton" parent="."]
-position = Vector2(478.00003, 400)
+[node name="QuitRoot" type="Node2D" parent="."]
+position = Vector2(641, 481)
+
+[node name="Quit-BT" type="TouchScreenButton" parent="QuitRoot"]
+position = Vector2(-131, -72)
 scale = Vector2(0.6813186, 0.7142856)
 texture_normal = ExtResource("5_bqe4f")
 
-[node name="Troll-Bt" type="TouchScreenButton" parent="."]
-position = Vector2(1003.00006, 432)
-scale = Vector2(1.1187211, 1.1783783)
+[node name="TrollRoot" type="Node2D" parent="."]
+position = Vector2(1154, 580)
+
+[node name="Troll-Bt" type="TouchScreenButton" parent="TrollRoot"]
+position = Vector2(-98, -74.99991)
+scale = Vector2(0.922374, 1.027027)
 texture_normal = ExtResource("6_hmd4f")
 
-[connection signal="pressed" from="Start-BT" to="." method="_on_start_bt_pressed"]
-[connection signal="pressed" from="LevelSelectBt" to="." method="_on_level_select_bt_pressed"]
-[connection signal="pressed" from="Quit-BT" to="." method="_on_quit_bt_pressed"]
-[connection signal="pressed" from="Troll-Bt" to="." method="_on_troll_bt_pressed"]
+[connection signal="pressed" from="StartRoot/Start-BT" to="." method="_on_start_bt_pressed"]
+[connection signal="pressed" from="LevelRoot/LevelSelectBt" to="." method="_on_level_select_bt_pressed"]
+[connection signal="pressed" from="QuitRoot/Quit-BT" to="." method="_on_quit_bt_pressed"]
+[connection signal="pressed" from="TrollRoot/Troll-Bt" to="." method="_on_troll_bt_pressed"]
