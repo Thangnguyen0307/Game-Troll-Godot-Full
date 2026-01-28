@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cljkqt3cwkxgk"]
+
+[ext_resource type="Script" uid="uid://dmb1ups85jlrw" path="res://ReuseScene/enemy.gd" id="1_ba50l"]
+[ext_resource type="Texture2D" uid="uid://d28412io5l5gh" path="res://All_Level/Test Map/rock-Photoroom.png" id="2_3tunw"]
+[ext_resource type="PackedScene" uid="uid://cucy8w7h3qu1x" path="res://All_Level/Test Map/ghost.tscn" id="2_6i6gj"]
+[ext_resource type="AudioStream" uid="uid://c3gxwhr5gsiks" path="res://audio/audioAssests/fnaf-jumpscare_malphite_ult_sound.ogg" id="3_3tunw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba50l"]
+size = Vector2(95.25, 27)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u5civ"]
+radius = 63.0
+height = 190.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy", "saws"]]
+script = ExtResource("1_ba50l")
+ghost_scene = ExtResource("2_6i6gj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(92.5, 91.750015)
+scale = Vector2(0.16818184, 0.17998028)
+texture = ExtResource("2_3tunw")
+flip_h = true
+
+[node name="CollisionBody" type="CollisionShape2D" parent="." groups=["enemy"]]
+position = Vector2(104, 158)
+shape = SubResource("RectangleShape2D_ba50l")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(107, 109)
+target_position = Vector2(83, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(101, 110)
+target_position = Vector2(-101, 0)
+
+[node name="Killzone" type="Area2D" parent="." groups=["hurt"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(96, 93)
+shape = SubResource("CapsuleShape2D_u5civ")
+
+[node name="JumpScareAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3tunw")
+volume_db = 12.0
+max_distance = 1600.0
+attenuation = 1.5
+
+[node name="SoundTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
