@@ -13,7 +13,7 @@ func _on_body_entered(body):
 		var player_light = body.get_node("PointLight2D")  # Light2D trong Player
 
 		if is_in_group("Room_light"):
-			canvas_mod.color = Color(1, 1, 1, 1)   # room sáng
+			canvas_mod.color = Color(1.0, 1.0, 1.0, 1.0)   # room sáng
 			player_light.enabled = false          # tắt đèn
 
 		elif is_in_group("Room_dark"):

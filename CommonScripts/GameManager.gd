@@ -491,3 +491,66 @@ func _show_death_status():
 	var current = DeathLimitManager.current_deaths
 	var status = "💀 Deaths: %d/50 | Lives: %d | Can die: %s" % [current, remaining, str(DeathLimitManager.can_die())]
 	_show_debug_message(status)
+
+
+
+
+# ----- PHẦN BỔ SUNG CHO SPECIAL MODE (Thêm vào GameManager.gd) -----
+
+# Biến cờ để biết đang chơi chế độ nào (True = Special, False = Main)
+var is_special_mode: bool = false
+
+# Dữ liệu cốt truyện (Key: Level, Value: Danh sách các câu thoại)
+# Bạn tự thêm các dòng chữ cho các level khác (3, 4, 5...)
+var special_level_stories = {
+	1: [
+		"Chào mừng đến với Vùng Hỗn Mang...",
+		"Tại đây, quy tắc vật lý không còn đúng nữa.",
+		"Hãy chuẩn bị tinh thần...",
+		"Hỡi Jump King vĩ đại!"
+	],
+	2: [
+		"Bạn tưởng thoát rồi sao?",
+		"Thử thách thực sự bây giờ mới bắt đầu.",
+		"Đừng nhìn xuống!"
+	]
+}
+
+# Hàm bắt đầu Special Level (Gọi từ Menu Special)
+func start_special_level(level_number: int):
+	# 1. Bật chế độ Special
+	is_special_mode = true
+	current_level = level_number
+	
+	# 2. Kiểm tra Death Limit (Vẫn áp dụng luật chết 50 lần)
+	if not can_player_die():
+		_show_death_limit_block_message()
+		return
+
+	# 3. Chuyển sang màn hình Intro trước
+	# Đảm bảo đường dẫn này đúng với nơi bạn lưu file Intro ở Bước 3
+	var intro_path = "res://Special Main Scene/SpecialLevelIntro.tscn"
+	
+	if ResourceLoader.exists(intro_path):
+		get_tree().change_scene_to_file(intro_path)
+	else:
+		print("❌ Không tìm thấy Scene Intro, vào thẳng game!")
+		go_to_actual_special_level(level_number)
+
+# Hàm vào màn chơi thật (Được gọi sau khi Intro chạy xong)
+func go_to_actual_special_level(level_number: int):
+	print("Loading Special Level: ", level_number)
+	
+	# Sửa đường dẫn này theo nơi bạn lưu map Special
+	# Ví dụ: res://All_Level/Special Maps/Special_Level_1.tscn
+	var path = "res://All_Level/Special_Level/Special_Level_" + str(level_number) + "/Special_Level_" + str(level_number) + ".tscn"
+
+	
+	if ResourceLoader.exists(path):
+		get_tree().change_scene_to_file(path)
+		# Phát nhạc level Special
+		AudioController.play_level_special_music()
+		# Tự động load hệ thống tin nhắn chết
+		call_deferred("_ensure_death_message_system")
+	else:
+		print("❌ Không tìm thấy file Special Level: ", path)

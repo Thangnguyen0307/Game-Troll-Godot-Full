@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://btdfqc4qp1j67"]
+[gd_scene load_steps=15 format=3 uid="uid://c4hap2uv3s7hx"]
 
-[ext_resource type="Script" uid="uid://cvt75plfnyfd" path="res://Checkpoint/Level_1/checkpoint.gd" id="1_pgce5"]
+[ext_resource type="Script" uid="uid://cvt75plfnyfd" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.gd" id="1_pgce5"]
 [ext_resource type="Texture2D" uid="uid://3o72ly24grlg" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="2_axmcm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smwyr"]

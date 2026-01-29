@@ -60,17 +60,17 @@ Popup scene của bạn nên có:
 signal popup_closed()
 
 func _on_close_button_pressed():
-    popup_closed.emit()
-    queue_free()
+	popup_closed.emit()
+	queue_free()
 ```
 
 ### **3. Cấu trúc Scene Đơn Giản:**
 ```
 MyPopupScene.tscn
 ├── Control (Root)
-    ├── Background (ColorRect/TextureRect)
-    ├── Content (Labels, Images, etc.)
-    └── CloseButton (Button)
+	├── Background (ColorRect/TextureRect)
+	├── Content (Labels, Images, etc.)
+	└── CloseButton (Button)
 ```
 
 ---
