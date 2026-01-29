@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvte20hxvjr68"
-path="res://.godot/imported/Background(lol).jpg-bd5cc51abc6cddbc563dd3577972fe06.ctex"
+path="res://.godot/imported/Background(lol).jpg-4ec569394a02a48df025b7922b849ff3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://All_Level/Test Map/Background(lol).jpg"
-dest_files=["res://.godot/imported/Background(lol).jpg-bd5cc51abc6cddbc563dd3577972fe06.ctex"]
+source_file="res://All_Level/Special_Level/Special_Level_2/scenes/Background(lol).jpg"
+dest_files=["res://.godot/imported/Background(lol).jpg-4ec569394a02a48df025b7922b849ff3.ctex"]
 
 [params]
 
