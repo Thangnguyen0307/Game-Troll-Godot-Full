@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://cks07ntut1om4" path="res://CHiTAN/trap_up.gd" id="6_idb32"]
 [ext_resource type="Script" uid="uid://wyg414gqlrvb" path="res://CHiTAN/Trap_D_R.gd" id="7_paoph"]
 [ext_resource type="PackedScene" uid="uid://b6ag1ctw4nvis" path="res://CHiTAN/TrapCoDinh.tscn" id="8_7wvgo"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="8_qjbsg"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="8_qjbsg"]
 [ext_resource type="Script" uid="uid://675o37ejx888" path="res://CHiTAN/Trap_Right_2000px.gd" id="9_oj28q"]
 [ext_resource type="Script" uid="uid://dh6o5m1jx7wmq" path="res://Checkpoint/Level_6/checkpoint_6.gd" id="9_qjbsg"]
 [ext_resource type="Texture2D" uid="uid://bd8tyxi5mo7qh" path="res://Pixel Adventure 1/Free/Traps/Fan/Off.png" id="10_535tm"]

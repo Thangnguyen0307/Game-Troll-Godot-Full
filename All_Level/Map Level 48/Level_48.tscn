@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://cdx65t72fqvwd" path="res://ScriptsScenes/spike/spike_hide.gd" id="12_lqqna"]
 [ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="13_m2770"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="14_bl0fq"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="15_v3705"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="15_v3705"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="16_xmxrk"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="17_gq1b1"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="18_p8if3"]

@@ -1,0 +1,166 @@
+[gd_scene load_steps=17 format=3 uid="uid://ctxjukvniwrmb"]
+
+[ext_resource type="Script" uid="uid://b4u7fp6av8uco" path="res://Special Main Scene/SpecialLevelSelect.gd" id="1_pxqay"]
+[ext_resource type="Texture2D" uid="uid://c5mypcg2ngxj2" path="res://Pixel Adventure 1/Free/Background/Gemini_Generated_Image_e3e9nne3e9nne3e9.png" id="2_mbwq2"]
+[ext_resource type="Texture2D" uid="uid://bhkfvxjeljbuj" path="res://UI/icons/level_1.png" id="3_gmaw8"]
+[ext_resource type="Texture2D" uid="uid://dsrlb4g7etjxi" path="res://UI/icons/level_2.png" id="4_gg6nc"]
+[ext_resource type="Texture2D" uid="uid://cd0t38rct5u71" path="res://UI/icons/level_3.png" id="5_jbqhb"]
+[ext_resource type="Texture2D" uid="uid://c2t5slt16u4ym" path="res://UI/icons/level_4.png" id="6_ul8m2"]
+[ext_resource type="Texture2D" uid="uid://btqajfj5ulywe" path="res://UI/icons/level_5.png" id="7_2eq0e"]
+[ext_resource type="Texture2D" uid="uid://bucs1rf26h2ph" path="res://UI/icons/level_6.png" id="8_cuknv"]
+[ext_resource type="Texture2D" uid="uid://ctm283kevjo5i" path="res://UI/icons/level_7.png" id="9_xv3mp"]
+[ext_resource type="Texture2D" uid="uid://bbnxga8fskrif" path="res://UI/icons/level_8.png" id="10_3n1g1"]
+[ext_resource type="Texture2D" uid="uid://p2x3gydjwmr8" path="res://UI/icons/level_9.png" id="11_3sa7j"]
+[ext_resource type="Texture2D" uid="uid://dw3tbebw48l4e" path="res://UI/icons/level_10.png" id="12_bilwk"]
+[ext_resource type="Texture2D" uid="uid://bvmv30isvhk2y" path="res://Pixel Adventure 1/Free/Menu/Buttons/Back.png" id="13_vf6i5"]
+[ext_resource type="Texture2D" uid="uid://l8gwdmxtel2c" path="res://Pixel Adventure 1/Free/Menu/Buttons/Restart.png" id="14_7h6mr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jria"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07jyw"]
+
+[node name="LevelSelectMenu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 2.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pxqay")
+max_levels = 50
+show_arrows = true
+enable_swipe = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -593.0
+offset_top = -391.0
+offset_right = 665.0
+offset_bottom = 585.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mbwq2")
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -386.0
+offset_top = -250.0
+offset_right = 410.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.0430392, 0.0430392, 0.0430392, 1)
+theme_override_colors/font_outline_color = Color(1, 0.935287, 0.974431, 1)
+theme_override_font_sizes/font_size = 48
+text = "SELECT LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PageContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(690, 300)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 5
+
+[node name="Level1Button" type="TouchScreenButton" parent="VBoxContainer/GridContainer"]
+position = Vector2(78, 48)
+scale = Vector2(5, 5.08)
+texture_normal = ExtResource("3_gmaw8")
+
+[node name="Level2Button" type="TouchScreenButton" parent="VBoxContainer/GridContainer"]
+position = Vector2(214, 48)
+scale = Vector2(5, 5.08)
+texture_normal = ExtResource("4_gg6nc")
+
+[node name="Level3Button" type="TouchScreenButton" parent="VBoxContainer/GridContainer"]
+position = Vector2(365, 47)
+scale = Vector2(5, 5.08)
+texture_normal = ExtResource("5_jbqhb")
+
+[node name="Level4Button" type="TouchScreenButton" parent="VBoxContainer/GridContainer"]
+position = Vector2(514, 46)
+scale = Vector2(5, 5.08)
+texture_normal = ExtResource("6_ul8m2")
+
+[node name="Level5Button" type="TouchScreenButton" parent="VBoxContainer/GridContainer"]
+position = Vector2(671, 44)
+scale = Vector2(5, 5.08)
+texture_normal = ExtResource("7_2eq0e")
+
+[node name="Level6Button" type="TouchScreenButton" parent="VBoxContainer/GridContainer"]
+position = Vector2(80, 175)
+scale = Vector2(5, 5.08)
+texture_normal = ExtResource("8_cuknv")
+
+[node name="Level7Button" type="TouchScreenButton" parent="VBoxContainer/GridContainer"]
+position = Vector2(215, 177)
+scale = Vector2(5, 5.08)
+texture_normal = ExtResource("9_xv3mp")
+
+[node name="Level8Button" type="TouchScreenButton" parent="VBoxContainer/GridContainer"]
+position = Vector2(362, 177)
+scale = Vector2(5, 5.08)
+texture_normal = ExtResource("10_3n1g1")
+
+[node name="Level9Button" type="TouchScreenButton" parent="VBoxContainer/GridContainer"]
+position = Vector2(515, 174)
+scale = Vector2(5, 5.08)
+texture_normal = ExtResource("11_3sa7j")
+
+[node name="Level10Button" type="TouchScreenButton" parent="VBoxContainer/GridContainer"]
+position = Vector2(678, 175)
+scale = Vector2(5, 5.08)
+texture_normal = ExtResource("12_bilwk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/BackButton"]
+position = Vector2(-137, -325)
+rotation = 6.27428
+scale = Vector2(6.87287, -5.50759)
+texture_normal = ExtResource("13_vf6i5")
+shape = SubResource("RectangleShape2D_3jria")
+
+[node name="ResetButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/ResetButton"]
+visible = false
+position = Vector2(-142, -276)
+scale = Vector2(4.74128, 4.04545)
+texture_normal = ExtResource("14_7h6mr")
+shape = SubResource("RectangleShape2D_07jyw")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BackButton/TouchScreenButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ResetButton/TouchScreenButton" to="." method="_on_reset_pressed"]

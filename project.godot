@@ -34,6 +34,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Project-1"
 
+[file_customization]
+
+folder_colors={}
+
 [global_group]
 
 hurt=""

@@ -2,7 +2,7 @@ extends Node
 
 # AutoLoad Singleton for Death Limit Management
 # Constants
-const MAX_DEATHS_PER_DAY := 5000
+const MAX_DEATHS_PER_DAY := 99999
 const SAVE_FILE := "user://death_limit.dat"
 
 # Data

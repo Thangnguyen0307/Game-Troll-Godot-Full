@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://dcs2lwwic2yqg" path="res://All_Level/Map Level 41/box_left_move_level_6.gd" id="15_qog2p"]
 [ext_resource type="Texture2D" uid="uid://dcv7w0ce31n67" path="res://Pixel Adventure 1/Free/Traps/Spike Head/Blink (54x52).png" id="16_nyst8"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="17_4uv4q"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="18_scb14"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="18_scb14"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="19_csq1x"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="20_uebgx"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="21_6dnj5"]
@@ -440,7 +440,7 @@ layer_0/tile_data = PackedInt32Array(-1, 0, 8, 65535, 0, 9, 131071, 0, 9, 196607
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_no6lg")]
 unique_name_in_owner = true
-position = Vector2(188, 262)
+position = Vector2(1203, 310)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 position = Vector2(3.57628e-07, 6.25849e-06)

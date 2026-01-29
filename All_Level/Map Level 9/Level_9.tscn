@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://csnki2cmswyv1" path="res://ScriptsScenes/switchBodyLevel/Room_2.gd" id="13_5lkrk"]
 [ext_resource type="Script" uid="uid://ymv7ewqim46k" path="res://ScriptsScenes/trigger/trigger_change_dir.gd" id="14_olx4f"]
 [ext_resource type="Script" uid="uid://descmo0bgforf" path="res://All_Level/Map Level 9/dis_trigger_change_dir.gd" id="15_y75xd"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="16_456wn"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="16_456wn"]
 [ext_resource type="Script" uid="uid://ncmukyjtpslc" path="res://Checkpoint/Level_9/checkpoint_9.gd" id="17_5hth4"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="18_w16di"]
 [ext_resource type="Script" uid="uid://distnvfjbs27t" path="res://All_Level/Map Level 7/checkpoint_respawn.gd" id="19_ww018"]

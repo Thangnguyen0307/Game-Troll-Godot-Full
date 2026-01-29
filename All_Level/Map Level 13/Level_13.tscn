@@ -30,7 +30,7 @@
 [ext_resource type="Script" uid="uid://cub8x1h7jajqj" path="res://ScriptsScenes/misc/open_plan.gd" id="28_comdx"]
 [ext_resource type="Script" uid="uid://b4a02poxvyrn6" path="res://ScriptsScenes/tele/move_tele.gd" id="29_mua12"]
 [ext_resource type="Script" uid="uid://r4s6vslk6i7k" path="res://ScriptsScenes/misc/change_tele.gd" id="30_8sqtw"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="31_dcoqd"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="31_dcoqd"]
 [ext_resource type="Script" uid="uid://dleamn8gf0n53" path="res://ScriptsScenes/trap/trap_text.gd" id="32_s3bnq"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="33_dk3oa"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="34_n5y7a"]
