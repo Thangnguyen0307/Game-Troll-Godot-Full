@@ -89,13 +89,11 @@ script = ExtResource("1_pgce5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1125, 102)
 scale = Vector2(1.42188, 1.39063)
 sprite_frames = SubResource("SpriteFrames_ie7uf")
 frame_progress = 0.880628
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1129, 113)
 shape = SubResource("RectangleShape2D_gwx4l")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
