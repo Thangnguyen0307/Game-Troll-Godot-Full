@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bo3gi6m4w3jkx" path="res://Pixel Adventure 1/Free/Background/Pink.png" id="2_nsnvd"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="3_g5vt1"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://ScriptsScenes/MainCharacter/character_body_2d.tscn" id="4_ufjkb"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="5_1i0jx"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="5_1i0jx"]
 [ext_resource type="PackedScene" uid="uid://cibklyepbriw8" path="res://ScriptsScenes/spike/Spike3set.tscn" id="6_mnejo"]
 [ext_resource type="Script" uid="uid://d3cfq7rmk8xe7" path="res://ScriptsScenes/spike/spike_3_set-Trap.gd" id="7_p2q24"]
 [ext_resource type="Script" uid="uid://6fqqaniu6hn4" path="res://ScriptsScenes/misc/area_2d.gd" id="8_u64cx"]
@@ -323,6 +323,7 @@ position = Vector2(-34, 360)
 visible = false
 
 [node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(-0.33333588, -0.33333302)
 target_position = Vector2(0, 10)
 
 [node name="Checkpoint" parent="." instance=ExtResource("5_1i0jx")]

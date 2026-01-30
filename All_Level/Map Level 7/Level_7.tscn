@@ -106,7 +106,7 @@
 [ext_resource type="Texture2D" uid="uid://do16ps5dajvfy" path="res://floor spikes/Keys/Keys/Red Key/File51.png" id="56_cen3c"]
 [ext_resource type="Texture2D" uid="uid://rxyk3r3ijuqu" path="res://floor spikes/Keys/Keys/Red Key/File52.png" id="57_nb64w"]
 [ext_resource type="Texture2D" uid="uid://bx03py2fb0hru" path="res://floor spikes/Keys/Keys/Red Key/File53.png" id="58_142xk"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="59_a87au"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="59_a87au"]
 [ext_resource type="Texture2D" uid="uid://bsvnibn1fklml" path="res://floor spikes/Keys/Keys/Red Key/File54.png" id="59_lhcwu"]
 [ext_resource type="Script" uid="uid://crih4kvr5cys" path="res://Checkpoint/Level_7/checkpoint_7.gd" id="60_ktq56"]
 [ext_resource type="Texture2D" uid="uid://c8snkbya6rjta" path="res://floor spikes/Keys/Keys/Red Key/File55.png" id="60_ntn7r"]

@@ -59,7 +59,7 @@
 [ext_resource type="Script" uid="uid://butww0x41on01" path="res://All_Level/Map Level 41/box_left_move_level41_2.gd" id="57_timwq"]
 [ext_resource type="Script" uid="uid://brh010sf8fyfk" path="res://All_Level/Map Level 41/box_left_move_level41_3.gd" id="58_hkw7a"]
 [ext_resource type="Script" uid="uid://c84h7prvq7u2" path="res://All_Level/Map Level 41/box_left_move_level41_4.gd" id="59_key0r"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="60_7hmg0"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="60_7hmg0"]
 [ext_resource type="Script" uid="uid://distnvfjbs27t" path="res://All_Level/Map Level 7/checkpoint_respawn.gd" id="61_hfbwg"]
 [ext_resource type="Texture2D" uid="uid://c8v1kucqyrpvq" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Start/Start (Idle).png" id="62_155jm"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="63_p2uw7"]

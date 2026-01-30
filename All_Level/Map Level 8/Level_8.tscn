@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://cn68kf01nitbs" path="res://ScriptsScenes/box/appearingBox.gd" id="9_owq7v"]
 [ext_resource type="Script" uid="uid://b8dyhs0vodeit" path="res://ScriptsScenes/box/disappearingBox.gd" id="10_y80nr"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="11_ckcxv"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="12_6er5h"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="12_6er5h"]
 [ext_resource type="Script" uid="uid://d3anwk2gxoxbe" path="res://Checkpoint/Level_8/checkpoint_8.gd" id="13_2ial3"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="15_fh2sk"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="16_fh2sk"]

@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cdd373xfplsr5" path="res://Pixel Adventure 1/Free/Traps/Rock Head/Idle.png" id="15_via7a"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="22_c8645"]
 [ext_resource type="Script" uid="uid://bn8752m1onop8" path="res://ScriptsScenes/switchBodyLevel/room.gd" id="23_ma06k"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="24_via7a"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="24_via7a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3duhm"]
 size = Vector2(17.8603, 18.1526)

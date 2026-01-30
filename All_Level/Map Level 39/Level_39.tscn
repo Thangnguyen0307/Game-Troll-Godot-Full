@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://e3cnttgr7mkc" path="res://All_Level/Map Level 24/trigger_move.gd" id="12_vra7n"]
 [ext_resource type="Script" uid="uid://bpotbdcnhs5vi" path="res://All_Level/Map Level 39/saw_trap_down_move3.gd" id="13_v02eg"]
 [ext_resource type="Texture2D" uid="uid://26g1nyycfuji" path="res://Pixel Adventure 1/Free/Traps/Saw/On (38x38).png" id="14_n6kwq"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://Checkpoint/Level_1/checkpoint.tscn" id="15_u8xmo"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="15_u8xmo"]
 [ext_resource type="Script" uid="uid://cdx65t72fqvwd" path="res://ScriptsScenes/spike/spike_hide.gd" id="16_1uk8k"]
 [ext_resource type="Script" uid="uid://djrjy6lj0l047" path="res://All_Level/Map Level 39/spike_trap_right_move2.gd" id="17_jbn2s"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="18_guk4h"]
