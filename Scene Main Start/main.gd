@@ -62,10 +62,10 @@ func _ready():
 
 # --- XỬ LÝ NÚT START ---
 func _on_start_bt_down():
-	animate_button_down($"Start-BT")
+	animate_button_down($"StartRoot/Start-BT")
 
 func _on_start_bt_up():
-	animate_button_up($"Start-BT")
+	animate_button_up($"StartRoot/Start-BT")
 	$"/root/AudioController".play_click()
 	
 	# 1. Kiểm tra Death Limit (Chung cho cả 2 chế độ)
@@ -91,10 +91,10 @@ func _on_start_bt_up():
 
 # --- XỬ LÝ NÚT LEVEL SELECT ---
 func _on_level_select_bt_down():
-	animate_button_down($"LevelSelectBt")
+	animate_button_down($LevelRoot/LevelSelectBt)
 
 func _on_level_select_bt_up():
-	animate_button_up($"LevelSelectBt")
+	animate_button_up($LevelRoot/LevelSelectBt)
 	$"/root/AudioController".play_click()
 	
 	if not GameManager.can_player_die():
@@ -118,10 +118,10 @@ func _on_level_select_bt_up():
 
 
 func _on_troll_bt_down():
-	animate_button_down($"Troll-Bt")
+	animate_button_down($"TrollRoot/Troll-Bt")
 
 func _on_troll_bt_up():
-	animate_button_up($"Troll-Bt")
+	animate_button_up($"TrollRoot/Troll-Bt")
 	$"/root/AudioController".play_click()	
 	# ✨ HIỆU ỨNG ĐẶC BIỆT CHO NÚT TROLL ✨
 	# 1. Screen shake rung lắc
@@ -160,10 +160,10 @@ func _toggle_main_special_scene():
 
 # --- CÁC HÀM PHỤ TRỢ KHÁC (Quit, Animation, Popup) GIỮ NGUYÊN ---
 func _on_quit_bt_down():
-	animate_button_down($"Quit-BT")
+	animate_button_down($"QuitRoot/Quit-BT")
 
 func _on_quit_bt_up():
-	animate_button_up($"Quit-BT")
+	animate_button_up($"QuitRoot/Quit-BT")
 	$"/root/AudioController".play_click()
 	get_tree().quit()
 

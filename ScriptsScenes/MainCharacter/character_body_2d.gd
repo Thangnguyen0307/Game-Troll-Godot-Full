@@ -12,6 +12,7 @@ var current_jump_velocity: float = JUMP_VELOCITY
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var ground_ray: RayCast2D = get_node_or_null("RayCast2D") # an toàn hơn
 
+var is_hiding := false
 var is_alive = true
 var control_inverted: bool = false
 var is_on_ice = false
@@ -106,6 +107,7 @@ func die():
 	for saw in get_tree().get_nodes_in_group("saws"):
 		if saw.has_method("reset_trap"):
 			saw.reset_trap()
+		
 
 	# Reset lại trạng thái
 	current_color = 0
@@ -121,8 +123,10 @@ func die():
 	is_dying = false  # ✅ Reset death flag để cho phép die() lần tiếp theo
 	await get_tree().create_timer(0.1).timeout
 	is_invincible_after_spawn = false
-
+# chạm hurt = die
 func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if is_hiding:
+		return
 	if area.is_in_group("hurt"):
 		die()
 
