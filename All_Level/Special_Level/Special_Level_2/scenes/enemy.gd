@@ -44,9 +44,6 @@ func activate():
 		
 	print("speed là" +str(speed))
 
-	
-
-
 func deactivate():
 	was_activated = false
 	active = false
