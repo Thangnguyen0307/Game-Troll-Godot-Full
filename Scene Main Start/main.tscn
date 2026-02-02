@@ -14,10 +14,10 @@ script = ExtResource("1_1bvp3")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -9.0
+offset_left = -8.999998
 offset_top = -7.0
-offset_right = 1729.44
-offset_bottom = 1224.67
+offset_right = 1729.4379
+offset_bottom = 1224.6699
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.750674, 0.638158)
@@ -30,7 +30,7 @@ expand_mode = 1
 position = Vector2(623, 210)
 
 [node name="Start-BT" type="TouchScreenButton" parent="StartRoot"]
-position = Vector2(-104, -116)
+position = Vector2(-104, -115.999985)
 scale = Vector2(0.208984, 0.21582)
 texture_normal = ExtResource("2_h2yge")
 
@@ -38,7 +38,7 @@ texture_normal = ExtResource("2_h2yge")
 position = Vector2(643, 343)
 
 [node name="LevelSelectBt" type="TouchScreenButton" parent="LevelRoot"]
-position = Vector2(-110, -71)
+position = Vector2(-109.99994, -70.99997)
 scale = Vector2(0.133143, 0.140526)
 texture_normal = ExtResource("5_lquwl")
 
@@ -46,7 +46,7 @@ texture_normal = ExtResource("5_lquwl")
 position = Vector2(639, 489)
 
 [node name="Quit-BT" type="TouchScreenButton" parent="QuitRoot"]
-position = Vector2(-108, -99)
+position = Vector2(-107.99994, -98.99997)
 scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("3_1bvp3")
 
@@ -55,7 +55,7 @@ position = Vector2(1144, 565)
 
 [node name="Troll-Bt" type="TouchScreenButton" parent="TrollRoot"]
 position = Vector2(-117, -66)
-scale = Vector2(1.03196, 1.05946)
+scale = Vector2(1.031964, 1.0594594)
 texture_normal = ExtResource("6_n5er7")
 
 [connection signal="pressed" from="StartRoot/Start-BT" to="." method="_on_start_bt_pressed"]

@@ -323,7 +323,7 @@ position = Vector2(-34, 360)
 visible = false
 
 [node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
-position = Vector2(-0.333336, -0.333333)
+position = Vector2(-0.33333588, -0.33333302)
 target_position = Vector2(0, 10)
 
 [node name="Checkpoint" parent="." instance=ExtResource("5_1i0jx")]

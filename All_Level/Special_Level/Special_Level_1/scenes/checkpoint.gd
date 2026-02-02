@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var completed_level_number: int = 1  # Level vừa hoàn thành (Level 1)
+@export var completed_level_number: int = 0  # Level vừa hoàn thành (Level 1)
 @export var next_level: String = "res://All_Level/Map Level 2/Level_2.tscn"
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 

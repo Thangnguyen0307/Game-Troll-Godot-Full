@@ -15,9 +15,9 @@ texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_right = 1721.79
-offset_bottom = 1219.13
+offset_left = 1.9999996
+offset_right = 1721.7878
+offset_bottom = 1219.1338
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.750674, 0.638158)
@@ -30,16 +30,16 @@ expand_mode = 1
 position = Vector2(630, 207)
 
 [node name="Start-BT" type="TouchScreenButton" parent="StartRoot"]
-position = Vector2(-113, -82)
-scale = Vector2(0.653521, 0.810056)
+position = Vector2(-112.99994, -82)
+scale = Vector2(0.6535212, 0.81005585)
 texture_normal = ExtResource("3_hmd4f")
 
 [node name="LevelRoot" type="Node2D" parent="."]
 position = Vector2(635, 341)
 
 [node name="LevelSelectBt" type="TouchScreenButton" parent="LevelRoot"]
-position = Vector2(-113, -73)
-scale = Vector2(0.657459, 0.781421)
+position = Vector2(-113, -72.999985)
+scale = Vector2(0.65745866, 0.7814207)
 texture_normal = ExtResource("4_ghfta")
 
 [node name="QuitRoot" type="Node2D" parent="."]
@@ -47,15 +47,15 @@ position = Vector2(641, 481)
 
 [node name="Quit-BT" type="TouchScreenButton" parent="QuitRoot"]
 position = Vector2(-131, -72)
-scale = Vector2(0.681319, 0.714286)
+scale = Vector2(0.6813186, 0.7142856)
 texture_normal = ExtResource("5_bqe4f")
 
 [node name="TrollRoot" type="Node2D" parent="."]
 position = Vector2(1154, 580)
 
 [node name="Troll-Bt" type="TouchScreenButton" parent="TrollRoot"]
-position = Vector2(-98, -74.9999)
-scale = Vector2(0.922374, 1.02703)
+position = Vector2(-98, -74.99991)
+scale = Vector2(0.922374, 1.027027)
 texture_normal = ExtResource("6_hmd4f")
 
 [connection signal="pressed" from="StartRoot/Start-BT" to="." method="_on_start_bt_pressed"]
