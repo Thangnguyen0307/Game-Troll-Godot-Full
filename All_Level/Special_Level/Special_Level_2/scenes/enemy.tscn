@@ -1,8 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://cljkqt3cwkxgk"]
 
+<<<<<<< HEAD:All_Level/Test Map/enemy.tscn
+[ext_resource type="Script" uid="uid://dmb1ups85jlrw" path="res://All_Level/Test Map/enemy.gd" id="1_ba50l"]
+[ext_resource type="Texture2D" uid="uid://d28412io5l5gh" path="res://All_Level/Test Map/rock-Photoroom.png" id="2_3tunw"]
+[ext_resource type="PackedScene" uid="uid://cucy8w7h3qu1x" path="res://All_Level/Test Map/ghost.tscn" id="2_6i6gj"]
+=======
 [ext_resource type="Script" uid="uid://dmb1ups85jlrw" path="res://ReuseScene/enemy.gd" id="1_ba50l"]
 [ext_resource type="Texture2D" uid="uid://d28412io5l5gh" path="res://All_Level/Special_Level/Special_Level_2/scenes/rock-Photoroom.png" id="2_3tunw"]
 [ext_resource type="PackedScene" uid="uid://cucy8w7h3qu1x" path="res://All_Level/Special_Level/Special_Level_2/scenes/ghost.tscn" id="2_6i6gj"]
+>>>>>>> dev:ReuseScene/enemy.tscn
 [ext_resource type="AudioStream" uid="uid://c3gxwhr5gsiks" path="res://audio/audioAssests/fnaf-jumpscare_malphite_ult_sound.ogg" id="3_3tunw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba50l"]
