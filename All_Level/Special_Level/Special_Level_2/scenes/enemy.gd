@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed :=300.0
-@export var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var ghost_scene: PackedScene
 @export var ghost_chance := 1
 @export var sound_range := 550.0

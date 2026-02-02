@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cucy8w7h3qu1x"]
 
-[ext_resource type="Script" uid="uid://b1ayxs6tt5nom" path="res://All_Level/Test Map/ghost.gd" id="1_cwni3"]
-[ext_resource type="Texture2D" uid="uid://d28412io5l5gh" path="res://All_Level/Test Map/rock-Photoroom.png" id="2_cwni3"]
+[ext_resource type="Script" uid="uid://b1ayxs6tt5nom" path="res://All_Level/Special_Level/Special_Level_2/scenes/ghost.gd" id="1_cwni3"]
+[ext_resource type="Texture2D" uid="uid://d28412io5l5gh" path="res://All_Level/Special_Level/Special_Level_2/scenes/rock-Photoroom.png" id="2_cwni3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cwni3"]
 radius = 26.683329
