@@ -482,8 +482,8 @@ size = Vector2(13.6667, 16.6667)
 size = Vector2(13, 16)
 
 [sub_resource type="Gradient" id="Gradient_guedw"]
-offsets = PackedFloat32Array(0, 0.003984064, 0.1992032, 1)
-colors = PackedColorArray(7.068899, 7.068899, 7.068899, 1, 0.8712446, 0.8712446, 0.8712446, 1, 0.67876035, 0.67876035, 0.67876035, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.00398406, 0.199203, 1)
+colors = PackedColorArray(7.0689, 7.0689, 7.0689, 1, 0.871245, 0.871245, 0.871245, 1, 0.67876, 0.67876, 0.67876, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_44kna"]
 gradient = SubResource("Gradient_guedw")
@@ -491,7 +491,7 @@ width = 200
 height = 120
 fill = 1
 fill_from = Vector2(0.517094, 0.508547)
-fill_to = Vector2(1, 0.52910054)
+fill_to = Vector2(1, 0.529101)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_guedw"]
 size = Vector2(159.75, 283)
@@ -500,7 +500,7 @@ size = Vector2(159.75, 283)
 size = Vector2(133, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eg2xe"]
-size = Vector2(71.53833, 20)
+size = Vector2(71.5383, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hajmc"]
 radius = 12.0416
@@ -705,7 +705,7 @@ collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activate trap2"]
-position = Vector2(32.328125, 86)
+position = Vector2(32.3281, 86)
 shape = SubResource("RectangleShape2D_o0ppf")
 
 [node name="Activate trap3" type="Area2D" parent="."]
@@ -723,19 +723,19 @@ collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activate trap4"]
-position = Vector2(33.164063, 85)
+position = Vector2(33.1641, 85)
 shape = SubResource("RectangleShape2D_o0ppf")
 
 [node name="Spike_hide" type="Area2D" parent="." groups=["hurt", "saws"]]
-position = Vector2(2551.0002, 2104)
+position = Vector2(2551, 2104)
 scale = Vector2(1.3, 1.3)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("8_o0ppf")
 
 [node name="Sprite2D" type="Sprite2D" parent="Spike_hide"]
-position = Vector2(-43.249977, 46.24996)
-scale = Vector2(4.78125, 4.218745)
+position = Vector2(-43.25, 46.25)
+scale = Vector2(4.78125, 4.21875)
 texture = ExtResource("9_eg2xe")
 
 [node name="Area2D" type="Area2D" parent="Spike_hide" groups=["hurt"]]
@@ -745,33 +745,33 @@ position = Vector2(-45.5, 70)
 shape = SubResource("RectangleShape2D_eg2xe")
 
 [node name="Spike_hide2" type="Area2D" parent="." groups=["hurt", "saws"]]
-position = Vector2(2924, 376.00003)
+position = Vector2(2924, 376)
 scale = Vector2(1.3, 1.3)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("8_o0ppf")
 
 [node name="Sprite2D" type="Sprite2D" parent="Spike_hide2"]
-position = Vector2(-43.249977, 46.24996)
-scale = Vector2(4.78125, 4.218745)
+position = Vector2(-43.25, 46.25)
+scale = Vector2(4.78125, 4.21875)
 texture = ExtResource("9_eg2xe")
 
 [node name="Area2D" type="Area2D" parent="Spike_hide2" groups=["hurt"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spike_hide2/Area2D"]
-position = Vector2(-45.769043, 70)
+position = Vector2(-45.769, 70)
 shape = SubResource("RectangleShape2D_eg2xe")
 
 [node name="Spike_hide3" type="Area2D" parent="." groups=["hurt", "saws"]]
-position = Vector2(3011, 376.00003)
+position = Vector2(3011, 376)
 scale = Vector2(1.3, 1.3)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("8_o0ppf")
 
 [node name="Sprite2D" type="Sprite2D" parent="Spike_hide3"]
-position = Vector2(-43.249977, 46.24996)
-scale = Vector2(4.78125, 4.218745)
+position = Vector2(-43.25, 46.25)
+scale = Vector2(4.78125, 4.21875)
 texture = ExtResource("9_eg2xe")
 
 [node name="Area2D" type="Area2D" parent="Spike_hide3" groups=["hurt"]]
@@ -781,15 +781,15 @@ position = Vector2(-45.5, 70)
 shape = SubResource("RectangleShape2D_eg2xe")
 
 [node name="Spike_hide4" type="Area2D" parent="." groups=["hurt", "saws"]]
-position = Vector2(3098, 376.00003)
+position = Vector2(3098, 376)
 scale = Vector2(1.3, 1.3)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("8_o0ppf")
 
 [node name="Sprite2D" type="Sprite2D" parent="Spike_hide4"]
-position = Vector2(-43.249977, 46.24996)
-scale = Vector2(4.78125, 4.218745)
+position = Vector2(-43.25, 46.25)
+scale = Vector2(4.78125, 4.21875)
 texture = ExtResource("9_eg2xe")
 
 [node name="Area2D" type="Area2D" parent="Spike_hide4" groups=["hurt"]]
@@ -810,7 +810,7 @@ next_level = ""
 [node name="TouchControls" parent="." instance=ExtResource("12_qeykf")]
 
 [node name="SpikeBall" type="Node2D" parent="."]
-position = Vector2(1621.0001, 738)
+position = Vector2(1621, 738)
 scale = Vector2(5, 5)
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikeBall"]
@@ -858,7 +858,7 @@ script = ExtResource("14_jlc8c")
 shape = SubResource("CircleShape2D_hajmc")
 
 [node name="SpikeBall3" type="Node2D" parent="."]
-position = Vector2(1002.0001, 1746)
+position = Vector2(1002, 1746)
 scale = Vector2(5, 5)
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikeBall3"]
@@ -874,7 +874,7 @@ script = ExtResource("14_jlc8c")
 shape = SubResource("CircleShape2D_hajmc")
 
 [node name="SpikeBall8" type="Node2D" parent="."]
-position = Vector2(1895.0001, 1410)
+position = Vector2(1895, 1410)
 scale = Vector2(5, 5)
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikeBall8"]
@@ -890,7 +890,7 @@ script = ExtResource("14_jlc8c")
 shape = SubResource("CircleShape2D_hajmc")
 
 [node name="SpikeBall4" type="Node2D" parent="."]
-position = Vector2(868.00006, 1462)
+position = Vector2(868, 1462)
 scale = Vector2(1.3, 1.3)
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikeBall4"]
@@ -906,7 +906,7 @@ script = ExtResource("14_jlc8c")
 shape = SubResource("CircleShape2D_hajmc")
 
 [node name="SpikeBall5" type="Node2D" parent="."]
-position = Vector2(1991.0002, 1798)
+position = Vector2(1991, 1798)
 scale = Vector2(1.3, 1.3)
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikeBall5"]
@@ -922,7 +922,7 @@ script = ExtResource("14_jlc8c")
 shape = SubResource("CircleShape2D_hajmc")
 
 [node name="SpikeBall6" type="Node2D" parent="."]
-position = Vector2(1642, 1126.0001)
+position = Vector2(1642, 1126)
 scale = Vector2(1.3, 1.3)
 
 [node name="Sprite2D" type="Sprite2D" parent="SpikeBall6"]
