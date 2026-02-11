@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://63yfh466kob" path="res://ScriptsScenes/box/box_left_move.gd" id="12_l6bdr"]
 [ext_resource type="Texture2D" uid="uid://sg5gxyeqs7dq" path="res://Pixel Adventure 1/Free/Traps/Rock Head/Blink (42x42).png" id="13_85a5k"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="14_8ud0n"]
-[ext_resource type="Script" uid="uid://go8mpna6yh4b" path="res://Checkpoint/Level_4/checkpoint_4.gd" id="15_jof1e"]
+[ext_resource type="Script" path="res://All_Level/Map Level 1/checkpoint_all.gd" id="16_4w5w6"]
 [ext_resource type="Texture2D" uid="uid://3o72ly24grlg" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="16_jgrkv"]
 [ext_resource type="Texture2D" uid="uid://b0oni833t64u3" path="res://Pixel Adventure 1/Cat/Cat/CAT 2.png" id="17_ej4hj"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="18_4unjl"]
@@ -679,6 +679,7 @@ animations = [{
 size = Vector2(2448, 768)
 
 [node name="Level4" type="Node2D"]
+position = Vector2(3, 0)
 script = ExtResource("1_4w5w6")
 
 [node name="PinkGround" type="TextureRect" parent="."]
@@ -1441,8 +1442,9 @@ shape = SubResource("RectangleShape2D_yxclo")
 
 [node name="CheckPoint" type="Area2D" parent="." groups=["Player"]]
 position = Vector2(2087, 258)
-script = ExtResource("15_jof1e")
+script = ExtResource("16_4w5w6")
 completed_level_number = 4
+next_level = "res://All_Level/Map Level 5/Level_5.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CheckPoint"]
 sprite_frames = SubResource("SpriteFrames_0fpet")

@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="11_jgcvr"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://ScriptsScenes/MainCharacter/character_body_2d.tscn" id="12_htkbc"]
 [ext_resource type="Script" uid="uid://dhbe4nrvokkhm" path="res://CHiTAN/ChiTanNV.gd" id="13_dwhea"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="14_n4vjj"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Map Level 1/checkpoint.tscn" id="14_n4vjj"]
 [ext_resource type="Script" uid="uid://da4i60m7nl6k7" path="res://Checkpoint/Level_3/checkpoint_3.gd" id="15_x3qts"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="16_7i713"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="17_lnauy"]
@@ -579,7 +579,7 @@ script = ExtResource("13_dwhea")
 position = Vector2(6, -1.66667)
 
 [node name="Checkpoint" parent="." instance=ExtResource("14_n4vjj")]
-position = Vector2(-54, 189)
+position = Vector2(1068, 282)
 script = ExtResource("15_x3qts")
 completed_level_number = 36
 next_level = "res://All_Level/Map Level 37/Level_37.tscn"

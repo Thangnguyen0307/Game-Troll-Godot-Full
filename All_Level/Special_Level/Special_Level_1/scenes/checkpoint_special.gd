@@ -3,7 +3,7 @@ extends Area2D
 # Checkpoint riêng cho Special Level - KHÔNG sử dụng hệ thống level number
 # Script này TÁCH BIỆT hoàn toàn với checkpoint của level thường
 
-@export_enum("Back to Menu", "Custom Scene", "Level Select") var completion_action: String = "Custom Scene"
+@export_enum("Back to Menu", "Custom Scene", "Level Select") var completion_action: String = "Level Select"
 @export var next_scene_path: String = "res://All_Level/Special_Level/Special_Level_2/Special_Level_2.tscn"  # Đường dẫn scene tiếp theo
 @export var special_level_name: String = "SPECIAL LEVEL"  # Tên hiển thị
 @export var wait_time: float = 2.0  # Thời gian chờ trước khi chuyển scene

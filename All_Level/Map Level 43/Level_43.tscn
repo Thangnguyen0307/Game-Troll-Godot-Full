@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://de72f7km5xcd2" path="res://All_Level/Map Level 43/box_left_move_level43_2.gd" id="6_y6twu"]
 [ext_resource type="Texture2D" uid="uid://dcv7w0ce31n67" path="res://Pixel Adventure 1/Free/Traps/Spike Head/Blink (54x52).png" id="7_mjohb"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="8_flf81"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="9_32bq2"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Map Level 1/checkpoint.tscn" id="9_32bq2"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="10_w2uvo"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="11_q31p4"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="12_vvbh1"]
@@ -690,7 +690,7 @@ position = Vector2(442, -322)
 shape = SubResource("RectangleShape2D_ohxiu")
 
 [node name="Checkpoint" parent="." instance=ExtResource("9_32bq2")]
-position = Vector2(-520, -1393)
+position = Vector2(612, -1302)
 completed_level_number = 43
 next_level = "res://All_Level/Map Level 44/Level_44.tscn"
 

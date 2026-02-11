@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://btdfqc4qp1j67"]
+[gd_scene load_steps=15 format=3 uid="uid://cuyqiee5jsybq"]
 
-[ext_resource type="Script" uid="uid://cvt75plfnyfd" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.gd" id="1_pgce5"]
+[ext_resource type="Script" path="res://All_Level/Map Level 1/checkpoint_all.gd" id="1_w3r8l"]
 [ext_resource type="Texture2D" uid="uid://3o72ly24grlg" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="2_axmcm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smwyr"]
@@ -85,17 +85,17 @@ animations = [{
 size = Vector2(42, 64)
 
 [node name="Checkpoint2" type="Area2D"]
-script = ExtResource("1_pgce5")
+script = ExtResource("1_w3r8l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1125, 102)
+position = Vector2(-5.49988, 10.5002)
 scale = Vector2(1.42188, 1.39063)
 sprite_frames = SubResource("SpriteFrames_ie7uf")
 frame_progress = 0.880628
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1129, 113)
+position = Vector2(-1.49988, 21.5002)
 shape = SubResource("RectangleShape2D_gwx4l")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

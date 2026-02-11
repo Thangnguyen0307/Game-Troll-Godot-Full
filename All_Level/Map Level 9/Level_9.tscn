@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://besfbgrgvx1sp"]
+[gd_scene load_steps=38 format=3 uid="uid://besfbgrgvx1sp"]
 
 [ext_resource type="Script" uid="uid://c85pk27sc71ds" path="res://ScriptsScenes/misc/level_1.gd" id="1_1kn8q"]
 [ext_resource type="Texture2D" uid="uid://dhkt1prc5cciq" path="res://Pixel Adventure 1/Free/Background/Blue.png" id="1_svh1q"]
@@ -16,8 +16,7 @@
 [ext_resource type="Script" uid="uid://csnki2cmswyv1" path="res://ScriptsScenes/switchBodyLevel/Room_2.gd" id="13_5lkrk"]
 [ext_resource type="Script" uid="uid://ymv7ewqim46k" path="res://ScriptsScenes/trigger/trigger_change_dir.gd" id="14_olx4f"]
 [ext_resource type="Script" uid="uid://descmo0bgforf" path="res://All_Level/Map Level 9/dis_trigger_change_dir.gd" id="15_y75xd"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="16_456wn"]
-[ext_resource type="Script" uid="uid://ncmukyjtpslc" path="res://Checkpoint/Level_9/checkpoint_9.gd" id="17_5hth4"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Map Level 1/checkpoint.tscn" id="16_456wn"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="18_w16di"]
 [ext_resource type="Script" uid="uid://distnvfjbs27t" path="res://All_Level/Map Level 7/checkpoint_respawn.gd" id="19_ww018"]
 [ext_resource type="Texture2D" uid="uid://c8v1kucqyrpvq" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Start/Start (Idle).png" id="20_1kn8q"]
@@ -1033,13 +1032,11 @@ position = Vector2(64.5, 2.5)
 shape = SubResource("RectangleShape2D_a1x2x")
 
 [node name="Checkpoint" parent="." instance=ExtResource("16_456wn")]
-position = Vector2(-1054, -1585)
-script = ExtResource("17_5hth4")
+position = Vector2(82, -1490)
 completed_level_number = 9
 next_level = "res://All_Level/Map Level 10/Level_10.tscn"
 
 [node name="Room1" type="Area2D" parent="." node_paths=PackedStringArray("canvas_mod") groups=["Room_light"]]
-visible = false
 position = Vector2(182, -15)
 script = ExtResource("18_w16di")
 canvas_mod = NodePath("../CanvasModulate")

@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5rsimwswy2ld"]
+[gd_scene load_steps=24 format=3 uid="uid://b5rsimwswy2ld"]
 
 [ext_resource type="Texture2D" uid="uid://bys7i7ki4uf25" path="res://Pixel Adventure 1/Free/Background/pixil-frame-0 (82).png" id="1_r1ioy"]
 [ext_resource type="Texture2D" uid="uid://46j4ik4xoy72" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_3.png" id="2_er2lk"]
 [ext_resource type="PackedScene" uid="uid://b3qmm460sygyq" path="res://All_Level/Special_Level/Special_Level_1/scenes/Player.tscn" id="3_mh1td"]
 [ext_resource type="PackedScene" uid="uid://baew1spgl1j6b" path="res://All_Level/Special_Level/Special_Level_1/scenes/breaking_floor.tscn" id="4_nfaof"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="5_staew"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="6_6twk4"]
-[ext_resource type="Script" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint_special.gd" id="6_76bqy"]
+[ext_resource type="Script" uid="uid://xasva122foi7" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint_special.gd" id="6_76bqy"]
+[ext_resource type="Texture2D" uid="uid://3o72ly24grlg" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="6_w4hcc"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="7_5wq47"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="8_gj0jn"]
 
@@ -89,6 +89,87 @@ texture = ExtResource("2_er2lk")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_54rkr")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_smwyr"]
+atlas = ExtResource("6_w4hcc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tedvs"]
+atlas = ExtResource("6_w4hcc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyeet"]
+atlas = ExtResource("6_w4hcc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wi7h"]
+atlas = ExtResource("6_w4hcc")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s4xf"]
+atlas = ExtResource("6_w4hcc")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7bnq"]
+atlas = ExtResource("6_w4hcc")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar1si"]
+atlas = ExtResource("6_w4hcc")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fba8"]
+atlas = ExtResource("6_w4hcc")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaehp"]
+atlas = ExtResource("6_w4hcc")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1osm"]
+atlas = ExtResource("6_w4hcc")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ie7uf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smwyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tedvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyeet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wi7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s4xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7bnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar1si")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fba8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaehp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1osm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 32.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwx4l"]
+size = Vector2(42, 64)
+
 [node name="MapTest" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -135,13 +216,20 @@ scale = Vector2(2, 2)
 position = Vector2(228, 528)
 scale = Vector2(2, 2)
 
-[node name="Checkpoint" parent="." instance=ExtResource("5_staew")]
+[node name="Checkpoint" type="Area2D" parent="."]
 position = Vector2(119, -83)
 script = ExtResource("6_76bqy")
-completion_action = "Custom Scene"
-next_scene_path = "res://All_Level/Special_Level/Special_Level_2/Special_Level_2.tscn"
-special_level_name = "SPECIAL LEVEL"
-wait_time = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Checkpoint"]
+texture_filter = 1
+position = Vector2(-5.49988, 10.5002)
+scale = Vector2(1.42188, 1.39063)
+sprite_frames = SubResource("SpriteFrames_ie7uf")
+frame_progress = 0.880628
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+position = Vector2(-1.49988, 21.5002)
+shape = SubResource("RectangleShape2D_gwx4l")
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_6twk4")]
 visible = false
@@ -150,6 +238,7 @@ visible = false
 
 [node name="TouchControls" parent="." instance=ExtResource("8_gj0jn")]
 
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]
 [connection signal="pressed" from="PauseButton/Pause" to="PauseMenu" method="show_menu"]
 
 [editable path="PauseButton"]

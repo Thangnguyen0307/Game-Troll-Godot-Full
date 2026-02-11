@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://ssgr2ojlbcdv" path="res://Pixel Adventure 1/Card/32x32 Lava Tiles/10012.png" id="16_8feoi"]
 [ext_resource type="Texture2D" uid="uid://dt2pxp4yqvxsm" path="res://Pixel Adventure 1/Card/32x32 Lava Tiles/10013.png" id="17_nyqi6"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="26_adgcn"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="27_qa3xu"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Map Level 1/checkpoint.tscn" id="27_qa3xu"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="28_875yj"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="29_x2qje"]
 [ext_resource type="Script" uid="uid://distnvfjbs27t" path="res://All_Level/Map Level 7/checkpoint_respawn.gd" id="30_5pr12"]
@@ -939,7 +939,7 @@ layer_0/tile_data = PackedInt32Array(983062, 65536, 2, 983063, 131072, 2, 983064
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_kgslf")]
 unique_name_in_owner = true
-position = Vector2(57, 616)
+position = Vector2(2531, -355)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 position = Vector2(3.57628e-07, 6.25849e-06)
@@ -1333,7 +1333,7 @@ position = Vector2(429, 591)
 shape = SubResource("RectangleShape2D_x2qje")
 
 [node name="Checkpoint" parent="." instance=ExtResource("27_qa3xu")]
-position = Vector2(1276, -435)
+position = Vector2(2411, -343)
 completed_level_number = 11
 next_level = "res://All_Level/Map Level 12/Level_12.tscn"
 

@@ -41,7 +41,7 @@ func _on_body_entered(body):
 
 		# Bật lại nhạc nền
 		if audio_controller:
-			audio_controller.play_music()
+			audio_controller.play_main_music()
 
 func shake_camera(cam: Camera2D, duration: float):
 	var tween = create_tween()

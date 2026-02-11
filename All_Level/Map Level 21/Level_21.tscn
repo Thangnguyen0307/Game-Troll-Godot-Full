@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://btr0fiqogmvv0" path="res://All_Level/Map Level 21/dirt_go_left.gd" id="11_87q56"]
 [ext_resource type="PackedScene" uid="uid://cibklyepbriw8" path="res://ScriptsScenes/spike/Spike3set.tscn" id="12_qfqxq"]
 [ext_resource type="Script" uid="uid://e0chluajrvw" path="res://All_Level/Map Level 21/dirt_go_right.gd" id="13_ngj8j"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="14_tqtxi"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Map Level 1/checkpoint.tscn" id="14_tqtxi"]
 [ext_resource type="Script" uid="uid://oc1xaju2d24h" path="res://ScriptsScenes/box/boxMoving.gd" id="16_0mqef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hpmnp"]

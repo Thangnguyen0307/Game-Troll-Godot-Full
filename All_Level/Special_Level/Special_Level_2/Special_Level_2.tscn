@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://1xiycsl1i7t7"]
+[gd_scene load_steps=79 format=3 uid="uid://1xiycsl1i7t7"]
 
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_cf3q5"]
 [ext_resource type="Texture2D" uid="uid://bvte20hxvjr68" path="res://All_Level/Special_Level/Special_Level_2/scenes/Background(lol).jpg" id="1_dyn4y"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dmgp6gu51mflx" path="res://Pixel Adventure 1/Free/Main Characters/Ninja Frog/Hit (32x32).png" id="4_dyn4y"]
 [ext_resource type="Script" uid="uid://br2g8eoerif8t" path="res://All_Level/Special_Level/Special_Level_2/scenes/EnemyTrigger.gd" id="4_omk06"]
 [ext_resource type="Texture2D" uid="uid://bfbeengm45hgc" path="res://Pixel Adventure 1/Free/Main Characters/Ninja Frog/Idle (32x32).png" id="5_46oj2"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="6_44kna"]
 [ext_resource type="PackedScene" uid="uid://cljkqt3cwkxgk" path="res://All_Level/Special_Level/Special_Level_2/scenes/enemy.tscn" id="6_guedw"]
 [ext_resource type="Texture2D" uid="uid://cnofw3hrt217a" path="res://Pixel Adventure 1/Free/Main Characters/Ninja Frog/Jump (32x32).png" id="6_kjegi"]
 [ext_resource type="PackedScene" uid="uid://b6ag1ctw4nvis" path="res://CHiTAN/TrapCoDinh.tscn" id="7_44kna"]
@@ -18,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="12_qeykf"]
 [ext_resource type="Script" uid="uid://7434bwhkya88" path="res://CHiTAN/TrapCoDinh.gd" id="14_jlc8c"]
 [ext_resource type="Texture2D" uid="uid://bg14ereu48jp2" path="res://Pixel Adventure 1/Free/Traps/Spiked Ball/Spiked Ball.png" id="14_qeykf"]
+[ext_resource type="Texture2D" uid="uid://3o72ly24grlg" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="15_hy3a2"]
+[ext_resource type="Script" uid="uid://xasva122foi7" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint_special.gd" id="15_s6vpk"]
 [ext_resource type="Script" uid="uid://bhtgptf0jlxo3" path="res://All_Level/Special_Level/Special_Level_2/scenes/sign_text.gd" id="16_clqy7"]
 [ext_resource type="Script" uid="uid://c1kt320n44jyx" path="res://All_Level/Special_Level/Special_Level_2/scenes/hide_spot.gd" id="17_5bkab"]
 [ext_resource type="Texture2D" uid="uid://cbhtkwag7pn5d" path="res://Pixel Adventure 1/Free/Menu/Buttons/Settings.png" id="21_ifj8i"]
@@ -502,6 +503,87 @@ size = Vector2(133, 22)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eg2xe"]
 size = Vector2(71.5383, 20)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_smwyr"]
+atlas = ExtResource("15_hy3a2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tedvs"]
+atlas = ExtResource("15_hy3a2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyeet"]
+atlas = ExtResource("15_hy3a2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wi7h"]
+atlas = ExtResource("15_hy3a2")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s4xf"]
+atlas = ExtResource("15_hy3a2")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7bnq"]
+atlas = ExtResource("15_hy3a2")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar1si"]
+atlas = ExtResource("15_hy3a2")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fba8"]
+atlas = ExtResource("15_hy3a2")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaehp"]
+atlas = ExtResource("15_hy3a2")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1osm"]
+atlas = ExtResource("15_hy3a2")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ie7uf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smwyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tedvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyeet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wi7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s4xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7bnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar1si")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fba8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaehp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1osm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 32.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwx4l"]
+size = Vector2(42, 64)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_hajmc"]
 radius = 12.0416
 
@@ -527,7 +609,7 @@ layer_1/tile_data = PackedInt32Array(0, 786432, 1, 1, 851968, 0, 2, 851968, 0, 3
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Player", "player"]]
 z_index = 2
-position = Vector2(97, 107)
+position = Vector2(2801, 2144)
 scale = Vector2(3, 3)
 collision_layer = 2
 collision_mask = 13
@@ -798,12 +880,22 @@ texture = ExtResource("9_eg2xe")
 position = Vector2(-45.5, 70)
 shape = SubResource("RectangleShape2D_eg2xe")
 
-[node name="Checkpoint" parent="." instance=ExtResource("6_44kna")]
-position = Vector2(2984, 2161)
+[node name="Checkpoint" type="Area2D" parent="."]
+position = Vector2(1865, 2057)
 collision_layer = 32
 collision_mask = 2
-completed_level_number = 51
-next_level = ""
+script = ExtResource("15_s6vpk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Checkpoint"]
+texture_filter = 1
+position = Vector2(-5.49988, 10.5002)
+scale = Vector2(1.42188, 1.39063)
+sprite_frames = SubResource("SpriteFrames_ie7uf")
+frame_progress = 0.880628
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+position = Vector2(-1.49988, 21.5002)
+shape = SubResource("RectangleShape2D_gwx4l")
 
 [node name="PauseMenu" parent="." instance=ExtResource("10_p36hw")]
 
@@ -983,6 +1075,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="body_entered" from="Activate trap3" to="SignText" method="on_trap_entered"]
 [connection signal="body_entered" from="Activate trap4" to="Spike_hide4" method="_on_saw_trigger_body_entered"]
 [connection signal="body_entered" from="Activate trap4" to="SignText" method="on_trap_entered"]
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]
 [connection signal="body_entered" from="HideSpot" to="HideSpot" method="_on_body_entered"]
 [connection signal="body_exited" from="HideSpot" to="HideSpot" method="_on_body_exited"]
 [connection signal="pressed" from="PauseButton/Pause" to="PauseMenu" method="show_menu"]

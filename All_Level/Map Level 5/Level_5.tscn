@@ -1,13 +1,12 @@
-[gd_scene load_steps=196 format=3 uid="uid://co8x3rrlpohs3"]
+[gd_scene load_steps=195 format=3 uid="uid://co8x3rrlpohs3"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1auamo4dbd" path="res://Pixel Adventure 1/Free/Background/Brown.png" id="1_37wwv"]
 [ext_resource type="Script" uid="uid://c85pk27sc71ds" path="res://ScriptsScenes/misc/level_1.gd" id="1_q7w8j"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="1_sce2q"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Map Level 1/checkpoint.tscn" id="1_sce2q"]
 [ext_resource type="Texture2D" uid="uid://bm0qoe8upp5ds" path="res://Bg-Dark/Layer_0011_0.png" id="2_sce2q"]
 [ext_resource type="Texture2D" uid="uid://crhk04in7jmsy" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="3_d50vw"]
 [ext_resource type="Script" uid="uid://dp6fj48t3gi0i" path="res://ScriptsScenes/spike/spike_trap_left_move_limit.gd" id="4_i0epl"]
 [ext_resource type="PackedScene" uid="uid://cp4bpmyb0m7me" path="res://ScriptsScenes/fan/fall.tscn" id="5_wmr06"]
-[ext_resource type="Script" uid="uid://vbu31ax83863" path="res://Checkpoint/Level_5/checkpoint_5.gd" id="6_37wwv"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="8_v70rj"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="9_6ftfh"]
 [ext_resource type="Texture2D" uid="uid://df4x1pqr3p3l5" path="res://Bg-Dark/Tileset/Dark_Horror_Asset_pack.png" id="10_ih5sj"]
@@ -3677,8 +3676,7 @@ shape = SubResource("RectangleShape2D_ldd4g")
 stream = ExtResource("34_wxcms")
 
 [node name="Checkpoint" parent="." instance=ExtResource("1_sce2q")]
-position = Vector2(13602, 477)
-script = ExtResource("6_37wwv")
+position = Vector2(14728, 566)
 completed_level_number = 5
 next_level = "res://All_Level/Map Level 6/Level_6.tscn"
 

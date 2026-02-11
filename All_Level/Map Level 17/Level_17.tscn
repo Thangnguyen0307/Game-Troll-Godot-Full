@@ -22,7 +22,7 @@
 [ext_resource type="Script" uid="uid://yk727oxl3632" path="res://ScriptsScenes/saw/saw_trap_left_move2.gd" id="21_333by"]
 [ext_resource type="Script" uid="uid://7f4754wefk68" path="res://All_Level/Map Level 7/room_1.gd" id="22_dsf11"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="23_es0b3"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="23_ojvrc"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Map Level 1/checkpoint.tscn" id="23_ojvrc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0byyk"]
 texture = ExtResource("3_l66dn")
@@ -1325,7 +1325,7 @@ position = Vector2(-50, 1)
 shape = SubResource("RectangleShape2D_ykk88")
 
 [node name="Checkpoint" parent="." instance=ExtResource("23_ojvrc")]
-position = Vector2(-762, 224)
+position = Vector2(369, 321)
 completed_level_number = 17
 next_level = "res://All_Level/Map Level 18/Level_18.tscn"
 

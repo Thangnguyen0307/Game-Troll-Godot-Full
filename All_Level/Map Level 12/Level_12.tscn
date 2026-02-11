@@ -50,7 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="48_g0jnm"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="49_r7v83"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="50_5dltd"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="51_hrquq"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Map Level 1/checkpoint.tscn" id="51_hrquq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aughn"]
 size = Vector2(14, 7)
@@ -3863,7 +3863,7 @@ shape = SubResource("RectangleShape2D_obyh8")
 
 [node name="Player1" type="CharacterBody2D" parent="Player" groups=["Player", "player"]]
 texture_filter = 1
-position = Vector2(66, 329)
+position = Vector2(2047, -626)
 scale = Vector2(3, 3)
 script = ExtResource("22_k8161")
 
@@ -4264,7 +4264,7 @@ visible = false
 [node name="PauseButton" parent="." instance=ExtResource("50_5dltd")]
 
 [node name="Checkpoint" parent="." instance=ExtResource("51_hrquq")]
-position = Vector2(1192, -691)
+position = Vector2(2095, -616)
 scale = Vector2(0.8, 0.8)
 completed_level_number = 12
 next_level = "res://All_Level/Map Level 13/Level_13.tscn"

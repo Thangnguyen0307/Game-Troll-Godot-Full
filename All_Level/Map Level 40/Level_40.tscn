@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cvbnup8uvc31b" path="res://Pixel Adventure 1/Free/Terrain/metal_snow_tileset.png" id="3_f82lf"]
 [ext_resource type="PackedScene" uid="uid://dt1tth682nenl" path="res://ScriptsScenes/MainCharacter/character_body_2d.tscn" id="4_y50tn"]
 [ext_resource type="Script" uid="uid://bn8752m1onop8" path="res://ScriptsScenes/switchBodyLevel/room.gd" id="5_lcsx1"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="6_xub6v"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Map Level 1/checkpoint.tscn" id="6_xub6v"]
 [ext_resource type="Texture2D" uid="uid://dycdavdvo4drb" path="res://Pixel Adventure 1/Free/Traps/Trap2/Spike_B.png" id="7_qiip8"]
 [ext_resource type="Script" uid="uid://bvg7kd7t4c2e7" path="res://All_Level/Map Level 40/trigger_1.gd" id="8_feog7"]
 [ext_resource type="Script" uid="uid://bn0nh15yepald" path="res://ScriptsScenes/gai/gai_up.gd" id="9_pe6kf"]
@@ -394,7 +394,7 @@ position = Vector2(919.25, 308.75)
 shape = SubResource("RectangleShape2D_kpjop")
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_xub6v")]
-position = Vector2(-452, 92)
+position = Vector2(680, 192)
 completed_level_number = 40
 next_level = "res://All_Level/Map Level 41/Level_41.tscn"
 

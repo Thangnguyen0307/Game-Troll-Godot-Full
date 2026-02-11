@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cu45f24ymnn55"]
+[gd_scene load_steps=51 format=3 uid="uid://cu45f24ymnn55"]
 
 [ext_resource type="Script" uid="uid://c85pk27sc71ds" path="res://ScriptsScenes/misc/level_1.gd" id="1_55koy"]
 [ext_resource type="Texture2D" uid="uid://dhkt1prc5cciq" path="res://Pixel Adventure 1/Free/Background/Blue.png" id="1_cwtct"]
@@ -9,9 +9,8 @@
 [ext_resource type="Script" uid="uid://cks07ntut1om4" path="res://CHiTAN/trap_up.gd" id="6_idb32"]
 [ext_resource type="Script" uid="uid://wyg414gqlrvb" path="res://CHiTAN/Trap_D_R.gd" id="7_paoph"]
 [ext_resource type="PackedScene" uid="uid://b6ag1ctw4nvis" path="res://CHiTAN/TrapCoDinh.tscn" id="8_7wvgo"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="8_qjbsg"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Map Level 1/checkpoint.tscn" id="8_qjbsg"]
 [ext_resource type="Script" uid="uid://675o37ejx888" path="res://CHiTAN/Trap_Right_2000px.gd" id="9_oj28q"]
-[ext_resource type="Script" uid="uid://dh6o5m1jx7wmq" path="res://Checkpoint/Level_6/checkpoint_6.gd" id="9_qjbsg"]
 [ext_resource type="Texture2D" uid="uid://bd8tyxi5mo7qh" path="res://Pixel Adventure 1/Free/Traps/Fan/Off.png" id="10_535tm"]
 [ext_resource type="Script" uid="uid://crtawtqr3mayh" path="res://CHiTAN/Trap_left_2000Px.gd" id="11_217fw"]
 [ext_resource type="Texture2D" uid="uid://cmx6ev0y0fkb7" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="12_tikbr"]
@@ -663,8 +662,7 @@ scale = Vector2(0.37512, 0.566092)
 shape = SubResource("RectangleShape2D_u68p4")
 
 [node name="Checkpoint" parent="TextureRect" instance=ExtResource("8_qjbsg")]
-position = Vector2(-1041, -34)
-script = ExtResource("9_qjbsg")
+position = Vector2(88, 67)
 completed_level_number = 6
 next_level = "res://All_Level/Map Level 7/Level_7.tscn"
 

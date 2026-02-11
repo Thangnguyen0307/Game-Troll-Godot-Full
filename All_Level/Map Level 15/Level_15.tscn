@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="24_0idfu"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="25_64o2k"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="26_1xpsq"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="27_0l1gj"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Map Level 1/checkpoint.tscn" id="27_0l1gj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6a2v7"]
 texture = ExtResource("2_0l1gj")
@@ -1722,7 +1722,7 @@ visible = false
 [node name="PauseButton" parent="." instance=ExtResource("26_1xpsq")]
 
 [node name="Checkpoint2" parent="." instance=ExtResource("27_0l1gj")]
-position = Vector2(7637, 523)
+position = Vector2(8756, 622)
 completed_level_number = 15
 next_level = "res://All_Level/Map Level 16/Level_16.tscn"
 

@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://et81wap61p4f" path="res://Pixel Adventure 1/Free/Items/Boxes/Box1/Idle.png" id="8_w3w02"]
 [ext_resource type="PackedScene" uid="uid://c7hveipcmpxya" path="res://CHiTAN/GravityZone.tscn" id="12_5yfib"]
 [ext_resource type="PackedScene" uid="uid://b0b8d8fe0ga2a" path="res://Touch_Controls/scene/touch_controls.tscn" id="13_hxw5k"]
-[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Special_Level/Special_Level_1/scenes/checkpoint.tscn" id="16_iwjha"]
+[ext_resource type="PackedScene" uid="uid://btdfqc4qp1j67" path="res://All_Level/Map Level 1/checkpoint.tscn" id="16_iwjha"]
 [ext_resource type="PackedScene" uid="uid://m4c8hp47kokd" path="res://UI/pause_menu.tscn" id="17_ohkxo"]
 [ext_resource type="Script" uid="uid://dhbe4nrvokkhm" path="res://CHiTAN/ChiTanNV.gd" id="18_5tnn1"]
 [ext_resource type="PackedScene" uid="uid://0dybtnqg5l6c" path="res://CommonScripts/PauseButton.tscn" id="18_l4swb"]
@@ -610,7 +610,7 @@ script = ExtResource("18_5tnn1")
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 
 [node name="Checkpoint" parent="." instance=ExtResource("16_iwjha")]
-position = Vector2(-1094, -99)
+position = Vector2(27, 1)
 script = ExtResource("20_bqguh")
 completed_level_number = 29
 next_level = "res://All_Level/Map Level 30/Level_30.tscn"
@@ -619,6 +619,9 @@ next_level = "res://All_Level/Map Level 30/Level_30.tscn"
 visible = false
 
 [node name="PauseButton" parent="." instance=ExtResource("18_l4swb")]
+
+[node name="Pause" parent="PauseButton" index="0"]
+position = Vector2(1, 1)
 
 [node name="TouchControls" parent="." instance=ExtResource("13_hxw5k")]
 
