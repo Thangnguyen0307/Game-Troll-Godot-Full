@@ -10,6 +10,7 @@ extends Area2D
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var has_triggered = false
+const ConfettiEffect = preload("res://Checkpoint/confetti_rainbow.tscn")
 
 func _ready():
 	if sprite_2d:
@@ -19,7 +20,14 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("Player") and not has_triggered:
 		has_triggered = true
+		spawn_confetti()
 		complete_special_level()
+
+func spawn_confetti():
+	var confetti = ConfettiEffect.instantiate()
+	get_parent().add_child(confetti)
+	confetti.global_position = global_position + Vector2(0, -50)
+	print("🎊 Confetti spawned!")
 
 func complete_special_level():
 	print("🎉 ", special_level_name, " COMPLETED! 🎉")

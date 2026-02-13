@@ -217,7 +217,7 @@ position = Vector2(228, 528)
 scale = Vector2(2, 2)
 
 [node name="Checkpoint" type="Area2D" parent="."]
-position = Vector2(119, -83)
+position = Vector2(1215, 10)
 script = ExtResource("6_76bqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Checkpoint"]

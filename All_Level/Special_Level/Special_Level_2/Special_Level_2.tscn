@@ -881,7 +881,7 @@ position = Vector2(-45.5, 70)
 shape = SubResource("RectangleShape2D_eg2xe")
 
 [node name="Checkpoint" type="Area2D" parent="."]
-position = Vector2(1865, 2057)
+position = Vector2(2920, 2155)
 collision_layer = 32
 collision_mask = 2
 script = ExtResource("15_s6vpk")
