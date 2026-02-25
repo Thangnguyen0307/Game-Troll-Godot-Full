@@ -51,12 +51,7 @@ func create_level_buttons():
 				button.visible = false
 
 func setup_level_button(button: TouchScreenButton, level_num: int):
-	# --- THAY ĐỔI 1: LUÔN MỞ KHÓA (HOẶC LOGIC RIÊNG) ---
-	# Special level thường mở hết để người chơi thử thách
-	# Nếu bạn muốn khóa, hãy tạo biến riêng trong GameManager như `special_level_unlocked`
-	var is_unlocked = true 
-	
-	# Load hình ảnh (Bạn có thể đổi đường dẫn folder icon khác nếu muốn)
+	# Load hình ảnh
 	var texture_path = "res://Pixel Adventure 1/Free/Menu/Levels/" + str(level_num).pad_zeros(2) + ".png"
 	var texture = load(texture_path)
 	if texture:
@@ -70,12 +65,16 @@ func setup_level_button(button: TouchScreenButton, level_num: int):
 		for connection in button.released.get_connections():
 			button.released.disconnect(connection.callable)
 	
-	if is_unlocked:
-		button.modulate = Color(1, 0.5, 0.5) # --- THAY ĐỔI 2: ĐỔI MÀU ĐỎ NHẸ ĐỂ BÁO HIỆU KHÓ ---
+	var available = is_level_available(level_num)
+	
+	if available:
+		# Level có scene → cam vàng rực, khác hẳn level thường (xanh lá)
+		button.modulate = Color(1.0, 0.6, 0.1)
 		button.pressed.connect(func(): animate_button_down(button))
 		button.released.connect(func(): _on_special_level_released(level_num, button))
 	else:
-		button.modulate = Color.GRAY
+		# Level chưa có scene → hồng xám mờ, hoà với nền
+		button.modulate = Color(0.55, 0.38, 0.42, 0.55)
 
 # --- XỬ LÝ KHI CHỌN LEVEL ---
 func _on_special_level_released(level_number: int, button: TouchScreenButton):

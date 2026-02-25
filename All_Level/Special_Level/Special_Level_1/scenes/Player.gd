@@ -5,7 +5,7 @@ const WALK_SPEED = 150.0
 const GRAVITY = 980.0
 
 # ================== JUMP KING ==================
-const MAX_JUMP_FORCE = -600.0
+const MAX_JUMP_FORCE = -700.0
 const MIN_JUMP_FORCE = -150.0
 const CHARGE_SPEED = 600.0
 
@@ -156,3 +156,9 @@ func start_faceplant():
 
 	velocity = Vector2.ZERO
 	sprite.play("faceplant")
+
+	# ================== ĐẾM NGÃ → POPUP SAU 5 LẦN ==================
+	if has_node("/root/Death5PopupManager"):
+		$"/root/Death5PopupManager".add_death()
+	else:
+		push_warning("Player: Không tìm thấy Death5PopupManager trong autoload!")
