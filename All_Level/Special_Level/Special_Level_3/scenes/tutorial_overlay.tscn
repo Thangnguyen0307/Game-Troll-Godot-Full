@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://cukw07gvjuag7"]
+
+[ext_resource type="Script" uid="uid://dtnvgq0lwt21i" path="res://All_Level/Special_Level/Special_Level_1/scenes/tutorial_overlay.gd" id="1_suoyv"]
+[ext_resource type="Script" uid="uid://cbngfedcq4hff" path="res://All_Level/Special_Level/Special_Level_1/scenes/tutorial_highlight_circle.gd" id="2_tfcxq"]
+
+[node name="TutorialOverlay" type="CanvasLayer"]
+layer = 50
+script = ExtResource("1_suoyv")
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="CircleHighlight" type="Control" parent="Container"]
+anchors_preset = 0
+offset_left = 1056.0
+offset_top = 518.0
+offset_right = 1256.0
+offset_bottom = 718.0
+pivot_offset = Vector2(100, 100)
+mouse_filter = 2
+script = ExtResource("2_tfcxq")
+
+[node name="TutorialLabel" type="Label" parent="Container"]
+layout_mode = 0
+offset_left = 771.0
+offset_top = 461.0
+offset_right = 1272.0
+offset_bottom = 531.0
+theme_override_colors/font_color = Color(1, 1, 0.85, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 18
+text = "Giữ nút Jump để nhảy cao hơn
+và coi chừng ngã đau nhé! ↓"
+horizontal_alignment = 1
+vertical_alignment = 1

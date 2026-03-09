@@ -8,9 +8,9 @@ func _on_body_entered(body):
 		# Phát âm thanh level up từ AudioController
 		$"/root/AudioController".play_level_up()
 
-		# Đợi 1 giây rồi chuyển scene
-		await get_tree().create_timer(2.0).timeout
-		get_tree().change_scene_to_file(next_level)
-		
-func _ready():
+	# process_always=true: timer tiếp tục chạy ngay cả khi game đang pause
+	await get_tree().create_timer(2.0, true).timeout
+	
+	# Đảm bảo unpause trước khi chuyển scene (tránh scene mới bị đứng)
+	get_tree().paused = false
 	$AnimatedSprite2D.play("default")

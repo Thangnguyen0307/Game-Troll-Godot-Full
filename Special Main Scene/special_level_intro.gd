@@ -60,7 +60,7 @@ func show_text_typewriter(full_text: String):
 
 func _input(event):
 	# Bấm để skip
-	if event is InputEventMouseButton and event.pressed:
+	if event is  InputEventScreenTouch and event.pressed:
 		if is_typing:
 			# Nếu đang đánh chữ, hiện hết dòng hiện tại (chỉ skip dòng này)
 			skip_requested = true

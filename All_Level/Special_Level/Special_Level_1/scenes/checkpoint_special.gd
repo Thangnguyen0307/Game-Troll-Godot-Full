@@ -37,11 +37,13 @@ func complete_special_level():
 	GameManager.save_progress()
 	
 	# Phát âm thanh
-	if has_node("/root/AudioController"):
-		$"/root/AudioController".play_level_up()
+	$"/root/AudioController".play_level_up()
 	
-	# Hiển thị thông báo hoàn thành
-	await get_tree().create_timer(wait_time).timeout
+	# process_always=true: timer tiếp tục chạy ngay cả khi game đang pause
+	await get_tree().create_timer(wait_time, true).timeout
+	
+	# Đảm bảo unpause trước khi chuyển scene (tránh scene mới bị đứng)
+	get_tree().paused = false
 	
 	# Xử lý theo action đã chọn
 	match completion_action:

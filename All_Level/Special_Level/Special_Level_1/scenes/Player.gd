@@ -9,6 +9,12 @@ const MAX_JUMP_FORCE = -700.0
 const MIN_JUMP_FORCE = -150.0
 const CHARGE_SPEED = 600.0
 
+# ================== WALL BUMP (NẢY TƯỜNG) ==================
+const WALL_BUMP_UP = -350.0       # Lực đẩy LÊN khi nảy tường
+const WALL_BUMP_SIDE = 200.0      # Lực đẩy NGANG (bật sang hướng đối diện)
+const WALL_BUMP_MIN_SPEED = 200.0 # Tốc độ tối thiểu (velocity.length) để kích hoạt nảy
+var wall_bumped = false
+
 var current_jump_force = MIN_JUMP_FORCE
 var is_charging = false
 
@@ -142,9 +148,32 @@ func _physics_process(delta):
 	move_and_slide()
 
 	if is_on_floor():
+		wall_bumped = false
 		if last_frame_velocity_y > HARD_LANDING_THRESHOLD:
 			$"/root/AudioController".play_fall()
 			start_faceplant()
+
+	# ================== NẢY TƯỜNG (WALL BUMP) ==================
+	elif not is_stunned:
+		var wall_normal_x = 0.0
+		for i in get_slide_collision_count():
+			var col = get_slide_collision(i)
+			var normal = col.get_normal()
+			# Normal nằm ngang → tường dọc (trái/phải)
+			if abs(normal.x) > 0.7:
+				wall_normal_x = normal.x
+				break
+
+		if wall_normal_x != 0.0 and not wall_bumped:
+			# Chỉ nảy khi đủ tốc độ
+			if velocity.length() >= WALL_BUMP_MIN_SPEED:
+				wall_bumped = true
+				# Bật sang hướng đối diện: chạm tường trái (normal.x > 0) → bật phải, ngược lại
+				velocity.x = sign(wall_normal_x) * WALL_BUMP_SIDE
+				velocity.y = WALL_BUMP_UP
+				sprite.flip_h = wall_normal_x < 0
+		elif wall_normal_x == 0.0:
+			wall_bumped = false
 
 
 # ================== FACEPLANT ==================

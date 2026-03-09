@@ -331,7 +331,11 @@ func _auto_load_death_message_system():
 	# Create and add DeathMessageSystem node
 	var death_message_system = Node.new()
 	death_message_system.name = "DeathMessageSystem"
-	death_message_system.set_script(preload("res://UI/DeathMessageSystem.gd"))
+	var death_msg_script = load("res://UI/DeathMessageSystem.gd")
+	if death_msg_script == null:
+		print("❌ Could not load DeathMessageSystem.gd")
+		return
+	death_message_system.set_script(death_msg_script)
 	current_scene.add_child(death_message_system)
 	print("✅ Auto-loaded DeathMessageSystem into ", current_scene.name, " (", current_scene.scene_file_path, ")")
 
@@ -377,7 +381,10 @@ func _auto_load_death_limit_ui():
 		return
 	
 	# Load and instantiate DeathLimitUI scene
-	var death_ui_scene = preload("res://UI/DeathLimitUI.tscn")
+	var death_ui_scene = load("res://UI/DeathLimitUI.tscn")
+	if death_ui_scene == null:
+		print("❌ Could not load DeathLimitUI.tscn")
+		return
 	var death_ui_instance = death_ui_scene.instantiate()
 	current_scene.add_child(death_ui_instance)
 	print("✅ Auto-loaded DeathLimitUI scene into %s" % current_scene.name)
@@ -433,7 +440,7 @@ func _show_death_limit_block_message():
 	# Quay về main menu sau 3 giây
 	await get_tree().create_timer(3.0).timeout
 	var menu_paths = [
-		"res://Scene Main Start/main.tscn",
+		"res://SceneMainStart/main.tscn",
 		"res://UI/MainMenu.tscn", 
 		"res://MainMenu.tscn"
 	]

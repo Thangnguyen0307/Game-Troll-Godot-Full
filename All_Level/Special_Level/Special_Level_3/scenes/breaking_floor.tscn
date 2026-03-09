@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyciqq4fplsoh"]
+
+[ext_resource type="Script" uid="uid://5sqbkfqwnlpt" path="res://All_Level/Special_Level/Special_Level_1/scenes/breaking_floor.gd" id="1_3418h"]
+[ext_resource type="Texture2D" uid="uid://46j4ik4xoy72" path="res://Pixel Adventure 1/Free/Terrain/rock_ice_alt_tileset_3.png" id="2_6xq6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2t1mx"]
+size = Vector2(32, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgwff"]
+size = Vector2(32, 3)
+
+[node name="BreakingFloor" type="StaticBody2D"]
+collision_layer = 2048
+script = ExtResource("1_3418h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1, 0.864583)
+texture = ExtResource("2_6xq6t")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_2t1mx")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+collision_layer = 4096
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_qgwff")
+
+[node name="AppearTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="timeout" from="AppearTimer" to="." method="_on_appear_timer_timeout"]

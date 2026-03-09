@@ -37,7 +37,7 @@ stream = ExtResource("6_xujww")
 [node name="Walk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_vys8g")
 
-[node name="LevelUp" type="AudioStreamPlayer2D" parent="."]
+[node name="LevelUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_h7rxg")
 
 [node name="checkpoint" type="AudioStreamPlayer" parent="."]

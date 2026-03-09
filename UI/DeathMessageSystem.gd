@@ -16,9 +16,12 @@ var milestone_messages = {
 
 var shown_milestones = {}
 
-@onready var message_scene = preload("res://UI/DeathMessage.tscn")
+var message_scene
 
 func _ready():
+	message_scene = load("res://UI/DeathMessage.tscn")
+	if message_scene == null:
+		print("❌ DeathMessageSystem: Could not load DeathMessage.tscn")
 	# Connect to GameManager's death signal
 	if GameManager:
 		GameManager.death_count_changed.connect(_on_death_count_changed)

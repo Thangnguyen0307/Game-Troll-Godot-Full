@@ -43,8 +43,12 @@ func complete_level():
 	# Phát âm thanh
 	$"/root/AudioController".play_level_up()
 
-	await get_tree().create_timer(2.0).timeout
+	# process_always=true: timer tiếp tục chạy ngay cả khi game đang pause
+	await get_tree().create_timer(2.0, true).timeout
 	
+	# Đảm bảo unpause trước khi chuyển scene (tránh scene mới bị đứng)
+	get_tree().paused = false
+
 	# Chuyển sang level tiếp theo bằng GameManager
 	var next_level_number = completed_level_number + 1
 	print("Going to next level: ", next_level_number)
