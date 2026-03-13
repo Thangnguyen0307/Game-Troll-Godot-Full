@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://btdfqc4qp1j67"]
+[gd_scene load_steps=15 format=3 uid="uid://btumjmydh7esd"]
 
 [ext_resource type="Script" path="res://All_Level/Map Level 1/checkpoint_all.gd" id="1_w3r8l"]
 [ext_resource type="Texture2D" uid="uid://3o72ly24grlg" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="2_axmcm"]

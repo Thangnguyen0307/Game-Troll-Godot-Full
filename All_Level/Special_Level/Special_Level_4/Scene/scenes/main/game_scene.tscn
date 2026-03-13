@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=3 uid="uid://cw13nuf76ob75"]
+
+[ext_resource type="Script" uid="uid://bs1fp3bkiwm6s" path="res://All_Level/Special_Level/Special_Level_4/Scene/scenes/main/game_scene.gd" id="1_efy0r"]
+[ext_resource type="PackedScene" uid="uid://ba6bblm872342" path="res://All_Level/Special_Level/Special_Level_4/Scene/scripts/map2/test_map2.tscn" id="2_dg7mr"]
+[ext_resource type="PackedScene" uid="uid://j6bimhtt8fj8" path="res://All_Level/Special_Level/Special_Level_4/Scene/scenes/joystick.tscn" id="3_24jbf"]
+[ext_resource type="Texture2D" uid="uid://cxaynpx3bb15h" path="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/VirtualJoystickPack/SmallHandleFilledGrey.png" id="4_jv07b"]
+[ext_resource type="Texture2D" uid="uid://chgo1x05g5exj" path="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/VirtualJoystickPack/SmallHandleFilled.png" id="5_eakaq"]
+[ext_resource type="Script" uid="uid://cxbmt8n2j6h4r" path="res://All_Level/Special_Level/Special_Level_4/Scene/scripts/controller/attack_button.gd" id="6_48a8b"]
+[ext_resource type="Texture2D" uid="uid://brciwj2s55oiy" path="res://All_Level/Special_Level/Special_Level_4/Scene/UI/elements/Carved_3Slides.png" id="7_8uc3l"]
+[ext_resource type="Script" uid="uid://kgk37r5iql5f" path="res://All_Level/Special_Level/Special_Level_4/Scene/scenes/main/hub.gd" id="7_dg7mr"]
+[ext_resource type="Texture2D" uid="uid://dbargvx6omss5" path="res://All_Level/Special_Level/Special_Level_4/Scene/UI/elements/Banner_Connection_Up.png" id="9_jv07b"]
+[ext_resource type="FontFile" uid="uid://se6emhj8dcb8" path="res://All_Level/Special_Level/Special_Level_4/Scene/fonts/PirataOne-Regular.ttf" id="10_eakaq"]
+[ext_resource type="Script" uid="uid://ctwf7rvby2rex" path="res://All_Level/Special_Level/Special_Level_4/Scene/scenes/effects_ui.gd" id="11_48a8b"]
+[ext_resource type="PackedScene" uid="uid://c76xwy1oxf0jv" path="res://All_Level/Special_Level/Special_Level_4/Scene/scenes/effect_icon.tscn" id="12_8uc3l"]
+
+[node name="GameScene" type="Node2D" groups=["game_scene"]]
+script = ExtResource("1_efy0r")
+
+[node name="TestMap" parent="." instance=ExtResource("2_dg7mr")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Joystick" parent="UI/Control" instance=ExtResource("3_24jbf")]
+position = Vector2(113, 543)
+
+[node name="AttackButton" type="TextureButton" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 974.0
+offset_top = 471.0
+offset_right = 1074.0
+offset_bottom = 571.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+texture_normal = ExtResource("4_jv07b")
+texture_pressed = ExtResource("5_eakaq")
+script = ExtResource("6_48a8b")
+
+[node name="HUB" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_dg7mr")
+
+[node name="Hitpoints" type="TextureRect" parent="UI/HUB"]
+layout_mode = 1
+offset_right = 400.0
+offset_bottom = 70.0
+texture = ExtResource("7_8uc3l")
+
+[node name="HitpointsBar" type="TextureProgressBar" parent="UI/HUB/Hitpoints"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -27.5
+offset_right = 190.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+nine_patch_stretch = true
+texture_progress = ExtResource("7_8uc3l")
+tint_progress = Color(0, 1, 0, 1)
+
+[node name="LevelIndicator" type="TextureRect" parent="UI/HUB"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -23.0
+offset_top = 19.0
+offset_right = 169.0
+offset_bottom = 211.0
+texture = ExtResource("9_jv07b")
+
+[node name="CurrentLevel" type="Label" parent="UI/HUB/LevelIndicator"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.69411767)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 16
+theme_override_fonts/font = ExtResource("10_eakaq")
+theme_override_font_sizes/font_size = 60
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EffectsUI" type="HBoxContainer" parent="UI" groups=["effects_ui"]]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+script = ExtResource("11_48a8b")
+
+[node name="effect_icon" parent="UI/EffectsUI" instance=ExtResource("12_8uc3l")]
+layout_mode = 2
+
+[connection signal="pressed" from="UI/Control/AttackButton" to="UI/Control/AttackButton" method="_on_attack_button_pressed"]
