@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://ba6bblm872342"]
+[gd_scene load_steps=50 format=4 uid="uid://ba6bblm872342"]
 
 [ext_resource type="Texture2D" uid="uid://b6p24rrkl7w5" path="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/TileSheets/Tileset/Water Background color.png" id="1_pmh6e"]
 [ext_resource type="Texture2D" uid="uid://1jk4tkfkksl3" path="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/TileSheets/Decorations/Rocks in the Water/Water Rocks_02.png" id="2_2pv41"]
@@ -10,12 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://dn0biy3i4x460" path="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/TileSheets/NavMeshPainter.png" id="8_quagk"]
 [ext_resource type="PackedScene" uid="uid://7kh207off8u2" path="res://All_Level/Special_Level/Special_Level_4/Scene/scenes/entities/enemies/enemy.tscn" id="9_kvawe"]
 [ext_resource type="Script" uid="uid://dmxwbai2dgaws" path="res://All_Level/Special_Level/Special_Level_4/Scene/scripts/map2/enemy_spawner.gd" id="11_tqy60"]
-[ext_resource type="Texture2D" uid="uid://cxatjfcuew6pc" path="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/items/wooden_sign.png" id="12_cobmp"]
+[ext_resource type="Script" uid="uid://db1xxomiti4cv" path="res://All_Level/Special_Level/Special_Level_4/Scene/scripts/map2/wood_sign.gd" id="12_tp6g4"]
 [ext_resource type="Texture2D" uid="uid://c06t8sy2nmkfk" path="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/items/Wooden_Banner.png" id="13_fdy8w"]
+[ext_resource type="Texture2D" uid="uid://ddpabtxg46gm5" path="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/items/Wooden_Stick.png" id="13_h8n6r"]
 [ext_resource type="FontFile" uid="uid://se6emhj8dcb8" path="res://All_Level/Special_Level/Special_Level_4/Scene/fonts/PirataOne-Regular.ttf" id="14_yw1su"]
 [ext_resource type="Script" uid="uid://bagjet3ields4" path="res://All_Level/Special_Level/Special_Level_3/scenes/checkpoint_special.gd" id="15_rc4xu"]
 [ext_resource type="Texture2D" uid="uid://3o72ly24grlg" path="res://Pixel Adventure 1/Free/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="15_xjcxh"]
 [ext_resource type="PackedScene" uid="uid://btbk44rajblbx" path="res://All_Level/Special_Level/Special_Level_4/Scene/scenes/entities/player/Player.tscn" id="16_2pv41"]
+[ext_resource type="Texture2D" uid="uid://dtkaoxknss6lo" path="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/items/wood_piece.png" id="16_h8n6r"]
+[ext_resource type="PackedScene" uid="uid://r4f6s8blprls" path="res://All_Level/Special_Level/Special_Level_4/Scene/scenes/Key.tscn" id="19_77jjc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_il3y8"]
 texture = ExtResource("1_pmh6e")
@@ -365,6 +368,43 @@ tile_size = Vector2i(32, 32)
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_wviwt")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h8n6r"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 5
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tp6g4"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1200, 500, 1)
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 150.0
+initial_velocity_max = 250.0
+angular_velocity_min = -10.000016
+angular_velocity_max = 9.999984
+gravity = Vector3(0, 500, 0)
+scale_min = 0.099999994
+scale_max = 0.14999999
+anim_offset_max = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77jjc"]
+size = Vector2(2480.0022, 1320.0006)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77jjc"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_smwyr"]
 atlas = ExtResource("15_xjcxh")
 region = Rect2(0, 0, 64, 64)
@@ -549,17 +589,23 @@ position = Vector2(231, 537)
 
 [node name="Effects" type="Node2D" parent="." groups=["effects"]]
 
-[node name="WoodSign" type="Sprite2D" parent="."]
+[node name="WoodSign" type="Node2D" parent="." groups=["wood_sign"]]
 position = Vector2(-613, 699)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("12_cobmp")
+script = ExtResource("12_tp6g4")
+key_scene = ExtResource("19_77jjc")
 
-[node name="WoodBanner" type="Sprite2D" parent="WoodSign"]
+[node name="Sign_Post" type="Sprite2D" parent="WoodSign"]
+position = Vector2(0, -128.99998)
+scale = Vector2(0.99999994, 1.251953)
+texture = ExtResource("13_h8n6r")
+
+[node name="Sign_Board" type="Sprite2D" parent="WoodSign"]
 position = Vector2(9.999771, -319.99976)
 scale = Vector2(3.1640625, 3.226562)
 texture = ExtResource("13_fdy8w")
 
-[node name="Label" type="Label" parent="WoodSign/WoodBanner"]
+[node name="Label" type="Label" parent="WoodSign/Sign_Board"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -582,7 +628,34 @@ Some creatures might be carrying it..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Checkpoint" type="Area2D" parent="."]
+[node name="BreakParticles" type="GPUParticles2D" parent="WoodSign"]
+material = SubResource("CanvasItemMaterial_h8n6r")
+position = Vector2(19.999996, -499.99994)
+emitting = false
+amount = 100
+texture = ExtResource("16_h8n6r")
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_tp6g4")
+
+[node name="Hitbox" type="Area2D" parent="WoodSign"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodSign/Hitbox"]
+position = Vector2(10, -560)
+scale = Vector2(0.99999917, 0.99999917)
+shape = SubResource("RectangleShape2D_77jjc")
+
+[node name="HPBar" type="ProgressBar" parent="WoodSign"]
+offset_left = -1270.0
+offset_top = -1389.9999
+offset_right = 1300.0
+offset_bottom = -1299.9999
+theme_override_styles/fill = SubResource("StyleBoxFlat_77jjc")
+show_percentage = false
+
+[node name="Checkpoint" type="Area2D" parent="." groups=["checkpoint"]]
 position = Vector2(-623, 845)
 monitoring = false
 script = ExtResource("15_rc4xu")

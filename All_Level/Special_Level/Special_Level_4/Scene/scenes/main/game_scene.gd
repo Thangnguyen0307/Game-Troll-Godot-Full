@@ -8,6 +8,7 @@ signal levelup
 @onready var HUB: Control = $UI/HUB
 
 var killed_enemies: int = 0
+var sign_base_text: String = ""
 
 func _ready() -> void:
 	var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
@@ -20,6 +21,12 @@ func _ready() -> void:
 	var spawner = get_tree().get_first_node_in_group("enemy_spawner")
 	if spawner:
 		spawner.enemy_killed.connect(_on_enemy_killed)
+	# lấy text gốc của bảng
+	var sign = get_tree().get_first_node_in_group("wood_sign")
+	if sign:
+		var label = sign.get_node("Sign_Board/Label")
+		sign_base_text = label.text
+
 
 
 func experience_gained(exp_gain: int) -> void:
@@ -47,6 +54,8 @@ func _on_enemy_killed():
 
 	print("Killed:", killed_enemies, "/", enemies_to_kill)
 
+	update_sign_label()
+
 	if killed_enemies >= enemies_to_kill:
 		unlock_checkpoint()
 
@@ -55,32 +64,29 @@ func unlock_checkpoint():
 
 	print("Objective completed!")
 
-	# 1 stop enemy spawn
+	# dừng spawn
 	var spawner = get_tree().get_first_node_in_group("enemy_spawner")
 	if spawner:
 		spawner.stop_spawning()
 
-	# 2 remove wood sign
+	# phá bảng gỗ
 	var sign = get_tree().get_first_node_in_group("wood_sign")
 	if sign:
-		sign.queue_free()
+		sign.break_sign()
 
-	# 3 drop key
-	if key_scene:
-		var key = key_scene.instantiate()
 
-		var player = get_tree().get_first_node_in_group("Player")
-		if player:
-			key.global_position = player.global_position
+func update_sign_label():
 
-		var items = get_tree().get_first_node_in_group("mystery_pickups")
-		if items:
-			items.add_child(key)
+	var sign = get_tree().get_first_node_in_group("wood_sign")
 
-	# 4 enable checkpoint
-	var checkpoint = get_tree().get_first_node_in_group("checkpoint")
-	if checkpoint:
-		checkpoint.monitoring = true
+	if sign:
+		var label = sign.get_node("Sign_Board/Label")
+
+		# chưa giết quái nào → giữ nguyên text gốc
+		if killed_enemies == 0:
+			label.text = sign_base_text
+		else:
+			label.text = sign_base_text + "\n\nKill: " + str(killed_enemies) + " / " + str(enemies_to_kill)
 
 
 func reset_level():
@@ -95,3 +101,26 @@ func reset_player_progress():
 	PlayerData.experience = 0
 
 	HUB.update_level_indicator()
+
+
+func _input(event):
+
+	if event is InputEventKey and event.pressed:
+
+		# debug: gần đủ quái
+		if event.keycode == KEY_J:
+
+			killed_enemies = enemies_to_kill - 1
+
+			print("DEBUG: Almost complete objective")
+
+			update_sign_label()
+
+
+		# debug: hoàn thành luôn
+		if event.keycode == KEY_K:
+
+			print("DEBUG: Force complete objective")
+
+			killed_enemies = enemies_to_kill
+			unlock_checkpoint()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxatjfcuew6pc"
-path="res://.godot/imported/wooden_sign.png-0af3cdd9488e123bcf656ef8376d6033.ctex"
+uid="uid://dtkaoxknss6lo"
+path="res://.godot/imported/wood_piece.png-63a0bf5b7600c1656be14704a9bda734.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/items/wooden_sign.png"
-dest_files=["res://.godot/imported/wooden_sign.png-0af3cdd9488e123bcf656ef8376d6033.ctex"]
+source_file="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/items/wood_piece.png"
+dest_files=["res://.godot/imported/wood_piece.png-63a0bf5b7600c1656be14704a9bda734.ctex"]
 
 [params]
 

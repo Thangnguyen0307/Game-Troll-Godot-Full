@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccvxkdwoawwdk"]
 
-[ext_resource type="Script" uid="uid://cqq8uv0q0ytv" path="res://All_Level/Test Map 2/scenes/mystery_box.gd" id="1_6ptle"]
-[ext_resource type="Texture2D" uid="uid://bt5dqqw64h4ei" path="res://All_Level/Test Map 2/sprite/items/testasdasda.png" id="2_gqk3y"]
+[ext_resource type="Script" uid="uid://cqq8uv0q0ytv" path="res://All_Level/Special_Level/Special_Level_4/Scene/scenes/mystery_box.gd" id="1_6ptle"]
+[ext_resource type="Texture2D" uid="uid://bt5dqqw64h4ei" path="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/items/testasdasda.png" id="2_gqk3y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qqrir"]
 radius = 26.019224
 
 [node name="MysteryBox" type="Area2D"]
+collision_layer = 4
 script = ExtResource("1_6ptle")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

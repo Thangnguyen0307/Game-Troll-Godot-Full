@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://r4f6s8blprls"]
+
+[ext_resource type="Script" uid="uid://b37owb1604uvo" path="res://All_Level/Special_Level/Special_Level_4/Scene/scenes/key.gd" id="1_7qdmj"]
+[ext_resource type="Texture2D" uid="uid://beo8ubm3p1gd4" path="res://All_Level/Special_Level/Special_Level_4/Scene/sprite/items/key.png" id="1_ntifh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ntifh"]
+radius = 7.0
+height = 36.0
+
+[node name="Key" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_7qdmj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ntifh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ntifh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
